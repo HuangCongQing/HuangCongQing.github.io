@@ -159,19 +159,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-基于python3连接mysql，实现一个银行转账的小功能（shell中执行）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-各种邮箱pop，SMTP设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+      <a class="article-title" href="/2017/07/31/各种邮箱pop，SMTP设置/">各种邮箱pop，SMTP设置</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/" class="archive-article-date">
+        <a href="/2017/07/31/各种邮箱pop，SMTP设置/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -179,27 +179,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基于python3连接mysql，实现一个银行转账的小功能（shell中执行）</p>
-<p>准备工作：首先我创建了</p>
+        <blockquote>
+<p>看到很多用户在绑定邮箱时出现各种各样的问题，特将主流邮箱的配置问题汇总,供大家参考也供自己参考</p>
+</blockquote>
 <ul>
-<li>imooc的数据库</li>
-<li>名字为account的表</li>
-<li><p>表里面键值（acctid,money）</p>
-</li>
-<li><p>下面是代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"># @Author: hasee</div><div class="line"># @Date:   2017-11-02 21:30:11</div><div class="line"># @Last Modified by:   重庆</div><div class="line"># @Last Modified time: 2017-11-02 21:30:43</div><div class="line">#coding=utf-8</div><div class="line">import pymysql </div><div class="line">import sys </div><div class="line">class TransferMoney: </div><div class="line">    def __init__(self,conn): </div><div class="line">        self.conn = conn </div><div class="line">    def check_acct_available(self, acctid): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;select * from account where acctid= %s &quot; % acctid </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;check_acct_available:&quot; + sql) </div><div class="line">            rs = cursor.fetchall() </div><div class="line">            if len(rs) != 1: </div><div class="line">                raise Exception(&quot;账号%s 不存在&quot; % acctid) </div><div class="line">        finally:</div><div class="line">            cursor.close() </div><div class="line">                </div><div class="line">    def has_enough_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;select * from account where acctid=%s and money&gt;=%s&quot; % (acctid,money) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;has_enough_money:&quot; + sql) </div><div class="line">            rs = cursor.fetchall() </div><div class="line">            if len(rs) != 1: </div><div class="line">                raise Exception(&quot;账号%s余额不足 is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def reduce_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;update account set money= money-%s WHERE acctid=%s &quot; % (money,acctid) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;reduce_money:&quot; + sql) </div><div class="line">            rs = cursor.rowcount </div><div class="line">            if rs != 1: </div><div class="line">                raise Exception(&quot;账号%s付款失败Eend is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def add_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;update account set money= money+%s WHERE acctid=%s &quot; % (money,acctid) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print(&quot;add_money:&quot; + sql) </div><div class="line">            rs = cursor.rowcount </div><div class="line">            if rs != 1: </div><div class="line">                raise Exception(&quot;账号%s收款失败(Payment failure)get is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def transfer(self, source_acctid, target_acctid, money): </div><div class="line">        try: </div><div class="line">            self.check_acct_available(source_acctid) </div><div class="line">            self.check_acct_available(target_acctid) </div><div class="line">            self.has_enough_money(source_acctid,money) </div><div class="line">            self.reduce_money(source_acctid,money) </div><div class="line">            self.add_money(target_acctid,money) </div><div class="line">            self.conn.commit() </div><div class="line">        except Exception as e: </div><div class="line">            self.conn.rollback() </div><div class="line">            raise e </div><div class="line">if __name__==&quot;__main__&quot;: </div><div class="line">    ## print(&quot;sys.argv[1:]:&quot;,sys.argv[1:])</div><div class="line">    source_acctid = sys.argv[1] # 汇款发送账户</div><div class="line">    target_acctid = sys.argv[2] # 收款账户</div><div class="line">    money = sys.argv[3] </div><div class="line">    conn = pymysql.connect( </div><div class="line">        host = &apos;127.0.0.1&apos;, </div><div class="line">        port = 3306, </div><div class="line">        user = &apos;root&apos;, </div><div class="line">        passwd = &apos;123456&apos;, </div><div class="line">        db = &apos;imooc&apos;, </div><div class="line">        charset = &apos;utf8&apos; ) </div><div class="line">    tr_money = TransferMoney(conn) </div><div class="line">    try: </div><div class="line">        tr_money.transfer(source_acctid,target_acctid,money) </div><div class="line">    except Exception as e: </div><div class="line">        print(&quot;出现问题(There is a problem)：&quot; + str(e)) </div><div class="line">    finally: </div><div class="line">        conn.close()</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意此代码只能在shell命令行中运行，否则会报类似如下错误：<br><code>sys.argv[3] IndexError: list index out of range</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-bca9a728af8d951a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IndexError"></p>
-<p>原因是：需要在命令行输入参数，否则，就会报错</p>
-<h3 id="下面是运行结果（账户1转给账户2一共3元钱）"><a href="#下面是运行结果（账户1转给账户2一共3元钱）" class="headerlink" title="下面是运行结果（账户1转给账户2一共3元钱）"></a>下面是运行结果（账户1转给账户2一共3元钱）</h3><p>在XXX.py(mysqlAccount.py)文件目录下运行</p>
-<p><code>python mysqlAccount.py 1 2 3</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-70e28e22d882dde6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转账前"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-11280a0ef7fadd9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/4340772-b1230c98772886f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转账后"></p>
-<hr>
-<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-
+<li>首先向大家简单介绍一下尚邮绑定邮箱的注意事项： 1、请先确认您的邮箱支持pop3<br>只要支持pop3或者imap4协议的公众邮箱和企业邮箱都可以使用尚邮。 目前大多数免费公众邮箱都支持pop功能，但是部分需要要手动开启（在本文的后面我们会针对几个常见的公众邮箱开通POP服务以及服务器配置方式进行介绍）。确认您的邮箱支持pop3或者imap4协议后您就可以绑定邮箱了
+        
+          <a class="article-more-a" href="/2017/07/31/各种邮箱pop，SMTP设置/#more">more >></a>
+        
       
 
       
@@ -212,7 +199,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮箱</a>
         		</li>
       		
 		</ul>
@@ -222,7 +209,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/各种邮箱pop，SMTP设置/">展开全文 >></a>
         </p>
       
 
@@ -801,10 +788,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
               </li>
              
@@ -813,11 +796,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -829,15 +816,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
             
             <div class="clearfix"></div>
@@ -974,8 +961,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
     {% if theme.canvas_nest %}
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-{% endif %}
+      <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    {% endif %}
   </div>
 </body>
 </html>
