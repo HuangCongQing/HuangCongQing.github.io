@@ -241,19 +241,19 @@
 
 
   
-    <article id="post-3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/">3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)</a>
+      <a class="article-title" href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/">2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/" class="archive-article-date">
+        <a href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -261,47 +261,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/4340772-6d5a90dce8026e93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="线性代数，不知多少人对这本书很是熟悉，哈哈"></p>
-<blockquote>
-<p>本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！</p>
-</blockquote>
-<p>##3.1 矩阵和向量</p>
-<p>如图 ：这个 ：这个 是 4×2矩阵 ，即 4行 2列，如 m为行， 为行， n为列，那么 为列，那么 为列，那么 m×n即 4×2<br><img src="http://upload-images.jianshu.io/upload_images/4340772-a79ea1ad00485b33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="矩阵"></p>
-<p>矩阵的维数即行数×列数<br>矩阵元素（矩阵项）：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-e128b7ca2d813c65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-39101576361f3b2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-eb3ebb52f902774e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>##3.2 加法 和标量乘加法<br>矩阵的加法：行列数相等的可以加。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-68af41b4e3cc49d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>矩阵的乘法：每个元素都要乘</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-1b30e64eb93e27a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>组合算法也类似。</p>
-<h2 id="3-3-矩阵向量乘法"><a href="#3-3-矩阵向量乘法" class="headerlink" title="3.3 矩阵向量乘法"></a>3.3 矩阵向量乘法</h2><p>矩阵和向量的乘法如图：m×n 的矩阵乘以 n×1 的向量，得到的是 m×1 的向量</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-8818792dcab96753.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>算法 举例： </p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-57439f777b7d06b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2 id="3-4-矩阵乘法"><a href="#3-4-矩阵乘法" class="headerlink" title="3.4 矩阵乘法"></a>3.4 矩阵乘法</h2><p>矩阵乘法：<br>m×n 矩阵乘以 n×o 矩阵，变成 m×o 矩阵。<br>如果这样说不好理解的话就举一个例子来说明一下，比如说现在有两个矩阵 A 和 B，那<br>么它们的乘积就可以表示为图中所示的形式。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-770440c37042c866.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2 id="3-5-矩阵乘法的性质"><a href="#3-5-矩阵乘法的性质" class="headerlink" title="3.5 矩阵乘法的性质"></a>3.5 矩阵乘法的性质</h2><p>矩阵乘法的性质：</p>
-<ul>
-<li>矩阵的乘法不满足交换律：A×B≠B×A</li>
-<li>矩阵的乘法满足结合律。即：A×（B×C）=（A×B）×C</li>
-<li>单位矩阵：在矩阵的乘法中，有一种矩阵起着特殊的作用，如同数的乘法中的 1,我们称<br>这种矩阵为单位矩阵．它是个方阵，一般用 I 或者 E 表示，本讲义都用 I 代表单位矩阵，从<br>左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0。如：</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-dac241cf3d2e2173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ul>
-<li>对于单位矩阵，有 AI=IA=A<h2 id="3-6-逆、转置"><a href="#3-6-逆、转置" class="headerlink" title="3.6 逆、转置"></a>3.6 逆、转置</h2><strong>矩阵的逆</strong>：如矩阵 A 是一个 m×m 矩阵（方阵），如果有逆矩阵，则：</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-9bfa5e1ba265fd0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>我们一般在 OCTAVE 或者 MATLAB 中进行计算矩阵的逆矩阵。<br><strong>矩阵的转置</strong>：设 A 为 m×n 阶矩阵（即 m 行 n 列），第 i 行 j 列的元素是 a(i,j)，即：<br>A=a(i,j)<br>定义 A 的转置为这样一个 n×m 阶矩阵 B，满足 B=a(j,i)，即 b (i,j)=a (j,i)（B 的第 i 行第<br>j 列元素是 A 的第 j 行第 i 列元素），记 A<br>T=B。(有些书记为 A’=B）<br>直观来看，将 A 的所有元素绕着一条从第 1 行第 1 列元素出发的右下方 45 度的射线作<br>镜面反转，即得到 A 的转置。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-6496da9c345b3a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ul>
-<li>矩阵的转置基本性质:</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-cf8b4a015a9fcced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>matlab 中矩阵转置：<br>直接打一撇，x=y’。</p>
-<hr>
-<p>课程代码：<a href="https://github.com/HuangCongQing/MachineLearning_Ng" target="_blank" rel="external">https://github.com/HuangCongQing/MachineLearning_Ng</a><br>本文参考自-黄海广博士 斯坦福大学 2014机器学习教程中文 笔记<br>链接：<a href="http://pan.baidu.com/s/1dF2asvf#1ewf" target="_blank" rel="external">http://pan.baidu.com/s/1dF2asvf</a> 密码：1ewf</p>
-<p>分享吴恩达机器学习视频 下载 链接：<br>链接： <a href="http://pan.baidu.com/s/1pKLATJl" target="_blank" rel="external">http://pan.baidu.com/s/1pKLATJl</a> 密码： xn4w</p>
-<hr>
-<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-
+        <p>我们的第一个学习算法是<strong>线性回归算法</strong>。在这段视频中，你会看到这个算法的概况，更<br>重要的是你将会了解监督学习过程完整的流程。</p>
+<h2 id="模型表示（Model-Representation）"><a href="#模型表示（Model-Representation）" class="headerlink" title="模型表示（Model Representation）"></a>模型表示（Model Representation）</h2><p>让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数<br>据集包含俄勒冈州波特兰市的住房价格。<strong>比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱</strong>。<br>
+        
+          <a class="article-more-a" href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/#more">more >></a>
+        
       
 
       
@@ -324,7 +288,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/">展开全文 >></a>
         </p>
       
 
@@ -379,22 +343,10 @@
 <ul>
 <li>imooc的数据库</li>
 <li>名字为account的表</li>
-<li><p>表里面键值（acctid,money）</p>
-</li>
-<li><p>下面是代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"># @Author: hasee</div><div class="line"># @Date:   2017-11-02 21:30:11</div><div class="line"># @Last Modified by:   重庆</div><div class="line"># @Last Modified time: 2017-11-02 21:30:43</div><div class="line">#coding=utf-8</div><div class="line">import pymysql </div><div class="line">import sys </div><div class="line">class TransferMoney: </div><div class="line">    def __init__(self,conn): </div><div class="line">        self.conn = conn </div><div class="line">    def check_acct_available(self, acctid): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;select * from account where acctid= %s &quot; % acctid </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;check_acct_available:&quot; + sql) </div><div class="line">            rs = cursor.fetchall() </div><div class="line">            if len(rs) != 1: </div><div class="line">                raise Exception(&quot;账号%s 不存在&quot; % acctid) </div><div class="line">        finally:</div><div class="line">            cursor.close() </div><div class="line">                </div><div class="line">    def has_enough_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;select * from account where acctid=%s and money&gt;=%s&quot; % (acctid,money) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;has_enough_money:&quot; + sql) </div><div class="line">            rs = cursor.fetchall() </div><div class="line">            if len(rs) != 1: </div><div class="line">                raise Exception(&quot;账号%s余额不足 is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def reduce_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;update account set money= money-%s WHERE acctid=%s &quot; % (money,acctid) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;reduce_money:&quot; + sql) </div><div class="line">            rs = cursor.rowcount </div><div class="line">            if rs != 1: </div><div class="line">                raise Exception(&quot;账号%s付款失败Eend is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def add_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;update account set money= money+%s WHERE acctid=%s &quot; % (money,acctid) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print(&quot;add_money:&quot; + sql) </div><div class="line">            rs = cursor.rowcount </div><div class="line">            if rs != 1: </div><div class="line">                raise Exception(&quot;账号%s收款失败(Payment failure)get is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def transfer(self, source_acctid, target_acctid, money): </div><div class="line">        try: </div><div class="line">            self.check_acct_available(source_acctid) </div><div class="line">            self.check_acct_available(target_acctid) </div><div class="line">            self.has_enough_money(source_acctid,money) </div><div class="line">            self.reduce_money(source_acctid,money) </div><div class="line">            self.add_money(target_acctid,money) </div><div class="line">            self.conn.commit() </div><div class="line">        except Exception as e: </div><div class="line">            self.conn.rollback() </div><div class="line">            raise e </div><div class="line">if __name__==&quot;__main__&quot;: </div><div class="line">    ## print(&quot;sys.argv[1:]:&quot;,sys.argv[1:])</div><div class="line">    source_acctid = sys.argv[1] # 汇款发送账户</div><div class="line">    target_acctid = sys.argv[2] # 收款账户</div><div class="line">    money = sys.argv[3] </div><div class="line">    conn = pymysql.connect( </div><div class="line">        host = &apos;127.0.0.1&apos;, </div><div class="line">        port = 3306, </div><div class="line">        user = &apos;root&apos;, </div><div class="line">        passwd = &apos;123456&apos;, </div><div class="line">        db = &apos;imooc&apos;, </div><div class="line">        charset = &apos;utf8&apos; ) </div><div class="line">    tr_money = TransferMoney(conn) </div><div class="line">    try: </div><div class="line">        tr_money.transfer(source_acctid,target_acctid,money) </div><div class="line">    except Exception as e: </div><div class="line">        print(&quot;出现问题(There is a problem)：&quot; + str(e)) </div><div class="line">    finally: </div><div class="line">        conn.close()</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意此代码只能在shell命令行中运行，否则会报类似如下错误：<br><code>sys.argv[3] IndexError: list index out of range</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-bca9a728af8d951a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IndexError"></p>
-<p>原因是：需要在命令行输入参数，否则，就会报错</p>
-<h3 id="下面是运行结果（账户1转给账户2一共3元钱）"><a href="#下面是运行结果（账户1转给账户2一共3元钱）" class="headerlink" title="下面是运行结果（账户1转给账户2一共3元钱）"></a>下面是运行结果（账户1转给账户2一共3元钱）</h3><p>在XXX.py(mysqlAccount.py)文件目录下运行</p>
-<p><code>python mysqlAccount.py 1 2 3</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-70e28e22d882dde6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转账前"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-11280a0ef7fadd9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/4340772-b1230c98772886f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转账后"></p>
-<hr>
-<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-
+<li>表里面键值（acctid,money）
+        
+          <a class="article-more-a" href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/#more">more >></a>
+        
       
 
       
@@ -451,19 +403,19 @@
 
 
   
-    <article id="post-五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】/">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】</a>
+      <a class="article-title" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】/" class="archive-article-date">
+        <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -471,44 +423,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>接上文：<a href="http://www.jianshu.com/p/6ee3ee9c3cfd" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】</a></p>
-<p><strong>四、网络层</strong></p>
-<p><strong>4.1 网络层的由来</strong><br>以太网协议，依靠MAC地址发送数据。理论上，单单依靠MAC地址，上海的网卡就可以找到洛杉矶的网卡了，技术上是可以实现的。</p>
-<p>但是，这样做有一个重大的缺点。以太网采用广播方式发送数据包，所有成员人手一”包”，不仅效率低，而且局限在发送者所在的子网络。也就是说，<strong>如果两台计算机不在同一个子网络，广播是传不过去的</strong>。这种设计是合理的，否则互联网上每一台计算机都会收到所有包，那会引起灾难。<br>互联网是无数子网络共同组成的一个巨型网络，很像想象上海和洛杉矶的电脑会在同一个子网络，这几乎是不可能的。</p>
-<p>因此，必须找到一种方法，能够区分哪些MAC地址属于同一个子网络，哪些不是。<strong>如果是同一个子网络，就采用广播方式发送，否则就采用”路由”方式发送</strong>。（”路由”的意思，就是指如何向不同的子网络分发数据包，这是一个很大的主题，本文不涉及。）遗憾的是，MAC地址本身无法做到这一点。它只与厂商有关，与所处网络无关。</p>
-<p><strong>这就导致了”网络层”的诞生。它的作用是引进一套新的地址，使得我们能够区分不同的计算机是否属于同一个子网络。这套地址就叫做”网络地址”，简称”网址”。</strong></p>
-<p>于是，”网络层”出现以后，<strong>每台计算机有了两种地址，一种是MAC地址</strong>，另一种是网络地址。两种地址之间没有任何联系，<strong>MAC地址是绑定在网卡上的，网络地址则是管理员分配的</strong>，它们只是随机组合在一起。</p>
-<p>网络地址帮助我们确定计算机所在的子网络，MAC地址则将数据包送到该子网络中的目标网卡。因此，从逻辑上可以推断，必定是先处理网络地址，然后再处理MAC地址。</p>
-<p><strong>4.2 IP协议</strong></p>
-<p>规定网络地址的协议，叫做IP协议。它所定义的地址，就被称为IP地址。<br>目前，广泛采用的是IP协议第四版，简称IPv4。这个版本规定，网络地址由32个二进制位组成。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-ce940ff79c08fadb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>习惯上，我们用分成四段的十进制数表示IP地址，从0.0.0.0一直到255.255.255.255。</p>
-<p>互联网上的每一台计算机，都会分配到一个IP地址。这个地址分成两个部分，前一部分代表网络，后一部分代表主机。比如，IP地址172.16.254.1，这是一个32位的地址，假定它的网络部分是前24位（172.16.254），那么主机部分就是后8位（最后的那个1）。处于同一个子网络的电脑，它们IP地址的网络部分必定是相同的，也就是说<code>172.16.254.2</code>应该与<code>172.16.254.1</code>处在同一个子网络。</p>
-<p>但是，问题在于单单从IP地址，我们无法判断网络部分。还是以<code>172.16.254.1</code>为例，它的网络部分，到底是前24位，还是前16位，甚至前28位，从IP地址上是看不出来的。</p>
-<p>那么，怎样才能从IP地址，判断两台计算机是否属于同一个子网络呢？这就要用到另一个参数”子网掩码”（subnet mask）。</p>
-<p>所谓”子网掩码”，就是表示子网络特征的一个参数。它在形式上等同于IP地址，也是一个32位二进制数字，它的网络部分全部为1，主机部分全部为0。比如，IP地址172.16.254.1，如果已知网络部分是前24位，主机部分是后8位，那么子网络掩码就是<code>11111111.11111111.11111111.00000000</code>，写成十进制就是<code>255.255.255.0</code>。</p>
-<p>知道”子网掩码”，我们就能判断，任意两个IP地址是否处在同一个子网络。方法是将两个IP地址与子网掩码分别进行AND运算（两个数位都为1，运算结果为1，否则为0），然后比较结果是否相同，如果是的话，就表明它们在同一个子网络中，否则就不是。</p>
-<p>比如，已知IP地址<code>172.16.254.1</code>和<code>172.16.254.233</code>的子网掩码都是<code>255.255.255.0</code>，请问它们是否在同一个子网络？两者与子网掩码分别进行AND运算，结果都是<code>172.16.254.0</code>，因此它们在同一个子网络。<br>总结一下，IP协议的作用主要有两个，一个是为每一台计算机分配IP地址，另一个是确定哪些地址在同一个子网络。</p>
-<p><strong>4.3 IP数据包</strong></p>
-<p>根据IP协议发送的数据，就叫做IP数据包。不难想象，其中必定包括IP地址信息。<br>但是前面说过，以太网数据包只包含MAC地址，并没有IP地址的栏位。那么是否需要修改数据定义，再添加一个栏位呢？<br>回答是不需要，我们可以把IP数据包直接放进以太网数据包的”数据”部分，因此完全不用修改以太网的规格。这就是互联网分层结构的好处：上层的变动完全不涉及下层的结构。<br>具体来说，IP数据包也分为”标头”和”数据”两个部分。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-7036f578bbb9eac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>“标头”部分主要包括版本、长度、IP地址等信息，”数据”部分则是IP数据包的具体内容。它放进以太网数据包后，以太网数据包就变成了下面这样。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-d0764d1ba521c437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>IP数据包的”标头”部分的长度为20到60字节，整个数据包的总长度最大为65,535字节。因此，理论上，一个IP数据包的”数据”部分，最长为65,515字节。前面说过，以太网数据包的”数据”部分，最长只有1500字节。因此，如果IP数据包超过了1500字节，它就需要分割成几个以太网数据包，分开发送了。</p>
-<p><strong>4.4 ARP协议</strong>（得到对方的MAC地址）</p>
-<p>关于”网络层”，还有最后一点需要说明。</p>
-<p>因为IP数据包是放在以太网数据包里发送的，所以我们必须同时知道两个地址，一个是对方的MAC地址，另一个是对方的IP地址。通常情况下，对方的IP地址是已知的（后文会解释），但是我们不知道它的MAC地址。</p>
-<p>所以，我们需要一种机制，能够从IP地址得到MAC地址。</p>
-<p>这里又可以分成两种情况。第一种情况，如果两台主机不在同一个子网络，那么事实上没有办法得到对方的MAC地址，只能把数据包传送到两个子网络连接处的”网关”（gateway），让网关去处理。</p>
-<p>第二种情况，如果两台主机在同一个子网络，那么我们可以用ARP协议，得到对方的MAC地址。ARP协议也是发出一个数据包（包含在以太网数据包中），其中包含它所要查询主机的IP地址，在对方的MAC地址这一栏，填的是FF:FF:FF:FF:FF:FF，表示这是一个”广播”地址。它所在子网络的每一台主机，都会收到这个数据包，从中取出IP地址，与自身的IP地址进行比较。如果两者相同，都做出回复，向对方报告自己的MAC地址，否则就丢弃这个包。</p>
-<p>总之，有了ARP协议之后，我们就可以得到同一个子网络内的主机MAC地址，可以把数据包发送到任意一台主机之上了。</p>
-<p><strong>五、传输层</strong>(UDP协议，TCP协议)</p>
-<p><strong>5.1 传输层的由来</strong></p>
-<p>有了MAC地址和IP地址，我们已经可以在互联网上任意两台主机上建立通信。<br>接下来的问题是，同一台主机上有许多程序都需要用到网络，比如，你一边浏览网页，一边与朋友在线聊天。当一个数据包从互联网上发来的时候，你怎么知道，它是表示网页的内容，还是表示在线聊天的内容？</p>
-<p>也就是说，<strong>我们还需要一个参数，表示这个数据包到底供哪个程序（进程）使用。这个参数就叫做”端口”（port）</strong>，它其实是每一个使用网卡的程序的编号。每个数据包都发到主机的特定端口，所以不同的程序就能取到自己所需要的数据。<br>“端口”是0到65535之间的一个整数，正好16个二进制位。0到1023的端口被系统占用，用户只能选用大于1023的端口。不管是浏览网页还是在线聊天，应用程序会随机选用一个端口，然后与服务器的相应端口联系。<br><strong>“传输层”的功能，就是建立”端口到端口”的通信。相比之下，”网络层”的功能是建立”主机到主机”的通信。只要确定主机和端口，我们就能实现程序之间的交流。</strong>因此，Unix系统就把主机+端口，叫做”套接字”（socket）。有了它，就可以进行网络应用程序开发了。</p>
-<p><strong>5.2 UDP协议</strong><br>现在，我们<strong>必须在数据包中加入端口信息，这就需要新的协议</strong>。最简单的实现叫做UDP协议，它的格式几乎就是在数据前面，加上端口号。<br>UDP数据包，也是由”标头”和”数据”两部分组成。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-799956e661ee4045.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>“标头”部分主要定义了发出端口和接收端口，”数据”部分就是具体的内容。然后，把整个UDP数据包放入IP数据包的”数据”部分，而前面说过，IP数据包又是放在以太网数据包之中的，所以整个以太网数据包现在变成了下面这样：<br>[图片上传中。。。（6）]<br>UDP数据包非常简单，”标头”部分一共只有8个字节，总长度不超过65,535字节，正好放进一个IP数据包。</p>
-<p><strong>5.3 TCP协议</strong></p>
-<p>UDP协议的优点是比较简单，容易实现，但是缺点是可靠性较差，一旦数据包发出，无法知道对方是否收到。<br>为了解决这个问题，提高网络可靠性，TCP协议就诞生了。这个协议非常复杂，但可以近似认为，它就是有确认机制的UDP协议，每发出一个数据包都要求确认。如果有一个数据包遗失，就收不到确认，发出方就知道有必要重发这个数据包了。<br>因此，TCP协议能够确保数据不会遗失。它的缺点是过程复杂、实现困难、消耗较多的资源。<br>TCP数据包和UDP数据包一样，都是内嵌在IP数据包的”数据”部分。TCP数据包没有长度限制，理论上可以无限长，但是为了保证网络的效率，通常TCP数据包的长度不会超过IP数据包的长度，以确保单个TCP数据包不必再分割。</p>
-<p><strong>六、应用层</strong></p>
-<p>应用程序收到”传输层”的数据，接下来就要进行解读。由于互联网是开放架构，数据来源五花八门，必须事先规定好格式，否则根本无法解读。<br><strong>“应用层”的作用，就是规定应用程序的数据格式。</strong><br>举例来说，TCP协议可以为各种各样的程序传递数据，比如Email、WWW、FTP等等。那么，必须有不同协议规定电子邮件、网页、FTP数据的格式，这些应用程序协议就构成了”应用层”。<br>这是最高的一层，直接面对用户。它的数据就放在TCP数据包的”数据”部分。因此，现在的以太网的数据包就变成下面这样。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-b71e2c0ee465726c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>至此，整个互联网的五层结构，自下而上全部讲完了。这是从系统的角度，解释互联网是如何构成的。<a href="http://www.jianshu.com/p/78c77fbdf399" target="_blank" rel="external">下一篇</a>，我反过来，从用户的角度，自上而下看看这个结构是如何发挥作用，完成一次网络数据交换的。</p>
-<p>参考链接：<a href="http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html" target="_blank" rel="external">互联网协议入门（一）-阮一峰</a></p>
-<hr>
-<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-
+        <p><a href="http://www.jianshu.com/p/6ee3ee9c3cfd" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】</a><br><a href="http://www.jianshu.com/p/240577c76625" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】</a></p>
+<p>上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。</p>
+<p>这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+        
+          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/#more">more >></a>
+        
       
 
       
@@ -531,7 +452,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/">展开全文 >></a>
         </p>
       
 
@@ -561,19 +482,19 @@
 
 
   
-    <article id="post-4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables/">4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables</a>
+      <a class="article-title" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables/" class="archive-article-date">
+        <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -581,9 +502,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="4-1-多维特征（Multiple-Features）"><a href="#4-1-多维特征（Multiple-Features）" class="headerlink" title="4.1 多维特征（Multiple Features）"></a>4.1 多维特征（Multiple Features）</h3><p>目前为止，我们探讨了单变量/特征的回归模型，现在我们对房价模型增加更多的特征，<br>例如房间数楼层等，构成一个含有多个变量的模型，模型中的特征为（x1,x2,…,xn）。</p>
+        <p>我们每天使用互联网，你是否想过，它是如何实现的？</p>
+<p>全世界几十亿台电脑，连接在一起，两两通信。上海的某一块网卡送出信号，洛杉矶的另一块网卡居然就收到了，两者实际上根本不知道对方的物理位置，你不觉得这是很神奇的事情吗？</p>
+<p>互联网的核心是一系列协议，总称为”互联网协议”（Internet Protocol Suite）。它们对电脑如何连接和组网，做出了详尽的规定。理解了这些协议，就理解了互联网的原理。</p>
+<p>下面就是我的学习笔记。因为这些协议实在太复杂、太庞大，我想整理一个简洁的框架，帮助自己从总体上把握它们。为了保证简单易懂，我做了大量的简化，有些地方并不全面和精确，但是应该能够说清楚互联网的原理。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
         
-          <a class="article-more-a" href="/2017/07/31/4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/#more">more >></a>
         
       
 
@@ -597,7 +522,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络协议</a>
         		</li>
       		
 		</ul>
@@ -607,7 +532,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/">展开全文 >></a>
         </p>
       
 
@@ -746,7 +671,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -771,10 +696,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,6 +728,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">

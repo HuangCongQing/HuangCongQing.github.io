@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review) | 黄重庆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！  ##3.1 矩阵和向量 如图 ：这个 ：这个 是 4×2矩阵 ，即 4行 2列，如 m为行， 为行， n为列，那么 为列，那么 为列，那么 m×n即 4×2 矩阵的维数即行数×列数矩阵元素（矩阵项）：   ##">
+  <meta name="description" content="本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)">
 <meta property="og:url" content="http://yoursite.com/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/index.html">
 <meta property="og:site_name" content="黄重庆">
-<meta property="og:description" content="本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！  ##3.1 矩阵和向量 如图 ：这个 ：这个 是 4×2矩阵 ，即 4行 2列，如 m为行， 为行， n为列，那么 为列，那么 为列，那么 m×n即 4×2 矩阵的维数即行数×列数矩阵元素（矩阵项）：   ##">
+<meta property="og:description" content="本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-6d5a90dce8026e93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-a79ea1ad00485b33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -30,10 +30,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-9bfa5e1ba265fd0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-6496da9c345b3a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-cf8b4a015a9fcced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-11T18:55:03.470Z">
+<meta property="og:updated_time" content="2018-03-11T19:00:12.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)">
-<meta name="twitter:description" content="本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！  ##3.1 矩阵和向量 如图 ：这个 ：这个 是 4×2矩阵 ，即 4行 2列，如 m为行， 为行， n为列，那么 为列，那么 为列，那么 m×n即 4×2 矩阵的维数即行数×列数矩阵元素（矩阵项）：   ##">
+<meta name="twitter:description" content="本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4340772-6d5a90dce8026e93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="黄重庆" type="application/atom+xml">
@@ -196,9 +196,9 @@
       
         <p><img src="http://upload-images.jianshu.io/upload_images/4340772-6d5a90dce8026e93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="线性代数，不知多少人对这本书很是熟悉，哈哈"></p>
 <blockquote>
-<p>本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！</p>
-</blockquote>
+<p>本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！<br><a id="more"></a></p>
 <p>##3.1 矩阵和向量</p>
+</blockquote>
 <p>如图 ：这个 ：这个 是 4×2矩阵 ，即 4行 2列，如 m为行， 为行， n为列，那么 为列，那么 为列，那么 m×n即 4×2<br><img src="http://upload-images.jianshu.io/upload_images/4340772-a79ea1ad00485b33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="矩阵"></p>
 <p>矩阵的维数即行数×列数<br>矩阵元素（矩阵项）：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-e128b7ca2d813c65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/4340772-39101576361f3b2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -338,18 +338,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          域名解析后主机记录和记录值怎么填写？都是什么意思？
+          1吴恩达Meachine-Learing之监督学习和非监督学习
         
       </div>
     </a>
   
   
-    <a href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基于python3连接mysql，实现一个银行转账的小功能（shell中执行）</div>
+    <a href="/2017/07/31/各种邮箱pop，SMTP设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">各种邮箱pop，SMTP设置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -487,7 +487,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,10 +512,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,6 +544,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">

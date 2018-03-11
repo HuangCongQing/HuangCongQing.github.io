@@ -344,34 +344,10 @@
 <p>受监督的学习问题分为<strong>“回归”和“分类”</strong>问题。</p>
 <ul>
 <li>回归（连续）</li>
-<li>分类（离散）</li>
-</ul>
-<p>在回归问题中，我们试图在连续输出中预测结果，这意味着我们正在尝试将输入变量映射到一些连续函数。<br>在分类问题中，我们试图用离散输出来预测结果。换句话说，我们正在尝试将输入变量映射到离散类别。</p>
-<ul>
-<li>后面介绍了回归问题。 即通过回归来预测一个连续值输出。 </li>
-<li>我们还谈到了分类问题， 目标是预测离散值输出。</li>
-</ul>
-<p>示例2：</p>
-<p>（a）<strong>回归</strong> - 鉴于一个人的照片，我们必须根据给定的图片来<strong>预测</strong>他们的年龄</p>
-<p>（b）<strong>分类</strong> - 鉴于肿瘤患者，我们必须预测肿瘤是恶性还是良性（<strong>非黑即白//0|1</strong>）。</p>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
-<li>在一些学习问题中，不希望只用3,5种特征，相反，想用无限多种特征，好让算法利用大量的特征来做推测。那你怎么处理无限特征，甚至怎么存储这些特征都存在问题，你的电脑内存肯定不够用。<strong>以后会讲一个算法，叫支持向量机，里面有一个巧妙的数学技巧，能让计算机处理无限多个特征</strong></li>
-</ul>
-<h2 id="非监督学习（Unsupervised-Learning）"><a href="#非监督学习（Unsupervised-Learning）" class="headerlink" title="非监督学习（Unsupervised Learning）"></a>非监督学习（Unsupervised Learning）</h2><blockquote>
-<p>无监督学习使我们能够<strong>很少或不知道我们的结果</strong>应该如何处理问题。<br>我们可以从数据导出结构，我们不一定知道变量的影响。</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-c0c1e1acd3a9ba62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有无标签"></p>
-<p>在上一节中 我们已经讲过了监督学习 回想起上次的数据集 每个样本 都已经被标明为 正样本或者负样本 即良性或恶性肿瘤 。因此 对于监督学习中的每一个样本 我们已经被清楚地告知了 什么是所谓的正确答案 即它们是良性还是恶性 。<br><strong>在无监督学习中 我们用的数据会和监督学习里的看起来有些不一样在无监督学习中没有“属性或标签这一概念” 也就是说所有的数据 都是一样的 没有区别</strong></p>
-<p><strong>我们可以通过基于数据中的变量之间的关系对数据进行聚类来导出该结构。</strong></p>
-<p> <strong>无监督学习算法 ，针对数据集，自动的找出数据中的结构，会把这些数据分成两个不同的簇，所以叫做聚类算法</strong></p>
-<p>无监督学习或聚类算法在其他领域也有着大量的应用 ，例如谷歌新闻每天手机非常多的新闻内容，然后把同一主题的放在一起</p>
-<p><strong>例：</strong><br>聚类：收集100万个不同的基因，并找到一种自动将这些基因组合成不同变量（如寿命，位置，作用等）相似或相关的组。</p>
-<p>其实聚类只是无监督学习的一种，还有一种非聚类算法</p>
-<p>非聚类：“鸡尾酒会算法”，让您在混乱的环境中找到结构。<br>（即从<a href="https://en.wikipedia.org/wiki/Cocktail_party_effect" target="_blank" rel="external">鸡尾酒会</a>的声音网格中识别个人的声音和音乐）。</p>
-<h2 id="以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！"><a href="#以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！" class="headerlink" title="以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！"></a>以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！</h2><p>课程代码：<a href="https://github.com/HuangCongQing/MachineLearning_Ng" target="_blank" rel="external">https://github.com/HuangCongQing/MachineLearning_Ng</a><br>本文参考自-黄海广博士 斯坦福大学 2014机器学习教程中文 笔记<br>链接：<a href="http://pan.baidu.com/s/1dF2asvf#1ewf" target="_blank" rel="external">http://pan.baidu.com/s/1dF2asvf</a> 密码：1ewf</p>
-<p>分享吴恩达机器学习视频 下载 链接： </p>
-<h2 id="链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w"><a href="#链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w" class="headerlink" title="链接： http://pan.baidu.com/s/1pKLATJl 密码： xn4w"></a>链接： <a href="http://pan.baidu.com/s/1pKLATJl" target="_blank" rel="external">http://pan.baidu.com/s/1pKLATJl</a> 密码： xn4w</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-
+<li><p>分类（离散）</p>
+        
+          <a class="article-more-a" href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/#more">more >></a>
+        
       
 
       
@@ -424,19 +400,19 @@
 
 
   
-    <article id="post-2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/">2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable</a>
+      <a class="article-title" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/">3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/" class="archive-article-date">
+        <a href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -444,70 +420,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们的第一个学习算法是<strong>线性回归算法</strong>。在这段视频中，你会看到这个算法的概况，更<br>重要的是你将会了解监督学习过程完整的流程。</p>
-<h2 id="模型表示（Model-Representation）"><a href="#模型表示（Model-Representation）" class="headerlink" title="模型表示（Model Representation）"></a>模型表示（Model Representation）</h2><p>让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数<br>据集包含俄勒冈州波特兰市的住房价格。<strong>比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱</strong>。</p>
-<p>它被称作<strong>监督学习</strong>是因为对于每个数据来说，我们给出了“正确的答案”，即告诉我们：<br>根据我们的数据来说，房子实际的价格是多少，而且，<strong>更具体来说，这是一个回归问题</strong>。回<br>归一词指的是，我们根据之前的数据预测出一个准确的输出值，对于这个例子就是价格，同<br>时，还有另一种最常见的监督学习方式，叫做分类问题，当我们想要预测离散的输出值，例<br>如，我们正在寻找癌症肿瘤，并想要确定肿瘤是良性的还是恶性的，这就是 0/1 离散输出的<br>问题。更进一步来说，<strong>在监督学习中我们有一个数据集，这个数据集被称训练集。</strong></p>
-<p><strong>我将在整个课程中用小写的 m 来表示训练样本的数目。</strong></p>
-<p>以之前的房屋交易问题为例，假使我们回归问题的训练集（Training Set）如下表所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-8990385805b2692f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Training Set"></p>
-<ul>
-<li>m 代表训练集中实例的数量</li>
-<li>x 代表特征/输入变量</li>
-<li>y 代表目标变量/输出变量</li>
-<li>(x,y) 代表训练集中的实例</li>
-<li>( x(i),y(i)  ) 代表第 i 个观察实例</li>
-<li>h 代表学习算法的解决方案或函数也称为假设（hypothesis）</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-55990933583b4806.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>我将选择最初的使用规则 h 代表 hypothesis，因而，要解决房价预测问题，我们实际上<br>是要将训练集“喂”给我们的学习算法，<strong>进而学习得到一个假设 h</strong>，然后将我们要预测的房屋<br>的尺寸作为输入变量输入给 h，预测出该房屋的交易价格作为输出变量输出为结果。那么，<br>对于我们的房价预测问题，我们该如何表达 h？</p>
-<p><strong>一种可能的表达方式为：<img src="http://upload-images.jianshu.io/upload_images/4340772-ba14eb3d869c3e9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br> 因为只含有一个特征/输入变量，因此这样的问题叫作单变量线性回归问题。</strong></p>
-<h2 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h2><p>在这段视频中我们将定义代价函数的概念，这有助于我们弄清楚如何把最有可能的直线<br>与我们的数据相拟合。如图<br><img src="http://upload-images.jianshu.io/upload_images/4340772-150c1b462ba68db4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>在线性回归中我们有一个像这样的训练集，m 代表了训练样本的数量，比如 m = 47。<br>而我们的假设函数，也就是用来进行预测的函数，是这样的线性函数形式：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-4ebf3384caed6056.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>接下来我们会引入一些术语我们现在要做的便是为我们的模型选择合适的<strong>参数</strong><br>（parameters）θ0 和 θ1，在房价问题这个例子中便是直线的斜率和在 y 轴上的截距。</p>
-<p>我们选择的参数决定了我们得到的直线相对于我们的训练集的准确程度，模型所预测的<br>值与训练集中实际值之间的差距（下图中蓝线所指）就是<strong>建模误差（modeling error）</strong>。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-878252e6654d6c0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>我们的目标便是选择出可以使得建模误差的平方和能够最小的模型参数。 即使得代价函数</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-495731d0876394da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>最小。</p>
-<p>我们绘制一个等高线图，三个坐标分别为 θ0 和 θ1 和 J(θ0,θ1)：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-9d916a27ec8a7e20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>则可以看出在三维空间中存在一个使得 J(θ0,θ1)最小的点。<br><strong>代价函数也被称作平方误差函数，有时也被称为平方误差代价函数。我们之所以要求出<br>误差的平方和，是因为误差平方代价函数，对于大多数问题，特别是回归问题，都是一个合<br>理的选择。</strong>还有其他的代价函数也能很好地发挥作用，但是平方误差代价函数可能是解决回<br>归问题最常用的手段了。</p>
-<p>也许这个函数J(θ0,θ1)有点抽象，可能你仍然不知道它的内涵，在接下来的几个视频里，<br>我们要更进一步解释代价函数J 的工作原理 ，并尝试更直观地解释它在计算什么，以及我<br>们使用它的目的。</p>
-<h3 id="代价函数的直观理解"><a href="#代价函数的直观理解" class="headerlink" title="代价函数的直观理解"></a>代价函数的直观理解</h3><p>在上一个视频中，我们给了代价函数一个数学上的定义。在这个视频里，让我们通过一<br>些例子来获取一些直观的感受，看看代价函数到底是在干什么。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-872a859781af7b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>当然，我们真正需要的是一种有效的算法，能够自动地找出这些使代价函数 J 取最小值<br>的参数 θ0 和 θ1 来。<br>我们也不希望编个程序把这些点画出来，然后人工的方法来读出这些点的数值，这很明<br>显不是一个好办法。我们会遇到更复杂、更高维度、更多参数的情况，而这些情况是很难画<br>出图的，因此更无法将其可视化，因此我们真正需要的<strong>是编写程序来找出这些最小化代价函<br>数的 θ0 和 θ1 的值</strong>，在下一节视频中，我们将介绍一种算法，能够自动地找出能使代价函数<br>J 最小化的参数 θ0 和 θ1 的值。</p>
-<h2 id="梯度下降Gradient-Descent（自动地找出能使代价函数J-最小化的参数-θ0-和-θ1-的值）"><a href="#梯度下降Gradient-Descent（自动地找出能使代价函数J-最小化的参数-θ0-和-θ1-的值）" class="headerlink" title="梯度下降Gradient Descent（自动地找出能使代价函数J 最小化的参数 θ0 和 θ1 的值）"></a>梯度下降Gradient Descent（自动地找出能使代价函数J 最小化的参数 θ0 和 θ1 的值）</h2><p>梯度下降是一个用来求函数最小值的算法，我们将使用梯度下降算法来求出代价函数<br>J(θ0,θ1) 的最小值。</p>
-<p>梯度下降背后的思想是：开始时我们随机选择一个参数的组合（θ0,θ1,…,θn），计算代价<br>函数，然后我们寻找下一个能让代价函数值下降最多的参数组合。我们持续这么做直到到到<br>一个<strong>局部最小值（local minimum）</strong>，因为我们并没有尝试完所有的参数组合，所以不能确定<br>我们得到的<strong>局部最小值是否便是全局最小值（global minimum），选择不同的初始参数组合，可能会找到不同的局部最小值。</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-1663639ee036284e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>想象一下你正站立在山的这一点上，站立在你想象的公园这座红色山上，在梯度下降算<br>法中，我们要做的就是旋转 360 度，看看我们的周围，并问自己要在某个方向上，用小碎步<br>尽快下山。这些小碎步需要朝什么方向？如果我们站在山坡上的这一点，你看一下周围，你<br>会发现最佳的下山方向，你再看看周围，然后再一次想想，我应该从什么方向迈着小碎步下<br>山？然后你按照自己的判断又迈出一步，重复上面的步骤，从这个新的点，你环顾四周，并<br>决定从什么方向将会最快下山，然后又迈进了一小步，并依此类推，直到你接近局部最低点<br>的位置。</p>
-<p>批量梯度下降（batch gradient descent）算法的公式为：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-e61eda9253492b51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>其中 α 是学习率（learning rate），它决定了我们沿着能让代价函数下降程度最大的方<br>向向下迈出的步子有多大，在批量梯度下降中，我们每一次都同时让所有的参数减去学习速<br>率乘以代价函数的导数。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-df9bd833a4427928.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>在梯度下降算法中，还有一个更微妙的问题，梯度下降中，我们要更新 θ0 和 θ1 ，当 j=0<br>和 j=1 时，会产生更新，所以你将更新 Jθ0 和 Jθ1。实现梯度下降算法的微妙之处是，在这<br>个表达式中，如果你要更新这个等式，你需要同时更新 θ0 和 θ1，我的意思是在这个等式中，<br>我们要这样更新：<br>θ0:= θ0 ，并更新 θ1:= θ1。<br>实现方法是：你应该计算公式右边的部分，通过那一部分计算出 θ0 和 θ1 的值，然后同<br>时更新 θ0 和 θ1。<br>让我进一步阐述这个过程：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-4774806c6088fb25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>在梯度下降算法中，这是正确实现同时更新的方法。我不打算解释为什么你需要同时更<br>新，同时更新是梯度下降中的一种常用方法。我们之后会讲到，同步更新是更自然的实现方<br>法。当人们谈到梯度下降时，他们的意思就是同步更新。<br>在接下来的视频中，我们要进入这个微分项的细节之中。我已经写了出来但没有真正定<br>义，如果你已经修过微积分课程，如果你熟悉偏导数和导数，这其实就是这个微分项：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-4727a43c0232360a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>如果你不熟悉微积分，不用担心，即使你之前没有看过微积分，或者没有接触过偏导数<br>在接下来的视频中，你会得到一切你需要知道，如何计算这个微分项的知识。<br>下一个视频中，希望我们能够给出实现梯度下降算法的所有知识 。</p>
-<h2 id="梯度下降的直观理解"><a href="#梯度下降的直观理解" class="headerlink" title="梯度下降的直观理解"></a>梯度下降的直观理解</h2><p>在之前的视频中，我们给出了一个数学上关于梯度下降的定义，本次视频我们更深入研<br>究一下，更直观地感受一下这个算法是做什么的，以及梯度下降算法的更新过程有什么意义。<br>梯度下降算法如下图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-24d8187f7f3fe86b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>描述：对 θ 赋值，使得 J(θ)按梯度下降最快方向进行，一直迭代下去，最终得到局部最<br>小值。其中 α 是学习率（learning rate），它决定了我们沿着能让代价函数下降程度最大的方<br>向向下迈出的步子有多大。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-73d1a1e133350330.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>对于这个问题，求导的目的，基本上可以说取这个红点的切线，就是这样一条红色的直<br>线，刚好与函数相切于这一点，让我们看看这条红色直线的斜率，就是这条刚好与函数曲线<br>相切的这条直线，这条直线的斜率正好是这个三角形的高度除以这个水平长度，现在，这条<br>线有一个正斜率，也就是说它有正导数，因此，我得到的新的 θ1，θ1 更新后等于 θ1 减去一<br>个正数乘以 α。<br>这就是我梯度下降法的更新规则：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-670a606ceaa26a1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h5 id="让我们来看看如果-α-太小或-α-太大会出现什么情况："><a href="#让我们来看看如果-α-太小或-α-太大会出现什么情况：" class="headerlink" title="让我们来看看如果 α 太小或 α 太大会出现什么情况："></a>让我们来看看如果 α 太小或 α 太大会出现什么情况：</h5><p>如果 α 太小了，即我的学习速率太小，结果就是只能这样像小宝宝一样一点点地挪动，<br>去努力接近最低点，这样就需要很多步才能到达最低点，所以如果 α 太小的话，可能会很慢<br>因为它会一点点挪动，它会需要很多步才能到达全局最低点。</p>
-<p>如果 α 太大，那么梯度下降法可能会越过最低点，甚至可能无法收敛，下一次迭代又移<br>动了一大步，越过一次，又越过一次，一次次越过最低点，直到你发现实际上离最低点越来<br>越远，所以，如果 α 太大，它会导致无法收敛，甚至发散。</p>
-<p>现在，我还有一个问题，当我第一次学习这个地方时，我花了很长一段时间才理解这个<br>问题，如果我们预先把 θ1放在一个局部的最低点，你认为下一步梯度下降法会怎样工作？</p>
-<p>假设你将 θ1初始化在局部最低点，在这儿，它已经在一个局部的最优处或局部最低点。<br>结果是局部最优点的导数将等于零，因为它是那条切线的斜率。这意味着你已经在局部最优<br>点，它使得 θ1不再改变，也就是新的 θ1等于原来的 θ1，因此，如果你的参数已经处于局部<br>最低点，那么梯度下降法更新其实什么都没做，它不会改变参数的值。这也解释了为什么即<br>使学习速率 α 保持不变时，梯度下降也可以收敛到局部最低点。</p>
-<p>在接下来的视频中，我们要用代价函数 J，回到它的本质，线性回归中的代价函数。也<br>就是我们前面得出的平方误差函数，结合梯度下降法，以及平方代价函数，我们会得出第一<br>个机器学习算法，即线性回归算法。</p>
-<h2 id="梯度下降的线性回归"><a href="#梯度下降的线性回归" class="headerlink" title="梯度下降的线性回归"></a>梯度下降的线性回归</h2><p>在以前的视频中我们谈到关于梯度下降算法，梯度下降是很常用的算法，它不仅被用在<br>线性回归上和线性回归模型、平方误差代价函数。在这段视频中，我们要将梯度下降和代价<br>函数结合。我们将用到此算法，并将其应用于具体的拟合直线的线性回归算法里。</p>
-<p>梯度下降算法和线性回归算法比较如图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-7bf69297fd5b4d61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>对我们之前的线性回归问题运用梯度下降法，关键在于求出代价函数的导数，即：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-ec4b8d6ec0067144.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>则算法改写成：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-ab4a614ccac4df4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>我们刚刚使用的算法，有时也称为批量梯度下降。实际上，在机器学习中，通常不太会<br>给算法起名字，但这个名字”批量梯度下降”，指的是在梯度下降的每一步中，我们都用到了<br>所有的训练样本，在梯度下降中，在计算微分求导项时，我们需要进行求和运算，所以，在<br>每一个单独的梯度下降中，我们最终都要计算这样一个东西，这个项需要对所有 m 个训练<br>样本求和。因此，批量梯度下降法这个名字说明了我们需要考虑所有这一”批”训练样本，而<br>事实上，有时也有其他类型的梯度下降法，不是这种”批量”型的，不考虑整个的训练集，而<br>是每次只关注训练集中的一些小的子集。在后面的课程中，我们也将介绍这些方法。<br>但就目前而言，应用刚刚学到的算法，你应该已经掌握了批量梯度算法，并且能把它应<br>用到线性回归中了，这就是<strong>用于线性回归的梯度下降法</strong>。</p>
-<hr>
-<p>课程代码：<a href="https://github.com/HuangCongQing/MachineLearning_Ng" target="_blank" rel="external">https://github.com/HuangCongQing/MachineLearning_Ng</a><br>本文参考自-黄海广博士 斯坦福大学 2014机器学习教程中文 笔记<br>链接：<a href="http://pan.baidu.com/s/1dF2asvf#1ewf" target="_blank" rel="external">http://pan.baidu.com/s/1dF2asvf</a> 密码：1ewf</p>
-<p>分享吴恩达机器学习视频 下载 链接： </p>
-<h2 id="链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w"><a href="#链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w" class="headerlink" title="链接： http://pan.baidu.com/s/1pKLATJl 密码： xn4w"></a>链接： <a href="http://pan.baidu.com/s/1pKLATJl" target="_blank" rel="external">http://pan.baidu.com/s/1pKLATJl</a> 密码： xn4w</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-
+        <p><img src="http://upload-images.jianshu.io/upload_images/4340772-6d5a90dce8026e93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="线性代数，不知多少人对这本书很是熟悉，哈哈"></p>
+<blockquote>
+<p>本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！<br>
+        
+          <a class="article-more-a" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/#more">more >></a>
+        
       
 
       
@@ -530,7 +448,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/">展开全文 >></a>
         </p>
       
 
@@ -749,7 +667,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,10 +692,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,6 +724,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">

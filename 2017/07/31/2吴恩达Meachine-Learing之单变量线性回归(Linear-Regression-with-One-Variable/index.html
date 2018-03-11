@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable | 黄重庆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们的第一个学习算法是线性回归算法。在这段视频中，你会看到这个算法的概况，更重要的是你将会了解监督学习过程完整的流程。 模型表示（Model Representation）让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数据集包含俄勒冈州波特兰市的住房价格。比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱。 它被称作监督学习是因为对于每个数据">
+  <meta name="description" content="我们的第一个学习算法是线性回归算法。在这段视频中，你会看到这个算法的概况，更重要的是你将会了解监督学习过程完整的流程。 模型表示（Model Representation）让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数据集包含俄勒冈州波特兰市的住房价格。比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱。">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable">
 <meta property="og:url" content="http://yoursite.com/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/index.html">
 <meta property="og:site_name" content="黄重庆">
-<meta property="og:description" content="我们的第一个学习算法是线性回归算法。在这段视频中，你会看到这个算法的概况，更重要的是你将会了解监督学习过程完整的流程。 模型表示（Model Representation）让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数据集包含俄勒冈州波特兰市的住房价格。比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱。 它被称作监督学习是因为对于每个数据">
+<meta property="og:description" content="我们的第一个学习算法是线性回归算法。在这段视频中，你会看到这个算法的概况，更重要的是你将会了解监督学习过程完整的流程。 模型表示（Model Representation）让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数据集包含俄勒冈州波特兰市的住房价格。比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-8990385805b2692f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-55990933583b4806.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -36,10 +36,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-7bf69297fd5b4d61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-ec4b8d6ec0067144.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-ab4a614ccac4df4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-11T18:54:47.250Z">
+<meta property="og:updated_time" content="2018-03-11T19:00:16.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable">
-<meta name="twitter:description" content="我们的第一个学习算法是线性回归算法。在这段视频中，你会看到这个算法的概况，更重要的是你将会了解监督学习过程完整的流程。 模型表示（Model Representation）让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数据集包含俄勒冈州波特兰市的住房价格。比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱。 它被称作监督学习是因为对于每个数据">
+<meta name="twitter:description" content="我们的第一个学习算法是线性回归算法。在这段视频中，你会看到这个算法的概况，更重要的是你将会了解监督学习过程完整的流程。 模型表示（Model Representation）让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数据集包含俄勒冈州波特兰市的住房价格。比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4340772-8990385805b2692f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="黄重庆" type="application/atom+xml">
@@ -201,8 +201,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>我们的第一个学习算法是<strong>线性回归算法</strong>。在这段视频中，你会看到这个算法的概况，更<br>重要的是你将会了解监督学习过程完整的流程。</p>
-<h2 id="模型表示（Model-Representation）"><a href="#模型表示（Model-Representation）" class="headerlink" title="模型表示（Model Representation）"></a>模型表示（Model Representation）</h2><p>让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数<br>据集包含俄勒冈州波特兰市的住房价格。<strong>比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱</strong>。</p>
-<p>它被称作<strong>监督学习</strong>是因为对于每个数据来说，我们给出了“正确的答案”，即告诉我们：<br>根据我们的数据来说，房子实际的价格是多少，而且，<strong>更具体来说，这是一个回归问题</strong>。回<br>归一词指的是，我们根据之前的数据预测出一个准确的输出值，对于这个例子就是价格，同<br>时，还有另一种最常见的监督学习方式，叫做分类问题，当我们想要预测离散的输出值，例<br>如，我们正在寻找癌症肿瘤，并想要确定肿瘤是良性的还是恶性的，这就是 0/1 离散输出的<br>问题。更进一步来说，<strong>在监督学习中我们有一个数据集，这个数据集被称训练集。</strong></p>
+<h2 id="模型表示（Model-Representation）"><a href="#模型表示（Model-Representation）" class="headerlink" title="模型表示（Model Representation）"></a>模型表示（Model Representation）</h2><p>让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数<br>据集包含俄勒冈州波特兰市的住房价格。<strong>比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱</strong>。<br><a id="more"></a><br>它被称作<strong>监督学习</strong>是因为对于每个数据来说，我们给出了“正确的答案”，即告诉我们：<br>根据我们的数据来说，房子实际的价格是多少，而且，<strong>更具体来说，这是一个回归问题</strong>。回<br>归一词指的是，我们根据之前的数据预测出一个准确的输出值，对于这个例子就是价格，同<br>时，还有另一种最常见的监督学习方式，叫做分类问题，当我们想要预测离散的输出值，例<br>如，我们正在寻找癌症肿瘤，并想要确定肿瘤是良性的还是恶性的，这就是 0/1 离散输出的<br>问题。更进一步来说，<strong>在监督学习中我们有一个数据集，这个数据集被称训练集。</strong></p>
 <p><strong>我将在整个课程中用小写的 m 来表示训练样本的数目。</strong></p>
 <p>以之前的房屋交易问题为例，假使我们回归问题的训练集（Training Set）如下表所示：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/4340772-8990385805b2692f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Training Set"></p>
@@ -367,18 +366,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          1吴恩达Meachine-Learing之监督学习和非监督学习
+          域名解析后主机记录和记录值怎么填写？都是什么意思？
         
       </div>
     </a>
   
   
-    <a href="/2017/07/31/各种邮箱pop，SMTP设置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">各种邮箱pop，SMTP设置</div>
+    <a href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于python3连接mysql，实现一个银行转账的小功能（shell中执行）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -516,7 +515,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,10 +540,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,6 +572,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">

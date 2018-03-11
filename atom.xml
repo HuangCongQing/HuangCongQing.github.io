@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-11T17:57:02.872Z</updated>
+  <updated>2018-03-11T19:02:13.468Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/01/21/Git-%E5%A4%9A%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E4%BA%B2%E6%89%8B%E6%93%8D%E4%BD%9C%E4%B8%80%E6%B3%A2/"/>
     <id>http://yoursite.com/2018/01/21/Git-多分支管理亲手操作一波/</id>
     <published>2018-01-21T09:50:33.000Z</published>
-    <updated>2018-03-11T17:57:02.872Z</updated>
+    <updated>2018-03-11T19:02:13.468Z</updated>
     
     <content type="html"><![CDATA[<p>文 | 阿小庆  2018-01-21❤<br><img src="http://upload-images.jianshu.io/upload_images/4340772-9fd73f39e9bd784a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-01-21"></p>
 <p>快过年了，是时候对以前的知识总结一波了！</p>
@@ -55,7 +55,7 @@
     </summary>
     
     
-      <category term="域名" scheme="http://yoursite.com/tags/%E5%9F%9F%E5%90%8D/"/>
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
   </entry>
   
@@ -145,7 +145,7 @@
     <link href="http://yoursite.com/2017/11/14/%E5%A6%82%E4%BD%95%E7%94%A8css%E5%92%8Cjs%E7%A6%81%E6%AD%A2%E7%BD%91%E9%A1%B5%E9%80%89%E6%8B%A9%E6%96%87%E5%AD%97(%E5%85%BC%E5%AE%B9)-%E4%BF%9D%E6%8A%A4%E7%89%88%E6%9D%83%E5%91%A2%EF%BC%9F%EF%BC%88%E9%99%84%E4%BB%A3%E7%A0%81%EF%BC%89/"/>
     <id>http://yoursite.com/2017/11/14/如何用css和js禁止网页选择文字(兼容)-保护版权呢？（附代码）/</id>
     <published>2017-11-14T09:50:33.000Z</published>
-    <updated>2018-03-11T17:55:20.903Z</updated>
+    <updated>2018-03-11T19:02:30.462Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>现在有好多人为了省事直接复制他人的文章，从而损害到别人的利益，那么如何从技术上保护呢？</p>
@@ -179,7 +179,9 @@
     </summary>
     
     
-      <category term="域名" scheme="http://yoursite.com/tags/%E5%9F%9F%E5%90%8D/"/>
+      <category term="html" scheme="http://yoursite.com/tags/html/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   

@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】 | 黄重庆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】 上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。 这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。  （接上文） 七、一个小结先对前面的内容，做一个小结。我们已经知道，网络通信就是交换数据包。电脑A向电脑B发送">
+  <meta name="description" content="五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】 上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。 这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。">
 <meta name="keywords" content="网络协议">
 <meta property="og:type" content="article">
 <meta property="og:title" content="五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】">
 <meta property="og:url" content="http://yoursite.com/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/index.html">
 <meta property="og:site_name" content="黄重庆">
-<meta property="og:description" content="五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】 上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。 这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。  （接上文） 七、一个小结先对前面的内容，做一个小结。我们已经知道，网络通信就是交换数据包。电脑A向电脑B发送">
+<meta property="og:description" content="五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】 上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。 这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-89d429fabaf3f51c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-aac5b2b7bd7cc56e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -27,10 +27,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-e0d0dc1443f06814.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-137a41ccabd2fb80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-f60ec6a4882fe3e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-11T18:56:37.905Z">
+<meta property="og:updated_time" content="2018-03-11T18:59:58.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】">
-<meta name="twitter:description" content="五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】 上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。 这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。  （接上文） 七、一个小结先对前面的内容，做一个小结。我们已经知道，网络通信就是交换数据包。电脑A向电脑B发送">
+<meta name="twitter:description" content="五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】 上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。 这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4340772-89d429fabaf3f51c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="黄重庆" type="application/atom+xml">
@@ -194,8 +194,7 @@
         <p><a href="http://www.jianshu.com/p/6ee3ee9c3cfd" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】</a><br><a href="http://www.jianshu.com/p/240577c76625" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】</a></p>
 <p>上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。</p>
 <p>这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。</p>
-<hr>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-89d429fabaf3f51c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>（接上文）</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-89d429fabaf3f51c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>（接上文）</p>
 <p><strong>七、一个小结</strong><br>先对前面的内容，做一个小结。<br>我们已经知道，网络通信就是交换数据包。电脑A向电脑B发送一个数据包，后者收到了，回复一个数据包，从而实现两台电脑之间的通信。数据包的结构，基本上是下面这样：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-aac5b2b7bd7cc56e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>发送这个包，需要知道两个地址：</p>
 <ul>
 <li>对方的MAC地址</li>
@@ -366,18 +365,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】
+          基于python3连接mysql，实现一个银行转账的小功能（shell中执行）
         
       </div>
     </a>
   
   
-    <a href="/2017/07/31/python35安装的各种工具和库（不是模块）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python35安装的各种工具和库（不是模块）</div>
+    <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -515,7 +514,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,10 +539,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,6 +571,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
