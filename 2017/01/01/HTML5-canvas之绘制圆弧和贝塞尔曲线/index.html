@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://images.cnitblog.com/i/561179/201408/211032006124068.gif">
 <meta property="og:image" content="http://images.cnitblog.com/i/561179/201408/211043359247757.gif">
 <meta property="og:image" content="http://images.cnitblog.com/i/561179/201408/211046495814886.jpg">
-<meta property="og:updated_time" content="2017-07-28T15:03:14.571Z">
+<meta property="og:updated_time" content="2018-03-11T16:46:21.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5-canvas之绘制圆弧和贝塞尔曲线(3)">
 <meta name="twitter:description" content="今天我们主要是学习如何绘制圆弧和贝塞尔曲线。 圆弧的绘制圆弧可以理解为一个圆上的某部分线段，在canvas中，绘制一条圆弧的语法如下：1ctx.arc( 圆心x坐标, 圆心y坐标, 圆的半径r , 开始角度, 结束角度 ); 其中的 “开始角度” 和 “结束角度” 是相对360度的 顺时针 的极坐标而言的，可配合下图理解：  我们来一个例子，绘制一个圆心坐标为(80,80)，半径为40，开始角度">
@@ -200,8 +200,7 @@
 <h3 id="圆弧的绘制"><a href="#圆弧的绘制" class="headerlink" title="圆弧的绘制"></a>圆弧的绘制</h3><p>圆弧可以理解为一个圆上的某部分线段，在canvas中，绘制一条圆弧的语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.arc( 圆心x坐标, 圆心y坐标, 圆的半径r , 开始角度, 结束角度 );</div></pre></td></tr></table></figure></p>
 <p>其中的 “开始角度” 和 “结束角度” 是相对360度的 <strong>顺时针</strong> 的极坐标而言的，可配合下图理解：</p>
 <p><img src="http://images.cnitblog.com/i/561179/201408/201729364715288.gif" alt="圆弧"></p>
-<p>我们来一个例子，绘制一个圆心坐标为(80,80)，半径为40，开始角度为30度，结束角度为90度，那么可以这样绘制：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;border:solid 1px #CCC;&quot;&gt;</div><div class="line">您的浏览器不支持canvas，建议使用最新版的Chrome</div><div class="line">&lt;/canvas&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">var c = document.getElementById(&quot;myCanvas&quot;);</div><div class="line">var ctx = c.getContext(&quot;2d&quot;); //获取该canvas的2D绘图环境对象</div><div class="line">ctx.arc( 80, 80, 40, 1/6*Math.PI, 1/2*Math.PI);</div><div class="line">ctx.stroke();  //描边</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>我们来一个例子，绘制一个圆心坐标为(80,80)，半径为40，开始角度为30度，结束角度为90度，那么可以这样绘制：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;border:solid 1px #CCC;&quot;&gt;</div><div class="line">您的浏览器不支持canvas，建议使用最新版的Chrome</div><div class="line">&lt;/canvas&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">var c = document.getElementById(&quot;myCanvas&quot;);</div><div class="line">var ctx = c.getContext(&quot;2d&quot;); //获取该canvas的2D绘图环境对象</div><div class="line">ctx.arc( 80, 80, 40, 1/6*Math.PI, 1/2*Math.PI);</div><div class="line">ctx.stroke();  //描边</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 <p>其中开始角和结束角我们分别设定为“1/6<em>Math.PI”和“1/2</em>Math.PI”，是因为canvas里的角度是以PI（π）为单位的，在js中写作Math.PI，你可以把一个PI理解为180度，那么30度便是1/6个PI。上述代码效果如下：<br><img src="http://images.cnitblog.com/i/561179/201408/201738597688778.jpg" alt="圆弧2"></p>
 <hr>
 <p>开始角和结束角也可以是负值，则角度从0度开始以逆时针方式获取：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var c = document.getElementById(&quot;myCanvas&quot;);</div><div class="line">var ctx = c.getContext(&quot;2d&quot;); //获取该canvas的2D绘图环境对象</div><div class="line">ctx.arc( 80, 80, 40, -1/6*Math.PI, -1/2*Math.PI);</div><div class="line">ctx.stroke();  //描边</div></pre></td></tr></table></figure></p>
@@ -517,6 +516,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">coursera</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
               </li>
             
             <div class="clearfix"></div>

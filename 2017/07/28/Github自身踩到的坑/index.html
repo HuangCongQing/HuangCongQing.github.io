@@ -19,7 +19,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-92f06947d40a738d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-ee916947d8e430af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-427e594cf0d5fe04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-11T16:25:24.870Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-102101ffa8f94bcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-d732e12bd4ea7f26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-1d695f3e9dd00329.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-11T16:52:04.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github自身踩到的坑">
 <meta name="twitter:description" content="用Github有一两年了，是时候总结一下以前踩得坑了，这些坑开始时还真把自己摔得不轻！！！！！小插曲：自己以前用hexo搭建的博客，每次写博客都要新建.md文件等初始化步骤,然后提交，有些繁琐，再加上自己又换了台电脑，又要部署hexo（虽然不需要重新部署），但还是有些步骤，索性用简书写，方便快捷些！">
@@ -185,9 +188,10 @@
       
         <p><img src="http://upload-images.jianshu.io/upload_images/4340772-4134778cdc246b6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <blockquote>
-<p>用Github有一两年了，是时候总结一下以前踩得坑了，这些坑开始时还真把自己摔得不轻！！！！！<br>小插曲：自己以前用hexo搭建的博客，每次写博客都要新建.md文件等初始化步骤,然后提交，有些繁琐，再加上自己又换了台电脑，又要部署hexo（虽然不需要重新部署），但还是有些步骤，索性用简书写，方便快捷些！<br><a id="more"></a></p>
-<h3 id="git-pull时ssh-Could-not-resolve-hostname-github-com-Name-or-service-not-known-fatal-Could-not-read-from-remote-repository"><a href="#git-pull时ssh-Could-not-resolve-hostname-github-com-Name-or-service-not-known-fatal-Could-not-read-from-remote-repository" class="headerlink" title="git pull时ssh: Could not resolve hostname github.com: Name or service not known, fatal: Could not read from remote repository."></a>git pull时<code>ssh: Could not resolve hostname github.com: Name or service not known, fatal: Could not read from remote repository.</code></h3></blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git pull</div><div class="line">ssh: Could not resolve hostname github.com: Name or service not known</div><div class="line">fatal: Could not read from remote repository.</div><div class="line"></div><div class="line">Please make sure you have the correct access rights</div><div class="line">and the repository exists.</div></pre></td></tr></table></figure>
+<p>用Github有一两年了，是时候总结一下以前踩得坑了，这些坑开始时还真把自己摔得不轻！！！！！<br>小插曲：自己以前用hexo搭建的博客，每次写博客都要新建.md文件等初始化步骤,然后提交，有些繁琐，再加上自己又换了台电脑，又要部署hexo（虽然不需要重新部署），但还是有些步骤，索性用简书写，方便快捷些！</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="git-pull时ssh-Could-not-resolve-hostname-github-com-Name-or-service-not-known-fatal-Could-not-read-from-remote-repository"><a href="#git-pull时ssh-Could-not-resolve-hostname-github-com-Name-or-service-not-known-fatal-Could-not-read-from-remote-repository" class="headerlink" title="git pull时ssh: Could not resolve hostname github.com: Name or service not known, fatal: Could not read from remote repository."></a>git pull时<code>ssh: Could not resolve hostname github.com: Name or service not known, fatal: Could not read from remote repository.</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git pull</div><div class="line">ssh: Could not resolve hostname github.com: Name or service not known</div><div class="line">fatal: Could not read from remote repository.</div><div class="line"></div><div class="line">Please make sure you have the correct access rights</div><div class="line">and the repository exists.</div></pre></td></tr></table></figure>
 <p><strong>这个错误好醉，是因为没网了，就很皮</strong></p>
 <h3 id="git本地仓库首次push到远程仓库出现错误-rejected-master-gt-master-fetch-first"><a href="#git本地仓库首次push到远程仓库出现错误-rejected-master-gt-master-fetch-first" class="headerlink" title="git本地仓库首次push到远程仓库出现错误 ! [rejected] master -&gt; master (fetch first)"></a>git本地仓库首次push到远程仓库出现错误 ! [rejected] master -&gt; master (fetch first)</h3><p>新建好本地的仓库和远程仓库之后，</p>
 <p>经过<br><code>git add .</code><br>然后<br><code>git commit -m &quot;......&quot;</code><br>最后想推送到远程仓库的时候</p>
@@ -214,6 +218,19 @@
 <li>用记事本打开id_rsa.pub文件，复制内容，<strong>在github.com的网站上到ssh密钥管理页面，添加新公钥，随便取个名字例如你的电脑名</strong></li>
 </ol>
 <p>需要注意步骤2中产生的密钥文件在当前用户的根目录，必须把这两个文件放到当前用户目录的“.ssh”目录下才能生效。</p>
+<p>————2017/8/14</p>
+<h3 id="There-is-no-tracking-information-for-the-current-branch-Please-specify-which-branch-you-want-to-merge-with"><a href="#There-is-no-tracking-information-for-the-current-branch-Please-specify-which-branch-you-want-to-merge-with" class="headerlink" title="There is no tracking information for the current branch. Please specify which branch you want to merge with."></a><code>There is no tracking information for the current branch. Please specify which branch you want to merge with.</code></h3><p><img src="http://upload-images.jianshu.io/upload_images/4340772-102101ffa8f94bcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<blockquote>
+<p>是因为本地分支和远程分支没有建立联系  (使用git branch -vv  可以查看本地分支和远程分支的关联关系)  .根据命令行提示只需要执行以下命令即可</p>
+<ul>
+<li>如果不想新建分支<br><code>git branch --set-upstream master origin/master</code></li>
+<li>如果想新建分支<br><code>git branch --set-upstream-to=origin/远程分支的名字 本地分支的名字</code></li>
+</ul>
+</blockquote>
+<p> <code>git branch –set-upstream-to=origin/develop develop</code><br>或<br><code>git branch --set-upstream develop origin/develop</code><br>（develop为新建分支name）<br>同时推荐大家看一下下面这篇–创建于合并分支<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840038939c291467cc7c747b1810aab2fb8863508000" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840038939c291467cc7c747b1810aab2fb8863508000</a></p>
+<hr>
+<h3 id="2018-2-26关闭-pull-request（Closing-a-pull-request）"><a href="#2018-2-26关闭-pull-request（Closing-a-pull-request）" class="headerlink" title="2018-2-26关闭 pull request（Closing a pull request）"></a>2018-2-26关闭 pull request（Closing a pull request）</h3><p>因为pull request错了，所以想取消pull request，怎么做呢？<br>看图吧<br><img src="http://upload-images.jianshu.io/upload_images/4340772-d732e12bd4ea7f26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-1d695f3e9dd00329.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>坑不会踩完的，但会一直进步着，大家加油……</p>
 
       
@@ -308,9 +325,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/07/30/在腾讯企业邮箱设置自己的域名邮箱/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          post和get的真正区别？
+        
+      </div>
+    </a>
   
-    <a href="/2017/07/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+  
+    <a href="/2017/01/15/Sublime侧边栏字体变大/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sublime侧边栏[SideBar]字体变大</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -453,6 +479,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">coursera</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
               </li>
             
             <div class="clearfix"></div>

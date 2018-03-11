@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://img.mukewang.com/582042680001380a12800720.jpg">
 <meta property="og:image" content="http://img.mukewang.com/582e9f2a0001220a11520720.jpg">
 <meta property="og:image" content="http://img.mukewang.com/582d1de30001d20d11520720.jpg">
-<meta property="og:updated_time" content="2017-07-28T15:03:14.570Z">
+<meta property="og:updated_time" content="2018-03-11T16:46:39.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS浅谈-博客">
 <meta name="twitter:description" content="AngularJS是啥？（一脸懵逼）简介： AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购。是一款优秀的前端JS框架，已经被用于Google的多款产品当中。AngularJS有着诸多特性，最为核心的是：MVC、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。 具体点说： AngularJS 是一个 JavaScript 框架 Angula">
@@ -207,12 +207,13 @@
 <h4 id="那么，重点来了，AngularJs可以干啥啊？"><a href="#那么，重点来了，AngularJs可以干啥啊？" class="headerlink" title="那么，重点来了，AngularJs可以干啥啊？"></a>那么，重点来了，AngularJs可以干啥啊？</h4><p>AngularJS 使得开发现代的<strong>单一页面应用程序</strong>（SPAs：Single Page Applications）变得更加容易。</p>
 <blockquote>
 <blockquote>
-<p>AngularJS 把应用程序数据绑定到 HTML 元素。<br>AngularJS 可以克隆和重复 HTML 元素。<br>AngularJS 可以隐藏和显示 HTML 元素。<br>AngularJS 可以在 HTML 元素”背后”添加代码。<br>AngularJS 支持输入验证。</p>
-</blockquote>
-</blockquote>
+<p>AngularJS 把应用程序数据绑定到 HTML 元素。<br>AngularJS 可以克隆和重复 HTML 元素。<br>AngularJS 可以隐藏和显示 HTML 元素。<br>AngularJS 可以在 HTML 元素”背后”添加代码。<br>AngularJS 支持输入验证。<br><a id="more"></a></p>
 <ul>
-<li><p>举个荔枝（例子）吧！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;例子&lt;/title&gt;</div><div class="line">	&lt;script src=&quot;angular-1.0.1.min.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-app=&quot;myApp&quot; ng-controller=&quot;myCtrl&quot;&gt;</div><div class="line">	名：&lt;input type=&quot;text&quot; ng-model=&quot;lastName&quot;&gt;&lt;br&gt;</div><div class="line">	姓：&lt;input type=&quot;text&quot; ng-model=&quot;firstName&quot;&gt;&lt;br&gt;</div><div class="line">	&lt;br&gt;</div><div class="line">	姓名：&#123;&#123;firstName+&quot; &quot;+ lastName&#125;&#125;</div><div class="line">	&lt;br&gt;</div><div class="line">	姓名：&#123;&#123;fullName()&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	var app=angular.module(&apos;myApp&apos;,[]);</div><div class="line">	app.controller(&apos;myCtrl&apos;,function($scope)&#123;</div><div class="line">		$scope.firstName=&quot;重庆&quot;;</div><div class="line">		$scope.lastName=&quot;黄&quot;;</div><div class="line">		$scope.fullName = function() &#123;</div><div class="line">        return $scope.firstName + &quot; &quot; + $scope.lastName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	&#125;);</div><div class="line">&lt;/script&gt;	</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<li>举个荔枝（例子）吧！<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;例子&lt;/title&gt;</div><div class="line">	&lt;script src=&quot;angular-1.0.1.min.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-app=&quot;myApp&quot; ng-controller=&quot;myCtrl&quot;&gt;</div><div class="line">	名：&lt;input type=&quot;text&quot; ng-model=&quot;lastName&quot;&gt;&lt;br&gt;</div><div class="line">	姓：&lt;input type=&quot;text&quot; ng-model=&quot;firstName&quot;&gt;&lt;br&gt;</div><div class="line">	&lt;br&gt;</div><div class="line">	姓名：&#123;&#123;firstName+&quot; &quot;+ lastName&#125;&#125;</div><div class="line">	&lt;br&gt;</div><div class="line">	姓名：&#123;&#123;fullName()&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	var app=angular.module(&apos;myApp&apos;,[]);</div><div class="line">	app.controller(&apos;myCtrl&apos;,function($scope)&#123;</div><div class="line">		$scope.firstName=&quot;重庆&quot;;</div><div class="line">		$scope.lastName=&quot;黄&quot;;</div><div class="line">		$scope.fullName = function() &#123;</div><div class="line">        return $scope.firstName + &quot; &quot; + $scope.lastName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	&#125;);</div><div class="line">&lt;/script&gt;	</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
 <ul>
 <li><p>初始化加载流程</p>
 <ul>
@@ -227,8 +228,6 @@
 </blockquote>
 </li>
 <li><strong>记住一点：</strong>在大型的应用程序中，通常是把控制器存储在外部文件中。<br>只需要把 <code>&lt;script&gt;</code> 标签中的代码复制到名为 <code>js文件.js</code> 的外部文件中即可，然后在script中引用js文件：</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -543,6 +542,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">coursera</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
               </li>
             
             <div class="clearfix"></div>

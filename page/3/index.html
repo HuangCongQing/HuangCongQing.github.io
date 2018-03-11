@@ -159,89 +159,37 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-JS-我待this如初见" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-python35下的NLTK工具的安装和配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/18/JS-我待this如初见/">JS-我待this如初见</a>
+      <a class="article-title" href="/2017/08/17/python35下的NLTK工具的安装和配置/">python35下的NLTK工具的安装和配置</a>
     </h1>
   
 
         
-        <a href="/2016/08/18/JS-我待this如初见/" class="archive-article-date">
-  	<time datetime="2016-08-18T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-18</time>
+        <a href="/2017/08/17/python35下的NLTK工具的安装和配置/" class="archive-article-date">
+  	<time datetime="2017-08-17T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="何为this？"><a href="#何为this？" class="headerlink" title="何为this？"></a>何为this？</h1><p>this是对象，是在运行时基于<code>函数</code>的<code>执行环境</code>(和对象有关)绑定的，首先，当代码没执行前，或没执行到之前，this 是没有指向的,所以<br>切记：<code>在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了</code>。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。<br><code>this只要一出现，一定牵扯到函数和对象</code><br>一般方法：<code>首先分析this所在的函数是被当做哪个对象的方法调用的，则该对象就是this所引用的对象。</code></p>
-<p>其实，this的取值，分五种情况。我们来挨个看一下。</p>
-<blockquote>
+        <blockquote>
+<p>首先要说明的是我的安装环境是win7 64位，安装了python35</p>
+</blockquote>
 <ul>
-<li>全局和调用普通函数</li>
-<li>构造函数</li>
-<li>函数作为对象的一个属性</li>
-<li>函数用call或apply或bind</li>
-<li>事件监听函数中的this</li>
+<li>官网下载NLTK<br><a href="https://pypi.python.org/pypi/nltk" target="_blank" rel="external">https://pypi.python.org/pypi/nltk</a><br>我安装的是nltk-3.2.4.tar.gz<br>安装上述软件，我的安装目录是<br>D:\Program Files\Computer-learning<br>解压缩nltk-3.2.4.tar.gz，在 <strong>cmd</strong> 中进入到<code>D:\Program Files\Computer-learning\nltk-3.2.4</code>目录，执行</li>
+<li><code>python setup.py install</code></li>
 </ul>
-</blockquote>
-<h1 id="情况1：全局-amp-调用普通函数"><a href="#情况1：全局-amp-调用普通函数" class="headerlink" title="情况1：全局 &amp; 调用普通函数"></a>情况1：全局 &amp; 调用普通函数</h1><p>在全局环境下，this永远是window，这个应该没有非议。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(this==window);//ture</div><div class="line">this.a=20;</div><div class="line">console.log(window.a);</div></pre></td></tr></table></figure></p>
-<p>普通函数在调用时，其中的this也都是window。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var home=&quot;中国&quot;;</div><div class="line">var person=function()&#123;</div><div class="line">		var home=&quot;河南&quot;</div><div class="line">		console.log(this);  //window</div><div class="line">		console.log(this.home);  //中国</div><div class="line">  &#125;</div><div class="line">person();</div></pre></td></tr></table></figure>
-<p>但是严格模式下 this是undefined(竞然)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function person1()&#123;</div><div class="line">	return this;        </div><div class="line">&#125;</div><div class="line">person1()===window;   //true</div><div class="line"></div><div class="line">function person2()&#123;</div><div class="line">	&quot;use strict&quot;  //严格模式</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">person2()===undefined;        //true</div></pre></td></tr></table></figure></p>
-<h1 id="情况2：构造函数"><a href="#情况2：构造函数" class="headerlink" title="情况2：构造函数"></a>情况2：构造函数</h1><p>所谓构造函数就是用来new对象的函数。其实严格来说，所有的函数都可以new一个对象，但是有些函数的定义是为了new一个对象，而有些函数则不是。另外注意，构造函数的函数名第一个字母大写（规则约定）。例如：Object、Array、Function等。</p>
-<p><code>如果函数作为构造函数用，那么其中的this就代表它即将new出来的对象</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">window.home=&quot;中国&quot;;</div><div class="line">window.age=&quot;5000+&quot;;</div><div class="line">function Person()&#123;</div><div class="line">	this.home=&quot;河南&quot;;</div><div class="line">	this.age=20;</div><div class="line"></div><div class="line">	console.log(this);   //Person &#123;home: &quot;河南&quot;, age: 20&#125;</div><div class="line">	console.log(this.home);//  河南</div><div class="line">&#125;</div><div class="line">var chongqing = new Person();</div><div class="line"></div><div class="line">console.log(chongqing.home);  //河南还是中国</div><div class="line">console.log(chongqing.age);  //20还是5000+</div><div class="line">console.log(age);  //5000+还是20</div></pre></td></tr></table></figure>
-<p>以上代码中，如果函数作为构造函数用，那么其中的this就代表它即将new出来的对象,即上文中的chongqing。</p>
-<p>上个例子中构造函数没有返回值，默认返回this，但是若有返回语句，返回一个对象的话，会将return的对象作为返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Myclass()&#123;</div><div class="line">	this.a=20;</div><div class="line">&#125;</div><div class="line">var o=new Myclass();</div><div class="line">console.log(o.a);   //20</div><div class="line"></div><div class="line"></div><div class="line">function Person()&#123;</div><div class="line">	this.a=20;</div><div class="line">	return &#123;  a: 21&#125;;</div><div class="line">&#125;</div><div class="line">var o=new Person();</div><div class="line">console.log(o.a);   //21还是20</div></pre></td></tr></table></figure></p>
-<p><code>注意，以上仅限new Person()的情况，即Person函数作为构造函数的情况。</code>如果直接调用Person函数，而不是new Person()，情况就大不一样了。相当于普通函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">window.home=&quot;中国&quot;;</div><div class="line">window.age=&quot;5000+&quot;;</div><div class="line">function Person()&#123;</div><div class="line">	this.home=&quot;河南&quot;;</div><div class="line">	this.age=20;</div><div class="line"></div><div class="line">	console.log(this);   //window 还是Person &#123;home: &quot;河南&quot;, age: 20&#125;</div><div class="line">	console.log(this.home);//???河南还是中国</div><div class="line">	console.log(home);//???河南还是中国</div><div class="line">&#125;</div><div class="line">Person();</div></pre></td></tr></table></figure></p>
-<p>这种情况下this是window，就是相当于普通函数中的this</p>
-<p>构造函数还有一种情况，在构造函数的prototype中，this代表着什么？<br><code>在整个原型链中，this代表的是当前对象的值</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">window.home=&quot;中国&quot;;</div><div class="line">window.age=&quot;5000+&quot;;</div><div class="line">function Person()&#123;</div><div class="line">	this.home=&quot;河南&quot;;</div><div class="line">	this.age=20;</div><div class="line"></div><div class="line">	console.log(this);   //Person &#123;home: &quot;河南&quot;, age: 20&#125;</div><div class="line">&#125;</div><div class="line">Person.prototype.getHome=function()&#123;</div><div class="line">	console.log(this.home);  //河南</div><div class="line">&#125;</div><div class="line"></div><div class="line">var chongqing= new Person();</div><div class="line">chongqing.getHome();//</div></pre></td></tr></table></figure></p>
-<p>如上代码，在Person.prototype.getHome函数中，this指向的是chongqing对象。因此可以通过this.name获取chongqing.name的值。</p>
-<p>其实，不仅仅是构造函数的prototype，即便是在整个原型链中，this代表的也都是当前对象的值。</p>
-<h1 id="情况3：函数作为对象的一个方法"><a href="#情况3：函数作为对象的一个方法" class="headerlink" title="情况3：函数作为对象的一个方法"></a>情况3：函数作为对象的一个方法</h1><p>在这又分两种情况：</p>
-<ol>
-<li>函数作为对象的方法<code>被调用</code>,此时函数中的<code>this指向该对象</code></li>
-<li>函数<code>被赋值</code>到了另一个变量中，<code>this的值是window</code></li>
-</ol>
-<p>###1. 如果函数作为对象的一个方法时，<code>并且作为对象的一个方法被调用</code>时，函数中的<code>this指向该对象</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">window.home=&quot;中国&quot;;</div><div class="line">window.age=&quot;5000+&quot;;</div><div class="line">var obj=&#123;</div><div class="line">	home:&quot;河南&quot;,</div><div class="line">	person: function()&#123;</div><div class="line">		console.log(this);  //Object &#123;home: &quot;河南&quot;&#125;</div><div class="line">		console.log(this.home);  //河南</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">obj.person();</div></pre></td></tr></table></figure></p>
-<p>以上代码中，person不仅作为一个对象的一个方法，<code>而且的确是作为对象的一个方法被调用。结果this就是obj对象</code>。</p>
-<p><code>注意</code>，如果<strong><code>person函数不作为obj的一个方法被调用</code></strong>，会是什么结果呢？</p>
-<h3 id="2-如果person函数被赋值到了另一个变量中，并没有作为obj的一个方法被调用，那么this的值就是window"><a href="#2-如果person函数被赋值到了另一个变量中，并没有作为obj的一个方法被调用，那么this的值就是window" class="headerlink" title="2. 如果person函数被赋值到了另一个变量中，并没有作为obj的一个方法被调用，那么this的值就是window"></a>2. <code>如果person函数被赋值到了另一个变量中，并没有作为obj的一个方法被调用，那么this的值就是window</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">window.home=&quot;中国&quot;;</div><div class="line">window.age=&quot;5000+&quot;;</div><div class="line">var obj=&#123;</div><div class="line">	home:&quot;河南&quot;,</div><div class="line">	person: function()&#123;</div><div class="line">		console.log(this);  //？？window还是object</div><div class="line">		console.log(this.home);  //？？中国还是河南</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var person1=obj.person;</div><div class="line">person1();</div></pre></td></tr></table></figure>
-<p>如上代码，如果person函数被赋值到了另一个变量中，并没有作为obj的一个属性被调用，那么this的值就是window,相当于全局了，this.home的值为中国</p>
-<h3 id="3-闭包中使用this对象（对象方法函数中又有一个匿名函数）-this用处（诡异）"><a href="#3-闭包中使用this对象（对象方法函数中又有一个匿名函数）-this用处（诡异）" class="headerlink" title="3.闭包中使用this对象（对象方法函数中又有一个匿名函数）-this用处（诡异）"></a>3.闭包中使用this对象（对象方法函数中又有一个匿名函数）-this用处（诡异）</h3><p> <code>在ES3中，此时使用this比较糟糕，因为this失去了方向，引用的是window对象，而不是定义函数所在的对象,欣慰的是，this在ES5中是固定的，我们应该清楚地了解这种情况</code><br>注意： <code>在ES3中，当函数作为某个对象的方法调用时，this等于那个对象，不过在闭包中，匿名函数的执行环境具有全局性，此时通常this指向window</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var obj=&#123;</div><div class="line">	home:&quot;河南&quot;,</div><div class="line">	person: function()&#123;</div><div class="line">		    function person1()&#123;</div><div class="line">			console.log(this);      //window</div><div class="line">			console.log(this.home);    //undefined</div><div class="line">        &#125;</div><div class="line">        person1();</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line">obj.person();</div></pre></td></tr></table></figure></p>
-<p>总结<strong>：当this值的宿主环境被封装在另一个函数内部或在另一个函数的上下文被调用时，this将永远是对window对象的引用（再次说明，this在ES5中是固定的）</strong></p>
-<p>如何改变上述情况呢？<br><code>可以在父函数中使用作用域链来保留对this的引用，以使this值不丢失</code>。如下代码演示了如何使用that变量及其作用域来有效跟踪函数上下文<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var obj=&#123;</div><div class="line">	home:&quot;河南&quot;,</div><div class="line">	person: function()&#123;</div><div class="line">	        var that=this;  //person作用域中，保存this引用对象obj（而不是window）</div><div class="line">		    function person1()&#123;</div><div class="line">		      //输出通过作用域得到河南，因为that=this</div><div class="line">			console.log(that);      //Object &#123;home: &quot;河南&quot;&#125;</div><div class="line">			console.log(that.home);    //河南</div><div class="line">        &#125;</div><div class="line">        person1();</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line">obj.person();</div></pre></td></tr></table></figure></p>
-<h1 id="情况4：函数用call或者apply或bind调用"><a href="#情况4：函数用call或者apply或bind调用" class="headerlink" title="情况4：函数用call或者apply或bind调用"></a>情况4：函数用call或者apply或bind调用</h1><blockquote>
-<p>先简单说一下call和apply和bind如何使用</p>
-</blockquote>
-<h3 id="call-apply"><a href="#call-apply" class="headerlink" title="call(),apply()"></a>call(),apply()</h3><ul>
-<li>关于call和apply，首先这两个方法的用途都是在<code>特定的作用域中调用函数</code>，，都有两个参数call/apply(<code>作用域</code>，<code>传递给函数的参数</code>)</li>
-<li><p>它的作用是改变函数的调用对象，它的第一个参数就表示改变后的调用这个函数的对象。因此，<code>this指的就是这第一个参数</code>。 </p>
-<ul>
-<li>apply的用法和call大致相同，只有一点区别，apply只接受两个参数，第一个参数和call相同，第二个参数必须是一个数组，数组中的元素对应的就是函数的形参。<br>注意不同的是接受参数的方式不同，call()传递给函数的参数必须逐个列举出来，而apply()则是参数数组</li>
-</ul>
-</li>
-</ul>
-<h3 id="bind"><a href="#bind" class="headerlink" title="bind()"></a>bind()</h3><ul>
-<li>bind（）创造一个函数的实例，其this值会被绑定到传给bind（）函数的值。</li>
-</ul>
-<p>牢记：<strong>当一个函数被call或apply或bind调用时，this的值就取<code>传入的对象的值,即call（）或apply或bind（）括号里的对象</code>。</strong></p>
-<p>call实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">window.home=&quot;中国&quot;;</div><div class="line">window.age=&quot;5000+&quot;;</div><div class="line">var obj=&#123;</div><div class="line">	home:&quot;河南&quot;</div><div class="line">&#125;;</div><div class="line">var person=function()&#123;</div><div class="line">		console.log(this);  //Object &#123;home: &quot;河南&quot;&#125;</div><div class="line">		console.log(this.home);  //河南</div><div class="line">  &#125;</div><div class="line">person.call(obj);</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>还要注意：apply()的<code>参数</code>为空时，默认调用全局对象。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">　　var x = 0; </div><div class="line">　　function test()&#123; </div><div class="line">　　　　alert(this.x); </div><div class="line">　　&#125; </div><div class="line">　　var o=&#123;&#125;; </div><div class="line">　　o.x = 1; </div><div class="line">　　o.m = test; </div><div class="line">　　o.m.apply(); //0</div></pre></td></tr></table></figure>
-<p>bind()实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.color=&quot;red&quot;;</div><div class="line">var o=&#123;color:&quot;blue&quot;&#125;;</div><div class="line"></div><div class="line">function sayColor()&#123;</div><div class="line">	alert(this.color);</div><div class="line">&#125;</div><div class="line">var objectSayColor=sayColor.bind(o);</div><div class="line">objectSayColor();    //blue还是red</div></pre></td></tr></table></figure></p>
-<p>sayColor()调用bind（）并传入对象o。创建了objectSaycolor（）函数，objectSaycolor（）函数中的this的值等于o，因此，即使是在全局作用域中调用这个函数也会看到“blue”。</p>
-<h1 id="情况5：事件监听函数中的this-大家应该熟悉"><a href="#情况5：事件监听函数中的this-大家应该熟悉" class="headerlink" title="情况5：事件监听函数中的this(大家应该熟悉)"></a>情况5：事件监听函数中的this(大家应该熟悉)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var one = document.getElementByIdx( &apos;one&apos; );</div><div class="line"></div><div class="line">one.onclick = function()&#123;</div><div class="line"></div><div class="line">    alert( this.innerHTML );  //this指向的是one元素，</div></pre></td></tr></table></figure>
-<p>友情链接：<br>Javascript高级程序设计（第3版）-关于this对象-182页<br>JavaScript启示录-this部分<br><a href="http://www.cnblogs.com/wangfupeng1988/p/3988422.html" target="_blank" rel="external">博客-深入理解Js-this</a><br><a href="http://blog.csdn.net/dfyong/article/details/7313028" target="_blank" rel="external">博客-js中this</a><br><a href="http://www.imooc.com/video/6430" target="_blank" rel="external">慕课网Javascript深入浅出-this部分</a><br><a href="http://www.jb51.net/article/41656.htm" target="_blank" rel="external">博客-this关键字详解</a></p>
-<h1 id="Ending（欲知后事如何，且听下回分解）"><a href="#Ending（欲知后事如何，且听下回分解）" class="headerlink" title="Ending（欲知后事如何，且听下回分解）"></a>Ending（欲知后事如何，且听下回分解）</h1>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-8ba2cc3afcd51f17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="python setup.py install"><br>
+        
+          <a class="article-more-a" href="/2017/08/17/python35下的NLTK工具的安装和配置/#more">more >></a>
+        
       
 
       
@@ -254,7 +202,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -264,7 +212,330 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/18/JS-我待this如初见/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/17/python35下的NLTK工具的安装和配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Python安装与Eclipse环境配置（踩坑,看完这篇就够了）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/12/Python安装与Eclipse环境配置（踩坑,看完这篇就够了）/">Python安装与Eclipse环境配置（踩坑,看完这篇就够了）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/12/Python安装与Eclipse环境配置（踩坑,看完这篇就够了）/" class="archive-article-date">
+  	<time datetime="2017-08-12T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装python（配置环境变量）"><a href="#安装python（配置环境变量）" class="headerlink" title="安装python（配置环境变量）"></a>安装python（配置环境变量）</h3><p><a href="http://www.runoob.com/python/python-tutorial.html" target="_blank" rel="external">http://www.runoob.com/python/python-tutorial.html</a></p>
+<h3 id="配置Eclipse（路径）"><a href="#配置Eclipse（路径）" class="headerlink" title="配置Eclipse（路径）"></a>配置Eclipse（路径）</h3><p><a href="http://www.runoob.com/python/python-ide.html" target="_blank" rel="external">http://www.runoob.com/python/python-ide.html</a></p>
+<h3 id="配置PyDev"><a href="#配置PyDev" class="headerlink" title="配置PyDev"></a>配置PyDev</h3><ul>
+<li>点击help按钮–&gt;Install New Software</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-f1554c0413db063c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br>Name:取PyDev<br>Location：<a href="http://www.pydev.org/updates" target="_blank" rel="external">http://www.pydev.org/updates</a><br><img src="http://upload-images.jianshu.io/upload_images/4340772-1e188cb6b039d5e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br>进去之后只需选择第一个包，点击next，之后一直点击下一步即可（有任何弹框，选择accept）<br><img src="http://upload-images.jianshu.io/upload_images/4340772-ac84019523237109.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br>完成，点击Yes重新启动Eclipse<br><img src="http://upload-images.jianshu.io/upload_images/4340772-89470378e26cab82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br>
+        
+          <a class="article-more-a" href="/2017/08/12/Python安装与Eclipse环境配置（踩坑,看完这篇就够了）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/12/Python安装与Eclipse环境配置（踩坑,看完这篇就够了）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Windows环境下msysgit下安装gitflow步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/11/Windows环境下msysgit下安装gitflow步骤/">Windows环境下msysgit下安装gitflow步骤</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/11/Windows环境下msysgit下安装gitflow步骤/" class="archive-article-date">
+  	<time datetime="2017-08-11T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/4340772-18d99fc9b9ca9dad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gitflow"></p>
+<blockquote>
+<p>在网上，查了好多资料，不过网上说法有好多坑，所有自己特意写了一篇，以便看此博文的人少踩坑！！</p>
+<p>#一、Git相关配置（Windows）</p>
+<p>##1.安装git和git flow<br>Windows下git客户端：Git-1.9.2-preview20140411.exe<br>参考文档，来自github的gitflow的wiki，链接：<a href="https://github.com/nvie/gitflow/wiki/Windows" target="_blank" rel="external">https://github.com/nvie/gitflow/wiki/Windows</a>  这里只介绍msysgit环境下的gitflow安装。<br>首先需要下载两个文件：<code>getopt.exe</code>和<code>libintl3.dll</code><br>下载地址：（可以在浏览器下载就直接下载，如果不行（反正我是不行），复制网址到 迅雷直接下载）<br><a href="http://sourceforge.net/projects/gnuwin32/files/util-linux/2.14.1/util-linux-ng-2.14.1-bin.zip/download" target="_blank" rel="external">http://sourceforge.net/projects/gnuwin32/files/util-linux/2.14.1/util-linux-ng-2.14.1-bin.zip/download</a><br><a href="http://sourceforge.net/projects/gnuwin32/files/util-linux/2.14.1/util-linux-ng-2.14.1-dep.zip/download" target="_blank" rel="external">http://sourceforge.net/projects/gnuwin32/files/util-linux/2.14.1/util-linux-ng-2.14.1-dep.zip/download</a><br>
+        
+          <a class="article-more-a" href="/2017/08/11/Windows环境下msysgit下安装gitflow步骤/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/11/Windows环境下msysgit下安装gitflow步骤/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-域名解析后主机记录和记录值怎么填写？都是什么意思？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="gt-之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！"><a href="#gt-之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！" class="headerlink" title="&gt;之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！"></a>&gt;之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！</h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-6a5c1d2eee05d348.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加记录"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-20f7cdb784a973e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="记录类型"></p>
+<h3 id="主机记录："><a href="#主机记录：" class="headerlink" title="主机记录："></a>主机记录：</h3><p>主机记录就是域名前缀，常见用法有：</p>
+<ul>
+<li>www：解析后的域名为 www.1756260160.com</li>
+<li>@：直接解析主域名 1756260160.com</li>
+<li><p>：泛解析，匹配其他所有域名 *.1756260160.com</p>
+        
+          <a class="article-more-a" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-各种邮箱pop，SMTP设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/各种邮箱pop，SMTP设置/">各种邮箱pop，SMTP设置</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/各种邮箱pop，SMTP设置/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>看到很多用户在绑定邮箱时出现各种各样的问题，特将主流邮箱的配置问题汇总,供大家参考也供自己参考</p>
+</blockquote>
+<ul>
+<li>首先向大家简单介绍一下尚邮绑定邮箱的注意事项： 1、请先确认您的邮箱支持pop3<br>只要支持pop3或者imap4协议的公众邮箱和企业邮箱都可以使用尚邮。 目前大多数免费公众邮箱都支持pop功能，但是部分需要要手动开启（在本文的后面我们会针对几个常见的公众邮箱开通POP服务以及服务器配置方式进行介绍）。确认您的邮箱支持pop3或者imap4协议后您就可以绑定邮箱了
+        
+          <a class="article-more-a" href="/2017/07/31/各种邮箱pop，SMTP设置/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮箱</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/各种邮箱pop，SMTP设置/">展开全文 >></a>
         </p>
       
 
@@ -296,7 +567,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -408,6 +679,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">coursera</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
               </li>
             
             <div class="clearfix"></div>

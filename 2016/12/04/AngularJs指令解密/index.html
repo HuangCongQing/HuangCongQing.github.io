@@ -17,7 +17,7 @@
 <meta property="og:description" content="指令定义在《AngularJs权威教程》中，指令可以简单理解成特定的DOM元素上运行的函数；我认为还可以理解成将将自定义的HTML标签解析成原始的标签，然后为其加入一些扩展的功能（函数）.angularjs 提供了一个强大的扩展系统，通过指令机制，我们可以通过自定义指令来扩展自己的指令系统。 在AngularJS的核心里，指令可以绑定元素的属性（例如可见性，class列表，内部文本，内部HTML">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/836049/201512/836049-20151214203006584-600600936.png">
-<meta property="og:updated_time" content="2017-07-28T15:03:14.569Z">
+<meta property="og:updated_time" content="2018-03-11T16:46:31.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJs指令解密">
 <meta name="twitter:description" content="指令定义在《AngularJs权威教程》中，指令可以简单理解成特定的DOM元素上运行的函数；我认为还可以理解成将将自定义的HTML标签解析成原始的标签，然后为其加入一些扩展的功能（函数）.angularjs 提供了一个强大的扩展系统，通过指令机制，我们可以通过自定义指令来扩展自己的指令系统。 在AngularJS的核心里，指令可以绑定元素的属性（例如可见性，class列表，内部文本，内部HTML">
@@ -185,6 +185,7 @@
 <h3 id="指令定义"><a href="#指令定义" class="headerlink" title="指令定义"></a>指令定义</h3><p>在《AngularJs权威教程》中，指令可以简单理解成特定的DOM元素上运行的函数；我认为还可以理解成将将自定义的HTML标<strong>签解析成原始的标签</strong>，然后为其加入一些<strong>扩展的功能</strong>（函数）.<br>angularjs 提供了一个强大的扩展系统，通过指令机制，我们可以通过自定义指令来扩展自己的指令系统。</p>
 <p>在AngularJS的核心里，指令可以绑定元素的属性（例如<strong>可见性，class列表，内部文本，内部HTML或者值</strong>）到scope的属性或表达式。最值得注意的是，一旦监测到scope中的变化被标记，这些绑定就会被更新。反过来也是相似的，使用$observe函数能够监测DOM属性，当监测到属性变化时会触发一个回调。</p>
 <p>AngularJS应用的模块中有很多方法可以使用，其中<strong>directive()</strong>这个方法是用来定义指令的：<br>不急，首先要<strong>注意下指令的名字</strong>，先看个简单例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">angular</div><div class="line">  .module(&apos;myApp&apos;, [])</div><div class="line">  .directive(&apos;myDirective&apos;, myDirective);</div><div class="line"></div><div class="line">myDirective.$inject = [&apos;$timeout&apos;, &apos;UserDefinedService&apos;]</div><div class="line">function myDirective($timeout, UserDefinedService) &#123;</div><div class="line">  // 指令定义放在这里</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <blockquote>
 <p>尽管在上面的的代码片段中我们定义了一个命名为myDirective的指令,AngularJS约定在 HTML 标记里使用<strong>破折号的形式连接名字</strong>。如果这个指令作为一个属性实现，那么我在 HTML 中就会像这样调用：<code>&lt;span my-directive&gt;&lt;/span&gt;</code></p>
 </blockquote>
@@ -576,6 +577,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">coursera</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
               </li>
             
             <div class="clearfix"></div>

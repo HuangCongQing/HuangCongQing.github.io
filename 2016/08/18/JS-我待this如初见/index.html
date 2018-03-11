@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="黄重庆">
 <meta property="og:description" content="何为this？this是对象，是在运行时基于函数的执行环境(和对象有关)绑定的，首先，当代码没执行前，或没执行到之前，this 是没有指向的,所以切记：在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。this只要一出现，一定牵扯到函数和对象一般方法：首先分析this所在">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-07-28T15:03:14.572Z">
+<meta property="og:updated_time" content="2018-03-11T16:46:26.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-我待this如初见">
 <meta name="twitter:description" content="何为this？this是对象，是在运行时基于函数的执行环境(和对象有关)绑定的，首先，当代码没执行前，或没执行到之前，this 是没有指向的,所以切记：在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。this只要一出现，一定牵扯到函数和对象一般方法：首先分析this所在">
@@ -190,6 +190,7 @@
 <li>事件监听函数中的this</li>
 </ul>
 </blockquote>
+<a id="more"></a>
 <h1 id="情况1：全局-amp-调用普通函数"><a href="#情况1：全局-amp-调用普通函数" class="headerlink" title="情况1：全局 &amp; 调用普通函数"></a>情况1：全局 &amp; 调用普通函数</h1><p>在全局环境下，this永远是window，这个应该没有非议。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(this==window);//ture</div><div class="line">this.a=20;</div><div class="line">console.log(window.a);</div></pre></td></tr></table></figure></p>
 <p>普通函数在调用时，其中的this也都是window。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var home=&quot;中国&quot;;</div><div class="line">var person=function()&#123;</div><div class="line">		var home=&quot;河南&quot;</div><div class="line">		console.log(this);  //window</div><div class="line">		console.log(this.home);  //中国</div><div class="line">  &#125;</div><div class="line">person();</div></pre></td></tr></table></figure>
@@ -355,6 +356,11 @@
     </a>
   
   
+    <a href="/2016/06/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
 </nav>
 
 
@@ -494,6 +500,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">coursera</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
               </li>
             
             <div class="clearfix"></div>
