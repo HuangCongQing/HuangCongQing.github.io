@@ -159,33 +159,70 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-AngularJs指令解密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/04/AngularJs指令解密/">AngularJs指令解密</a>
+      <a class="article-title" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
     </h1>
   
 
         
-        <a href="/2016/12/04/AngularJs指令解密/" class="archive-article-date">
-  	<time datetime="2016-12-04T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-04</time>
+        <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h3 id="指令定义"><a href="#指令定义" class="headerlink" title="指令定义"></a>指令定义</h3><p>在《AngularJs权威教程》中，指令可以简单理解成特定的DOM元素上运行的函数；我认为还可以理解成将将自定义的HTML标<strong>签解析成原始的标签</strong>，然后为其加入一些<strong>扩展的功能</strong>（函数）.<br>angularjs 提供了一个强大的扩展系统，通过指令机制，我们可以通过自定义指令来扩展自己的指令系统。</p>
-<p>在AngularJS的核心里，指令可以绑定元素的属性（例如<strong>可见性，class列表，内部文本，内部HTML或者值</strong>）到scope的属性或表达式。最值得注意的是，一旦监测到scope中的变化被标记，这些绑定就会被更新。反过来也是相似的，使用$observe函数能够监测DOM属性，当监测到属性变化时会触发一个回调。</p>
-<p>AngularJS应用的模块中有很多方法可以使用，其中<strong>directive()</strong>这个方法是用来定义指令的：<br>不急，首先要<strong>注意下指令的名字</strong>，先看个简单例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">angular</div><div class="line">  .module(&apos;myApp&apos;, [])</div><div class="line">  .directive(&apos;myDirective&apos;, myDirective);</div><div class="line"></div><div class="line">myDirective.$inject = [&apos;$timeout&apos;, &apos;UserDefinedService&apos;]</div><div class="line">function myDirective($timeout, UserDefinedService) &#123;</div><div class="line">  // 指令定义放在这里</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2016/12/04/AngularJs指令解密/#more">more >></a>
-        
+        <p>我们每天使用互联网，你是否想过，它是如何实现的？</p>
+<p>全世界几十亿台电脑，连接在一起，两两通信。上海的某一块网卡送出信号，洛杉矶的另一块网卡居然就收到了，两者实际上根本不知道对方的物理位置，你不觉得这是很神奇的事情吗？</p>
+<p>互联网的核心是一系列协议，总称为”互联网协议”（Internet Protocol Suite）。它们对电脑如何连接和组网，做出了详尽的规定。理解了这些协议，就理解了互联网的原理。</p>
+<p>下面就是我的学习笔记。因为这些协议实在太复杂、太庞大，我想整理一个简洁的框架，帮助自己从总体上把握它们。为了保证简单易懂，我做了大量的简化，有些地方并不全面和精确，但是应该能够说清楚互联网的原理。</p>
+<hr>
+<p><strong>互联网协议入门</strong></p>
+<p><strong>一、概述</strong></p>
+<p><strong>1.1 五层模型</strong></p>
+<p>互联网的实现，分成好几层。每一层都有自己的功能，就像建筑物一样，每一层都靠下一层支持。<br>用户接触到的，只是最上面的一层，根本没有感觉到下面的层。要理解互联网，必须从最下层开始，自下而上理解每一层的功能。<br>如何分层有不同的模型，有的模型分七层，有的分四层。我觉得，把互联网分成五层，比较容易解释。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-08e67368a7c7977b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>如上图所示，最底下的一层叫做”实体层”（Physical Layer），最上面的一层叫做”应用层”（Application Layer），中间的三层（自下而上）分别是”链接层”（Link Layer）、”网络层”（Network Layer）和”传输层”（Transport Layer）。<strong>越下面的层，越靠近硬件；越上面的层，越靠近用户。</strong></p>
+<p>它们叫什么名字，其实并不重要。只需要知道，互联网分成若干层就可以了。</p>
+<p><strong>1.2 层与协议</strong></p>
+<p>每一层都是为了完成一种功能。为了实现这些功能，就需要大家都遵守共同的规则。</p>
+<p>大家都遵守的规则，就叫做<strong>“协议”（protocol）</strong>。</p>
+<p>互联网的每一层，都定义了很多协议。这些协议的总称，就叫做”互联网协议”（Internet Protocol Suite）。它们是互联网的核心，下面介绍每一层的功能，主要就是介绍每一层的主要协议。</p>
+<p><strong>二、实体层</strong></p>
+<p>我们从最底下的一层开始。<br>电脑要组网，第一件事要干什么？当然是先把电脑连起来，可以用光缆、电缆、双绞线、无线电波等方式。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-fb436e5c5e7af8b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="实体层链接"></p>
+<p><strong>这就叫做”实体层”，它就是把电脑连接起来的物理手段。它主要规定了网络的一些电气特性，作用是负责传送0和1的电信号。</strong></p>
+<p><strong>三、链接层</strong>（以太网协议，MAC地址，广播）</p>
+<p><strong>3.1 定义</strong></p>
+<p>单纯的0和1没有任何意义，必须规定解读方式：多少个电信号算一组？每个信号位有何意义？<br><strong>这就是”链接层”的功能，它在”实体层”的上方，确定了0和1的分组方式。</strong></p>
+<p><strong>3.2 以太网协议</strong></p>
+<p>早期的时候，每家公司都有自己的电信号分组方式。逐渐地，一种叫做<a href="http://zh.wikipedia.org/wiki/%E4%BB%A5%E5%A4%AA%E7%BD%91" target="_blank" rel="external">“以太网”</a>（Ethernet）的协议，占据了主导地位。<br>以太网规定，一组电信号构成一个数据包，叫做”帧”（Frame）。<strong>每一帧分成两个部分：标头（Head）和数据（Data）。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-22c8eace9e69e102.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标头和数据"></p>
+<p><strong>“标头”</strong>包含数据包的一些说明项，比如发送者、接受者、数据类型等等；”数据”则是数据包的具体内容。<br>“标头”的长度，固定为18字节。<strong>“数据”</strong>的长度，最短为46字节，最长为1500字节。因此，整个”帧”最短为64字节，最长为1518字节。如果数据很长，就必须分割成多个帧进行发送。</p>
+<p><strong>3.3 MAC地址</strong></p>
+<p>上面提到，以太网数据包的”标头”，包含了发送者和接受者的信息。那么，发送者和接受者是如何标识呢？<br>以太网规定，连入网络的所有设备，都必须具有”网卡”接口。数据包必须是从一块网卡，传送到另一块网卡。<strong>网卡的地址，就是数据包的发送地址和接收地址，这叫做MAC地址。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-62a7998713878c16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="网卡"></p>
+<p>每块网卡出厂的时候，都有一个全世界独一无二的MAC地址，长度是48个二进制位，通常用12个十六进制数表示。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-190d2aa396ab15fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Mac Address"></p>
+<p>前6个十六进制数是厂商编号，后6个是该厂商的网卡流水号。<strong>有了MAC地址，就可以定位网卡和数据包的路径了。</strong></p>
+<p><strong>3.4 广播</strong></p>
+<p>定义地址只是第一步，后面还有更多的步骤。<br>首先，一块网卡怎么会知道另一块网卡的MAC地址？</p>
+<p>回答是有一种<strong>ARP协议</strong>，可以解决这个问题。这个留到后面介绍，这里只需要知道，以太网数据包必须知道接收方的MAC地址，然后才能发送。</p>
+<p>其次，就算有了MAC地址，系统怎样才能把数据包准确送到接收方？</p>
+<p><strong>回答是以太网采用了一种很”原始”的方式，它不是把数据包准确送到接收方，而是向本网络内所有计算机发送，让每台计算机自己判断，是否为接收方。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-e5ab0c9a3148b563.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>上图中，1号计算机向2号计算机发送一个数据包，同一个子网络的3号、4号、5号计算机都会收到这个包。它们读取这个包的”标头”，找到接收方的MAC地址，然后与自身的MAC地址相比较，如果两者相同，就接受这个包，做进一步处理，否则就丢弃这个包。这种发送方式就叫做<strong>“广播”（broadcasting）</strong>。</p>
+<p>有了<strong>数据包的定义、网卡的MAC地址、广播的发送方式</strong>，”链接层”就可以在多台计算机之间传送数据了。<br>。。。</p>
+<p>接下来是<strong>网络层，传输层和应用层</strong>，由于简书篇幅有限制，只能分为两篇文章来写了，不好意思哈！<br>下篇链接：<a href="http://www.jianshu.com/p/240577c76625" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】</a></p>
+<p>参考链接：<a href="http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html" target="_blank" rel="external">互联网协议入门（一）-阮一峰</a></p>
+<hr>
+<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+
       
 
       
@@ -198,7 +235,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AngularJs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
         		</li>
       		
 		</ul>
@@ -208,7 +245,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/04/AngularJs指令解密/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/">展开全文 >></a>
         </p>
       
 
@@ -238,135 +275,35 @@
 
 
   
-    <article id="post-AngularJs浅谈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-域名解析后主机记录和记录值怎么填写？都是什么意思？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/28/AngularJs浅谈/">AngularJS浅谈-博客</a>
+      <a class="article-title" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
     </h1>
   
 
         
-        <a href="/2016/11/28/AngularJs浅谈/" class="archive-article-date">
-  	<time datetime="2016-11-28T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-28</time>
+        <a href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p><img src="http://ojmcn9nlw.qnssl.com/blog/20170112/160435655.jpg" alt="AngularJs图片"></p>
-<h3 id="AngularJS是啥？（一脸懵逼）"><a href="#AngularJS是啥？（一脸懵逼）" class="headerlink" title="AngularJS是啥？（一脸懵逼）"></a>AngularJS是啥？（一脸懵逼）</h3><h4 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h4><blockquote>
-<p>AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购。是一款优秀的前端JS框架，已经被用于Google的多款产品当中。AngularJS有着诸多特性，最为核心的是：<strong>MVC、模块化、自动化双向数据绑定、语义化标签、依赖注入</strong>等等。</p>
-<h4 id="具体点说："><a href="#具体点说：" class="headerlink" title="具体点说："></a>具体点说：</h4><ol>
-<li>AngularJS 是一个 JavaScript 框架<ul>
-<li>AngularJS 是以一个 JavaScript 文件形式发布的，<strong>可通过 script 标签</strong>添加到网页中：<br><code>&lt;script src=&quot;../libs/angular.js/1.4.6/angular.min.js&quot;&gt;&lt;/script&gt;</code><ol>
-<li>AngularJS 扩展了 HTML<blockquote>
-<p>AngularJS 通过 ng-directives 扩展了 HTML。<br><strong>ng-app</strong> 指令定义一个 AngularJS 应用程序。<br><strong>ng-model</strong> 指令把元素值（比如输入域的值）绑定到应用程序。<br><strong>ng-bind</strong> 指令把应用程序数据绑定到 HTML 视图。<br><strong>ng-init</strong> 指令初始化 AngularJS 应用程序变量</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<h4 id="那么，重点来了，AngularJs可以干啥啊？"><a href="#那么，重点来了，AngularJs可以干啥啊？" class="headerlink" title="那么，重点来了，AngularJs可以干啥啊？"></a>那么，重点来了，AngularJs可以干啥啊？</h4><p>AngularJS 使得开发现代的<strong>单一页面应用程序</strong>（SPAs：Single Page Applications）变得更加容易。</p>
-<blockquote>
-<blockquote>
-<p>AngularJS 把应用程序数据绑定到 HTML 元素。<br>AngularJS 可以克隆和重复 HTML 元素。<br>AngularJS 可以隐藏和显示 HTML 元素。<br>AngularJS 可以在 HTML 元素”背后”添加代码。<br>AngularJS 支持输入验证。<br>
-        
-          <a class="article-more-a" href="/2016/11/28/AngularJs浅谈/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AngularJs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/28/AngularJs浅谈/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JS-我待this如初见" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/18/JS-我待this如初见/">JS-我待this如初见</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/18/JS-我待this如初见/" class="archive-article-date">
-  	<time datetime="2016-08-18T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="何为this？"><a href="#何为this？" class="headerlink" title="何为this？"></a>何为this？</h1><p>this是对象，是在运行时基于<code>函数</code>的<code>执行环境</code>(和对象有关)绑定的，首先，当代码没执行前，或没执行到之前，this 是没有指向的,所以<br>切记：<code>在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了</code>。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。<br><code>this只要一出现，一定牵扯到函数和对象</code><br>一般方法：<code>首先分析this所在的函数是被当做哪个对象的方法调用的，则该对象就是this所引用的对象。</code></p>
-<p>其实，this的取值，分五种情况。我们来挨个看一下。</p>
-<blockquote>
+        <h2 id="gt-之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！"><a href="#gt-之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！" class="headerlink" title="&gt;之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！"></a>&gt;之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！</h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-6a5c1d2eee05d348.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加记录"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-20f7cdb784a973e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="记录类型"></p>
+<h3 id="主机记录："><a href="#主机记录：" class="headerlink" title="主机记录："></a>主机记录：</h3><p>主机记录就是域名前缀，常见用法有：</p>
 <ul>
-<li>全局和调用普通函数</li>
-<li>构造函数</li>
-<li>函数作为对象的一个属性</li>
-<li>函数用call或apply或bind</li>
-<li>事件监听函数中的this</li>
-</ul>
-</blockquote>
+<li>www：解析后的域名为 www.1756260160.com</li>
+<li>@：直接解析主域名 1756260160.com</li>
+<li><p>：泛解析，匹配其他所有域名 *.1756260160.com</p>
         
-          <a class="article-more-a" href="/2016/08/18/JS-我待this如初见/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/#more">more >></a>
         
       
 
@@ -380,7 +317,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
         		</li>
       		
 		</ul>
@@ -390,7 +327,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/18/JS-我待this如初见/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/">展开全文 >></a>
         </p>
       
 
@@ -420,31 +357,33 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-各种邮箱pop，SMTP设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/06/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/07/31/各种邮箱pop，SMTP设置/">各种邮箱pop，SMTP设置</a>
     </h1>
   
 
         
-        <a href="/2016/06/06/hello-world/" class="archive-article-date">
-  	<time datetime="2016-06-06T08:05:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-06</time>
+        <a href="/2017/07/31/各种邮箱pop，SMTP设置/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a><br>
+        <blockquote>
+<p>看到很多用户在绑定邮箱时出现各种各样的问题，特将主流邮箱的配置问题汇总,供大家参考也供自己参考</p>
+</blockquote>
+<ul>
+<li>首先向大家简单介绍一下尚邮绑定邮箱的注意事项： 1、请先确认您的邮箱支持pop3<br>只要支持pop3或者imap4协议的公众邮箱和企业邮箱都可以使用尚邮。 目前大多数免费公众邮箱都支持pop功能，但是部分需要要手动开启（在本文的后面我们会针对几个常见的公众邮箱开通POP服务以及服务器配置方式进行介绍）。确认您的邮箱支持pop3或者imap4协议后您就可以绑定邮箱了
         
-          <a class="article-more-a" href="/2016/06/06/hello-world/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/31/各种邮箱pop，SMTP设置/#more">more >></a>
         
       
 
@@ -458,7 +397,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮箱</a>
         		</li>
       		
 		</ul>
@@ -468,7 +407,207 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/06/06/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/各种邮箱pop，SMTP设置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python35安装的各种工具和库（不是模块）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/python35安装的各种工具和库（不是模块）/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/python35安装的各种工具和库（不是模块）/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>2017/10/25</p>
+<h3 id="ImportError-No-module-named-‘h5py’"><a href="#ImportError-No-module-named-‘h5py’" class="headerlink" title="ImportError: No module named ‘h5py’"></a>ImportError: No module named ‘h5py’</h3><ul>
+<li>h5py文件是存放两类对象的容器，数据集(dataset)和组(group)</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-357ad3e8d09c9b48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip3 install h5py"></p>
+<h3 id="ImportError-No-module-named-‘tf-utils’"><a href="#ImportError-No-module-named-‘tf-utils’" class="headerlink" title="ImportError: No module named ‘tf_utils’"></a>ImportError: No module named ‘tf_utils’</h3><p>无此模块，待定</p>
+<h3 id="ImportError-No-module-named-‘Chromosome’"><a href="#ImportError-No-module-named-‘Chromosome’" class="headerlink" title="ImportError: No module named ‘Chromosome’"></a>ImportError: No module named ‘Chromosome’</h3><p>2017/10/13</p>
+<ul>
+<li>pip install matplotlib(出现问题)</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-467dab3631c6c506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>解决方案：<br>安装包的链接<a href="https://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.5.2/" target="_blank" rel="external">https://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.5.2/</a><br>matplotlib-1.5.0-cp35-none-win_amd64.whl</p>
+<p>将下载的numpy包拷贝到D:\路径\Python35\Scripts下（不知道怎么回事只有在这个目录下 pip安装命令才好使） </p>
+<ul>
+<li>pip install “[numpy包名称]” <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C:\Users\hasee\AppData\Local\Programs\Python\Python35\Scripts&gt;pip install &quot;matpl</div><div class="line">otlib-1.5.0-cp35-none-win_amd64.whl&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：</p>
+<h2 id="①-numpy包名称要加英文双引号。"><a href="#①-numpy包名称要加英文双引号。" class="headerlink" title="① numpy包名称要加英文双引号。"></a>① numpy包名称要加英文双引号。</h2><h2 id="②-下载的-numpy-包要拷贝到Python安装目录下的scripts文件夹下，如D-路径-Python35-Scripts下，因为只有在这个目录下-pip安装命令才好使。"><a href="#②-下载的-numpy-包要拷贝到Python安装目录下的scripts文件夹下，如D-路径-Python35-Scripts下，因为只有在这个目录下-pip安装命令才好使。" class="headerlink" title="② 下载的 numpy 包要拷贝到Python安装目录下的scripts文件夹下，如D:\路径\Python35\Scripts下，因为只有在这个目录下 pip安装命令才好使。"></a>② 下载的 numpy 包要拷贝到Python安装目录下的scripts文件夹下，如D:\路径\Python35\Scripts下，因为只有在这个目录下 pip安装命令才好使。</h2><h2 id="这样就成功了"><a href="#这样就成功了" class="headerlink" title="这样就成功了"></a>这样就成功了</h2><blockquote>
+<p>pip install -U scikit-learn中-U是？？？<br>pip install -h 就有说明了，就是 –upgrade，意思是如果已安装就升级到最新版。</p>
+</blockquote>
+<p><a href="http://lib.csdn.net/base/python" target="_blank" rel="external">Python</a>是最为流行的，原因可能和它的快捷有关，而<a href="http://lib.csdn.net/base/python" target="_blank" rel="external">python</a>常用的数值计算，特别是和矩阵操作、优化等有关的数值计算可以用numpy、scipy、theano等包实现。一个简单的在<a href="http://lib.csdn.net/base/linux" target="_blank" rel="external">Linux</a>下安装这些包的方法就是安装Anaconda了。<br><a href="http://www.afox.cc/archives/390" target="_blank" rel="external">使用方法</a></p>
+<ul>
+<li>selenium</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5c8ed11776b196e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>pip install jupyter<br><img src="http://upload-images.jianshu.io/upload_images/4340772-800c8887c1d9a6a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></li>
+</ul>
+<p>安装完成后，默认安装在pythonXX/scripts</p>
+<p>我的安装在<code>C:\Users\hasee\AppData\Local\Programs\Python\Python35\Scripts</code></p>
+<p><a href="http://blog.csdn.net/lee_j_r/article/details/52791228" target="_blank" rel="external">使用方法</a></p>
+<ul>
+<li><p>pip install pandas<br>安装完成后<br><img src="http://upload-images.jianshu.io/upload_images/4340772-73828fcbff8090c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br><a href="https://www.zhihu.com/question/47003185" target="_blank" rel="external">如何优雅的安装Python的pandas?</a></p>
+</li>
+<li><p>scikit-learn</p>
+</li>
+</ul>
+<p>如果已经安装好numpy和scipy，最便捷的安装scikit-learn的方式就是通过pip:<br>[站外图片上传中……(3)]</p>
+<ul>
+<li><p>scipy<br><img src="http://upload-images.jianshu.io/upload_images/4340772-050c8526de91c57c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+</li>
+<li><p>PyQuery<br><img src="http://upload-images.jianshu.io/upload_images/4340772-7e20fe1969e67748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+</li>
+<li><p>pip install config<br><img src="http://upload-images.jianshu.io/upload_images/4340772-5ff2506fdb8e843c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip install config"></p>
+</li>
+<li><p>pip install pymongo</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-668b3748ab4447f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/python35安装的各种工具和库（不是模块）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="4-1-多维特征（Multiple-Features）"><a href="#4-1-多维特征（Multiple-Features）" class="headerlink" title="4.1 多维特征（Multiple Features）"></a>4.1 多维特征（Multiple Features）</h3><p>目前为止，我们探讨了单变量/特征的回归模型，现在我们对房价模型增加更多的特征，<br>例如房间数楼层等，构成一个含有多个变量的模型，模型中的特征为（x1,x2,…,xn）。</p>
+        
+          <a class="article-more-a" href="/2017/07/31/4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/4吴恩达Meachine-Learing之多变量线性回归(Linear-Regression-with-Multiple-Variables/">展开全文 >></a>
         </p>
       
 
@@ -500,7 +639,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -652,6 +791,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">域名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
             
             <div class="clearfix"></div>
