@@ -159,19 +159,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-基于python3连接mysql，实现一个银行转账的小功能（shell中执行）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+      <a class="article-title" href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/" class="archive-article-date">
+        <a href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -179,44 +179,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/4340772-6d5a90dce8026e93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="线性代数，不知多少人对这本书很是熟悉，哈哈"></p>
-<blockquote>
-<p>本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！</p>
-</blockquote>
-<p>##3.1 矩阵和向量</p>
-<p>如图 ：这个 ：这个 是 4×2矩阵 ，即 4行 2列，如 m为行， 为行， n为列，那么 为列，那么 为列，那么 m×n即 4×2<br><img src="http://upload-images.jianshu.io/upload_images/4340772-a79ea1ad00485b33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="矩阵"></p>
-<p>矩阵的维数即行数×列数<br>矩阵元素（矩阵项）：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-e128b7ca2d813c65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-39101576361f3b2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-eb3ebb52f902774e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>##3.2 加法 和标量乘加法<br>矩阵的加法：行列数相等的可以加。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-68af41b4e3cc49d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>矩阵的乘法：每个元素都要乘</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-1b30e64eb93e27a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>组合算法也类似。</p>
-<h2 id="3-3-矩阵向量乘法"><a href="#3-3-矩阵向量乘法" class="headerlink" title="3.3 矩阵向量乘法"></a>3.3 矩阵向量乘法</h2><p>矩阵和向量的乘法如图：m×n 的矩阵乘以 n×1 的向量，得到的是 m×1 的向量</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-8818792dcab96753.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>算法 举例： </p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-57439f777b7d06b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2 id="3-4-矩阵乘法"><a href="#3-4-矩阵乘法" class="headerlink" title="3.4 矩阵乘法"></a>3.4 矩阵乘法</h2><p>矩阵乘法：<br>m×n 矩阵乘以 n×o 矩阵，变成 m×o 矩阵。<br>如果这样说不好理解的话就举一个例子来说明一下，比如说现在有两个矩阵 A 和 B，那<br>么它们的乘积就可以表示为图中所示的形式。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-770440c37042c866.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2 id="3-5-矩阵乘法的性质"><a href="#3-5-矩阵乘法的性质" class="headerlink" title="3.5 矩阵乘法的性质"></a>3.5 矩阵乘法的性质</h2><p>矩阵乘法的性质：</p>
+        <p>基于python3连接mysql，实现一个银行转账的小功能（shell中执行）</p>
+<p>准备工作：首先我创建了</p>
 <ul>
-<li>矩阵的乘法不满足交换律：A×B≠B×A</li>
-<li>矩阵的乘法满足结合律。即：A×（B×C）=（A×B）×C</li>
-<li>单位矩阵：在矩阵的乘法中，有一种矩阵起着特殊的作用，如同数的乘法中的 1,我们称<br>这种矩阵为单位矩阵．它是个方阵，一般用 I 或者 E 表示，本讲义都用 I 代表单位矩阵，从<br>左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0。如：</li>
+<li>imooc的数据库</li>
+<li>名字为account的表</li>
+<li><p>表里面键值（acctid,money）</p>
+</li>
+<li><p>下面是代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"># @Author: hasee</div><div class="line"># @Date:   2017-11-02 21:30:11</div><div class="line"># @Last Modified by:   重庆</div><div class="line"># @Last Modified time: 2017-11-02 21:30:43</div><div class="line">#coding=utf-8</div><div class="line">import pymysql </div><div class="line">import sys </div><div class="line">class TransferMoney: </div><div class="line">    def __init__(self,conn): </div><div class="line">        self.conn = conn </div><div class="line">    def check_acct_available(self, acctid): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;select * from account where acctid= %s &quot; % acctid </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;check_acct_available:&quot; + sql) </div><div class="line">            rs = cursor.fetchall() </div><div class="line">            if len(rs) != 1: </div><div class="line">                raise Exception(&quot;账号%s 不存在&quot; % acctid) </div><div class="line">        finally:</div><div class="line">            cursor.close() </div><div class="line">                </div><div class="line">    def has_enough_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;select * from account where acctid=%s and money&gt;=%s&quot; % (acctid,money) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;has_enough_money:&quot; + sql) </div><div class="line">            rs = cursor.fetchall() </div><div class="line">            if len(rs) != 1: </div><div class="line">                raise Exception(&quot;账号%s余额不足 is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def reduce_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;update account set money= money-%s WHERE acctid=%s &quot; % (money,acctid) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print (&quot;reduce_money:&quot; + sql) </div><div class="line">            rs = cursor.rowcount </div><div class="line">            if rs != 1: </div><div class="line">                raise Exception(&quot;账号%s付款失败Eend is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def add_money(self, acctid, money): </div><div class="line">        try: </div><div class="line">            cursor = self.conn.cursor() </div><div class="line">            sql = &quot;update account set money= money+%s WHERE acctid=%s &quot; % (money,acctid) </div><div class="line">            cursor.execute(sql) </div><div class="line">            print(&quot;add_money:&quot; + sql) </div><div class="line">            rs = cursor.rowcount </div><div class="line">            if rs != 1: </div><div class="line">                raise Exception(&quot;账号%s收款失败(Payment failure)get is not enough&quot; % acctid) </div><div class="line">        finally: </div><div class="line">            cursor.close() </div><div class="line">    def transfer(self, source_acctid, target_acctid, money): </div><div class="line">        try: </div><div class="line">            self.check_acct_available(source_acctid) </div><div class="line">            self.check_acct_available(target_acctid) </div><div class="line">            self.has_enough_money(source_acctid,money) </div><div class="line">            self.reduce_money(source_acctid,money) </div><div class="line">            self.add_money(target_acctid,money) </div><div class="line">            self.conn.commit() </div><div class="line">        except Exception as e: </div><div class="line">            self.conn.rollback() </div><div class="line">            raise e </div><div class="line">if __name__==&quot;__main__&quot;: </div><div class="line">    ## print(&quot;sys.argv[1:]:&quot;,sys.argv[1:])</div><div class="line">    source_acctid = sys.argv[1] # 汇款发送账户</div><div class="line">    target_acctid = sys.argv[2] # 收款账户</div><div class="line">    money = sys.argv[3] </div><div class="line">    conn = pymysql.connect( </div><div class="line">        host = &apos;127.0.0.1&apos;, </div><div class="line">        port = 3306, </div><div class="line">        user = &apos;root&apos;, </div><div class="line">        passwd = &apos;123456&apos;, </div><div class="line">        db = &apos;imooc&apos;, </div><div class="line">        charset = &apos;utf8&apos; ) </div><div class="line">    tr_money = TransferMoney(conn) </div><div class="line">    try: </div><div class="line">        tr_money.transfer(source_acctid,target_acctid,money) </div><div class="line">    except Exception as e: </div><div class="line">        print(&quot;出现问题(There is a problem)：&quot; + str(e)) </div><div class="line">    finally: </div><div class="line">        conn.close()</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-dac241cf3d2e2173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ul>
-<li>对于单位矩阵，有 AI=IA=A<h2 id="3-6-逆、转置"><a href="#3-6-逆、转置" class="headerlink" title="3.6 逆、转置"></a>3.6 逆、转置</h2><strong>矩阵的逆</strong>：如矩阵 A 是一个 m×m 矩阵（方阵），如果有逆矩阵，则：</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-9bfa5e1ba265fd0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>我们一般在 OCTAVE 或者 MATLAB 中进行计算矩阵的逆矩阵。<br><strong>矩阵的转置</strong>：设 A 为 m×n 阶矩阵（即 m 行 n 列），第 i 行 j 列的元素是 a(i,j)，即：<br>A=a(i,j)<br>定义 A 的转置为这样一个 n×m 阶矩阵 B，满足 B=a(j,i)，即 b (i,j)=a (j,i)（B 的第 i 行第<br>j 列元素是 A 的第 j 行第 i 列元素），记 A<br>T=B。(有些书记为 A’=B）<br>直观来看，将 A 的所有元素绕着一条从第 1 行第 1 列元素出发的右下方 45 度的射线作<br>镜面反转，即得到 A 的转置。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-6496da9c345b3a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ul>
-<li>矩阵的转置基本性质:</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-cf8b4a015a9fcced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>matlab 中矩阵转置：<br>直接打一撇，x=y’。</p>
-<hr>
-<p>课程代码：<a href="https://github.com/HuangCongQing/MachineLearning_Ng" target="_blank" rel="external">https://github.com/HuangCongQing/MachineLearning_Ng</a><br>本文参考自-黄海广博士 斯坦福大学 2014机器学习教程中文 笔记<br>链接：<a href="http://pan.baidu.com/s/1dF2asvf#1ewf" target="_blank" rel="external">http://pan.baidu.com/s/1dF2asvf</a> 密码：1ewf</p>
-<p>分享吴恩达机器学习视频 下载 链接：<br>链接： <a href="http://pan.baidu.com/s/1pKLATJl" target="_blank" rel="external">http://pan.baidu.com/s/1pKLATJl</a> 密码： xn4w</p>
+<p>注意此代码只能在shell命令行中运行，否则会报类似如下错误：<br><code>sys.argv[3] IndexError: list index out of range</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-bca9a728af8d951a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IndexError"></p>
+<p>原因是：需要在命令行输入参数，否则，就会报错</p>
+<h3 id="下面是运行结果（账户1转给账户2一共3元钱）"><a href="#下面是运行结果（账户1转给账户2一共3元钱）" class="headerlink" title="下面是运行结果（账户1转给账户2一共3元钱）"></a>下面是运行结果（账户1转给账户2一共3元钱）</h3><p>在XXX.py(mysqlAccount.py)文件目录下运行</p>
+<p><code>python mysqlAccount.py 1 2 3</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-70e28e22d882dde6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转账前"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-11280a0ef7fadd9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/4340772-b1230c98772886f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转账后"></p>
 <hr>
 <p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
 
@@ -242,7 +222,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/基于python3连接mysql，实现一个银行转账的小功能（shell中执行）/">展开全文 >></a>
         </p>
       
 
@@ -272,19 +252,19 @@
 
 
   
-    <article id="post-1吴恩达Meachine-Learing之监督学习和非监督学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+      <a class="article-title" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/" class="archive-article-date">
+        <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -292,37 +272,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="监督学习（Supervised-Learning）"><a href="#监督学习（Supervised-Learning）" class="headerlink" title="监督学习（Supervised Learning）"></a>监督学习（Supervised Learning）</h2><p>介绍监督学习。 其基本思想是，监督学习中，对于数据集中的每个数据， 都有相应的正确答案，（训练集） 算法就是基于这些来做出预测。</p>
-<p>受监督的学习问题分为<strong>“回归”和“分类”</strong>问题。</p>
-<ul>
-<li>回归（连续）</li>
-<li>分类（离散）</li>
-</ul>
-<p>在回归问题中，我们试图在连续输出中预测结果，这意味着我们正在尝试将输入变量映射到一些连续函数。<br>在分类问题中，我们试图用离散输出来预测结果。换句话说，我们正在尝试将输入变量映射到离散类别。</p>
-<ul>
-<li>后面介绍了回归问题。 即通过回归来预测一个连续值输出。 </li>
-<li>我们还谈到了分类问题， 目标是预测离散值输出。</li>
-</ul>
-<p>示例2：</p>
-<p>（a）<strong>回归</strong> - 鉴于一个人的照片，我们必须根据给定的图片来<strong>预测</strong>他们的年龄</p>
-<p>（b）<strong>分类</strong> - 鉴于肿瘤患者，我们必须预测肿瘤是恶性还是良性（<strong>非黑即白//0|1</strong>）。</p>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
-<li>在一些学习问题中，不希望只用3,5种特征，相反，想用无限多种特征，好让算法利用大量的特征来做推测。那你怎么处理无限特征，甚至怎么存储这些特征都存在问题，你的电脑内存肯定不够用。<strong>以后会讲一个算法，叫支持向量机，里面有一个巧妙的数学技巧，能让计算机处理无限多个特征</strong></li>
-</ul>
-<h2 id="非监督学习（Unsupervised-Learning）"><a href="#非监督学习（Unsupervised-Learning）" class="headerlink" title="非监督学习（Unsupervised Learning）"></a>非监督学习（Unsupervised Learning）</h2><blockquote>
-<p>无监督学习使我们能够<strong>很少或不知道我们的结果</strong>应该如何处理问题。<br>我们可以从数据导出结构，我们不一定知道变量的影响。</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-c0c1e1acd3a9ba62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有无标签"></p>
-<p>在上一节中 我们已经讲过了监督学习 回想起上次的数据集 每个样本 都已经被标明为 正样本或者负样本 即良性或恶性肿瘤 。因此 对于监督学习中的每一个样本 我们已经被清楚地告知了 什么是所谓的正确答案 即它们是良性还是恶性 。<br><strong>在无监督学习中 我们用的数据会和监督学习里的看起来有些不一样在无监督学习中没有“属性或标签这一概念” 也就是说所有的数据 都是一样的 没有区别</strong></p>
-<p><strong>我们可以通过基于数据中的变量之间的关系对数据进行聚类来导出该结构。</strong></p>
-<p> <strong>无监督学习算法 ，针对数据集，自动的找出数据中的结构，会把这些数据分成两个不同的簇，所以叫做聚类算法</strong></p>
-<p>无监督学习或聚类算法在其他领域也有着大量的应用 ，例如谷歌新闻每天手机非常多的新闻内容，然后把同一主题的放在一起</p>
-<p><strong>例：</strong><br>聚类：收集100万个不同的基因，并找到一种自动将这些基因组合成不同变量（如寿命，位置，作用等）相似或相关的组。</p>
-<p>其实聚类只是无监督学习的一种，还有一种非聚类算法</p>
-<p>非聚类：“鸡尾酒会算法”，让您在混乱的环境中找到结构。<br>（即从<a href="https://en.wikipedia.org/wiki/Cocktail_party_effect" target="_blank" rel="external">鸡尾酒会</a>的声音网格中识别个人的声音和音乐）。</p>
-<h2 id="以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！"><a href="#以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！" class="headerlink" title="以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！"></a>以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！</h2><p>课程代码：<a href="https://github.com/HuangCongQing/MachineLearning_Ng" target="_blank" rel="external">https://github.com/HuangCongQing/MachineLearning_Ng</a><br>本文参考自-黄海广博士 斯坦福大学 2014机器学习教程中文 笔记<br>链接：<a href="http://pan.baidu.com/s/1dF2asvf#1ewf" target="_blank" rel="external">http://pan.baidu.com/s/1dF2asvf</a> 密码：1ewf</p>
-<p>分享吴恩达机器学习视频 下载 链接： </p>
-<h2 id="链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w"><a href="#链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w" class="headerlink" title="链接： http://pan.baidu.com/s/1pKLATJl 密码： xn4w"></a>链接： <a href="http://pan.baidu.com/s/1pKLATJl" target="_blank" rel="external">http://pan.baidu.com/s/1pKLATJl</a> 密码： xn4w</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+        <p>我们每天使用互联网，你是否想过，它是如何实现的？</p>
+<p>全世界几十亿台电脑，连接在一起，两两通信。上海的某一块网卡送出信号，洛杉矶的另一块网卡居然就收到了，两者实际上根本不知道对方的物理位置，你不觉得这是很神奇的事情吗？</p>
+<p>互联网的核心是一系列协议，总称为”互联网协议”（Internet Protocol Suite）。它们对电脑如何连接和组网，做出了详尽的规定。理解了这些协议，就理解了互联网的原理。</p>
+<p>下面就是我的学习笔记。因为这些协议实在太复杂、太庞大，我想整理一个简洁的框架，帮助自己从总体上把握它们。为了保证简单易懂，我做了大量的简化，有些地方并不全面和精确，但是应该能够说清楚互联网的原理。</p>
+<hr>
+<p><strong>互联网协议入门</strong></p>
+<p><strong>一、概述</strong></p>
+<p><strong>1.1 五层模型</strong></p>
+<p>互联网的实现，分成好几层。每一层都有自己的功能，就像建筑物一样，每一层都靠下一层支持。<br>用户接触到的，只是最上面的一层，根本没有感觉到下面的层。要理解互联网，必须从最下层开始，自下而上理解每一层的功能。<br>如何分层有不同的模型，有的模型分七层，有的分四层。我觉得，把互联网分成五层，比较容易解释。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-08e67368a7c7977b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>如上图所示，最底下的一层叫做”实体层”（Physical Layer），最上面的一层叫做”应用层”（Application Layer），中间的三层（自下而上）分别是”链接层”（Link Layer）、”网络层”（Network Layer）和”传输层”（Transport Layer）。<strong>越下面的层，越靠近硬件；越上面的层，越靠近用户。</strong></p>
+<p>它们叫什么名字，其实并不重要。只需要知道，互联网分成若干层就可以了。</p>
+<p><strong>1.2 层与协议</strong></p>
+<p>每一层都是为了完成一种功能。为了实现这些功能，就需要大家都遵守共同的规则。</p>
+<p>大家都遵守的规则，就叫做<strong>“协议”（protocol）</strong>。</p>
+<p>互联网的每一层，都定义了很多协议。这些协议的总称，就叫做”互联网协议”（Internet Protocol Suite）。它们是互联网的核心，下面介绍每一层的功能，主要就是介绍每一层的主要协议。</p>
+<p><strong>二、实体层</strong></p>
+<p>我们从最底下的一层开始。<br>电脑要组网，第一件事要干什么？当然是先把电脑连起来，可以用光缆、电缆、双绞线、无线电波等方式。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-fb436e5c5e7af8b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="实体层链接"></p>
+<p><strong>这就叫做”实体层”，它就是把电脑连接起来的物理手段。它主要规定了网络的一些电气特性，作用是负责传送0和1的电信号。</strong></p>
+<p><strong>三、链接层</strong>（以太网协议，MAC地址，广播）</p>
+<p><strong>3.1 定义</strong></p>
+<p>单纯的0和1没有任何意义，必须规定解读方式：多少个电信号算一组？每个信号位有何意义？<br><strong>这就是”链接层”的功能，它在”实体层”的上方，确定了0和1的分组方式。</strong></p>
+<p><strong>3.2 以太网协议</strong></p>
+<p>早期的时候，每家公司都有自己的电信号分组方式。逐渐地，一种叫做<a href="http://zh.wikipedia.org/wiki/%E4%BB%A5%E5%A4%AA%E7%BD%91" target="_blank" rel="external">“以太网”</a>（Ethernet）的协议，占据了主导地位。<br>以太网规定，一组电信号构成一个数据包，叫做”帧”（Frame）。<strong>每一帧分成两个部分：标头（Head）和数据（Data）。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-22c8eace9e69e102.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标头和数据"></p>
+<p><strong>“标头”</strong>包含数据包的一些说明项，比如发送者、接受者、数据类型等等；”数据”则是数据包的具体内容。<br>“标头”的长度，固定为18字节。<strong>“数据”</strong>的长度，最短为46字节，最长为1500字节。因此，整个”帧”最短为64字节，最长为1518字节。如果数据很长，就必须分割成多个帧进行发送。</p>
+<p><strong>3.3 MAC地址</strong></p>
+<p>上面提到，以太网数据包的”标头”，包含了发送者和接受者的信息。那么，发送者和接受者是如何标识呢？<br>以太网规定，连入网络的所有设备，都必须具有”网卡”接口。数据包必须是从一块网卡，传送到另一块网卡。<strong>网卡的地址，就是数据包的发送地址和接收地址，这叫做MAC地址。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-62a7998713878c16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="网卡"></p>
+<p>每块网卡出厂的时候，都有一个全世界独一无二的MAC地址，长度是48个二进制位，通常用12个十六进制数表示。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-190d2aa396ab15fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Mac Address"></p>
+<p>前6个十六进制数是厂商编号，后6个是该厂商的网卡流水号。<strong>有了MAC地址，就可以定位网卡和数据包的路径了。</strong></p>
+<p><strong>3.4 广播</strong></p>
+<p>定义地址只是第一步，后面还有更多的步骤。<br>首先，一块网卡怎么会知道另一块网卡的MAC地址？</p>
+<p>回答是有一种<strong>ARP协议</strong>，可以解决这个问题。这个留到后面介绍，这里只需要知道，以太网数据包必须知道接收方的MAC地址，然后才能发送。</p>
+<p>其次，就算有了MAC地址，系统怎样才能把数据包准确送到接收方？</p>
+<p><strong>回答是以太网采用了一种很”原始”的方式，它不是把数据包准确送到接收方，而是向本网络内所有计算机发送，让每台计算机自己判断，是否为接收方。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-e5ab0c9a3148b563.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>上图中，1号计算机向2号计算机发送一个数据包，同一个子网络的3号、4号、5号计算机都会收到这个包。它们读取这个包的”标头”，找到接收方的MAC地址，然后与自身的MAC地址相比较，如果两者相同，就接受这个包，做进一步处理，否则就丢弃这个包。这种发送方式就叫做<strong>“广播”（broadcasting）</strong>。</p>
+<p>有了<strong>数据包的定义、网卡的MAC地址、广播的发送方式</strong>，”链接层”就可以在多台计算机之间传送数据了。<br>。。。</p>
+<p>接下来是<strong>网络层，传输层和应用层</strong>，由于简书篇幅有限制，只能分为两篇文章来写了，不好意思哈！<br>下篇链接：<a href="http://www.jianshu.com/p/240577c76625" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】</a></p>
+<p>参考链接：<a href="http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html" target="_blank" rel="external">互联网协议入门（一）-阮一峰</a></p>
+<hr>
+<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
 
       
 
@@ -346,7 +338,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】/">展开全文 >></a>
         </p>
       
 
@@ -376,19 +368,19 @@
 
 
   
-    <article id="post-python35安装的各种工具和库（不是模块）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/python35安装的各种工具和库（不是模块）/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+      <a class="article-title" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/python35安装的各种工具和库（不是模块）/" class="archive-article-date">
+        <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -396,57 +388,77 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>2017/10/25</p>
-<h3 id="ImportError-No-module-named-‘h5py’"><a href="#ImportError-No-module-named-‘h5py’" class="headerlink" title="ImportError: No module named ‘h5py’"></a>ImportError: No module named ‘h5py’</h3><ul>
-<li>h5py文件是存放两类对象的容器，数据集(dataset)和组(group)</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-357ad3e8d09c9b48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip3 install h5py"></p>
-<h3 id="ImportError-No-module-named-‘tf-utils’"><a href="#ImportError-No-module-named-‘tf-utils’" class="headerlink" title="ImportError: No module named ‘tf_utils’"></a>ImportError: No module named ‘tf_utils’</h3><p>无此模块，待定</p>
-<h3 id="ImportError-No-module-named-‘Chromosome’"><a href="#ImportError-No-module-named-‘Chromosome’" class="headerlink" title="ImportError: No module named ‘Chromosome’"></a>ImportError: No module named ‘Chromosome’</h3><p>2017/10/13</p>
+        <p><a href="http://www.jianshu.com/p/6ee3ee9c3cfd" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】</a><br><a href="http://www.jianshu.com/p/240577c76625" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】</a></p>
+<p>上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。</p>
+<p>这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。</p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-89d429fabaf3f51c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>（接上文）</p>
+<p><strong>七、一个小结</strong><br>先对前面的内容，做一个小结。<br>我们已经知道，网络通信就是交换数据包。电脑A向电脑B发送一个数据包，后者收到了，回复一个数据包，从而实现两台电脑之间的通信。数据包的结构，基本上是下面这样：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-aac5b2b7bd7cc56e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>发送这个包，需要知道两个地址：</p>
 <ul>
-<li>pip install matplotlib(出现问题)</li>
+<li>对方的MAC地址</li>
+<li>对方的IP地址</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-467dab3631c6c506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>解决方案：<br>安装包的链接<a href="https://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.5.2/" target="_blank" rel="external">https://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.5.2/</a><br>matplotlib-1.5.0-cp35-none-win_amd64.whl</p>
-<p>将下载的numpy包拷贝到D:\路径\Python35\Scripts下（不知道怎么回事只有在这个目录下 pip安装命令才好使） </p>
+<p>有了这两个地址，数据包才能准确送到接收者手中。但是，前面说过，MAC地址有局限性，如果两台电脑不在同一个子网络，就无法知道对方的MAC地址，必须<strong>通过网关（gateway）</strong>转发。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-d3f87019d309d273.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>上图中，1号电脑要向4号电脑发送一个数据包。它先判断4号电脑是否在同一个子网络，结果发现不是（后文介绍判断方法），于是就把这个数据包发到网关A。网关A通过路由协议，发现4号电脑位于子网络B，又把数据包发给网关B，网关B再转发到4号电脑。<br>1号电脑把数据包发到网关A，必须知道网关A的MAC地址。所以，数据包的目标地址，实际上分成两种情况：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>数据包地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同一个子网络</td>
+<td>对方的MAC地址，对方的IP地址</td>
+</tr>
+<tr>
+<td>非同一个子网络</td>
+<td>网关的MAC地址，对方的IP地址</td>
+</tr>
+</tbody>
+</table>
+<p>发送数据包之前，电脑必须判断对方是否在同一个子网络，然后选择相应的MAC地址。接下来，我们就来看，实际使用中，这个过程是怎么完成的。</p>
+<p><strong>八、用户的上网设置</strong></p>
+<p><strong>8.1 静态IP地址</strong></p>
+<p>你买了一台新电脑，插上网线，开机，这时电脑能够上网吗？<br><img src="http://upload-images.jianshu.io/upload_images/4340772-05d2d213fa05250b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>通常你必须做一些设置。有时，管理员（或者ISP）会告诉你下面四个参数，你把它们填入操作系统，计算机就能连上网了：</p>
 <ul>
-<li>pip install “[numpy包名称]” <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C:\Users\hasee\AppData\Local\Programs\Python\Python35\Scripts&gt;pip install &quot;matpl</div><div class="line">otlib-1.5.0-cp35-none-win_amd64.whl&quot;</div></pre></td></tr></table></figure>
-</li>
+<li>本机的IP地址　　</li>
+<li>子网掩码　　</li>
+<li>网关的IP地址　　</li>
+<li>DNS的IP地址</li>
 </ul>
-<p>注意：</p>
-<h2 id="①-numpy包名称要加英文双引号。"><a href="#①-numpy包名称要加英文双引号。" class="headerlink" title="① numpy包名称要加英文双引号。"></a>① numpy包名称要加英文双引号。</h2><h2 id="②-下载的-numpy-包要拷贝到Python安装目录下的scripts文件夹下，如D-路径-Python35-Scripts下，因为只有在这个目录下-pip安装命令才好使。"><a href="#②-下载的-numpy-包要拷贝到Python安装目录下的scripts文件夹下，如D-路径-Python35-Scripts下，因为只有在这个目录下-pip安装命令才好使。" class="headerlink" title="② 下载的 numpy 包要拷贝到Python安装目录下的scripts文件夹下，如D:\路径\Python35\Scripts下，因为只有在这个目录下 pip安装命令才好使。"></a>② 下载的 numpy 包要拷贝到Python安装目录下的scripts文件夹下，如D:\路径\Python35\Scripts下，因为只有在这个目录下 pip安装命令才好使。</h2><h2 id="这样就成功了"><a href="#这样就成功了" class="headerlink" title="这样就成功了"></a>这样就成功了</h2><blockquote>
-<p>pip install -U scikit-learn中-U是？？？<br>pip install -h 就有说明了，就是 –upgrade，意思是如果已安装就升级到最新版。</p>
-</blockquote>
-<p><a href="http://lib.csdn.net/base/python" target="_blank" rel="external">Python</a>是最为流行的，原因可能和它的快捷有关，而<a href="http://lib.csdn.net/base/python" target="_blank" rel="external">python</a>常用的数值计算，特别是和矩阵操作、优化等有关的数值计算可以用numpy、scipy、theano等包实现。一个简单的在<a href="http://lib.csdn.net/base/linux" target="_blank" rel="external">Linux</a>下安装这些包的方法就是安装Anaconda了。<br><a href="http://www.afox.cc/archives/390" target="_blank" rel="external">使用方法</a></p>
-<ul>
-<li>selenium</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5c8ed11776b196e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>pip install jupyter<br><img src="http://upload-images.jianshu.io/upload_images/4340772-800c8887c1d9a6a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></li>
-</ul>
-<p>安装完成后，默认安装在pythonXX/scripts</p>
-<p>我的安装在<code>C:\Users\hasee\AppData\Local\Programs\Python\Python35\Scripts</code></p>
-<p><a href="http://blog.csdn.net/lee_j_r/article/details/52791228" target="_blank" rel="external">使用方法</a></p>
-<ul>
-<li><p>pip install pandas<br>安装完成后<br><img src="http://upload-images.jianshu.io/upload_images/4340772-73828fcbff8090c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br><a href="https://www.zhihu.com/question/47003185" target="_blank" rel="external">如何优雅的安装Python的pandas?</a></p>
-</li>
-<li><p>scikit-learn</p>
-</li>
-</ul>
-<p>如果已经安装好numpy和scipy，最便捷的安装scikit-learn的方式就是通过pip:<br>[站外图片上传中……(3)]</p>
-<ul>
-<li><p>scipy<br><img src="http://upload-images.jianshu.io/upload_images/4340772-050c8526de91c57c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-</li>
-<li><p>PyQuery<br><img src="http://upload-images.jianshu.io/upload_images/4340772-7e20fe1969e67748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-</li>
-<li><p>pip install config<br><img src="http://upload-images.jianshu.io/upload_images/4340772-5ff2506fdb8e843c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip install config"></p>
-</li>
-<li><p>pip install pymongo</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-668b3748ab4447f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<p>下图是Windows系统的设置窗口。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-6314ea0a79f8a44f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这四个参数缺一不可，后文会解释为什么需要知道它们才能上网。由于它们是给定的，计算机每次开机，都会分到同样的IP地址，所以这种情况被称作”静态IP地址上网”。<br>但是，这样的设置很专业，普通用户望而生畏，而且如果一台电脑的IP地址保持不变，其他电脑就不能使用这个地址，不够灵活。出于这两个原因，<strong>大多数用户使用”动态IP地址上网”。</strong></p>
+<p><strong>8.2 动态IP地址</strong></p>
+<p>所谓”动态IP地址”，指计算机开机后，会自动分配到一个IP地址，不用人为设定。它使用的协议叫做<a href="http://zh.wikipedia.org/zh/DHCP" target="_blank" rel="external">DHCP协议</a>。<br>这个协议规定，每一个子网络中，有一台计算机负责管理本网络的所有IP地址，它叫做”DHCP服务器”。新的计算机加入网络，必须向”DHCP服务器”发送一个”DHCP请求”数据包，申请IP地址和相关的网络参数。<br>前面说过，如果两台计算机在同一个子网络，必须知道对方的MAC地址和IP地址，才能发送数据包。但是，新加入的计算机不知道这两个地址，怎么发送数据包呢？<br>DHCP协议做了一些巧妙的规定。</p>
+<p><strong>8.3 DHCP协议</strong></p>
+<p>首先，它是一种应用层协议，建立在UDP协议之上，所以整个数据包是这样的：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-1cdc3e2a92343912.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>　　（1）最前面的”以太网标头”，设置发出方（本机）的MAC地址和接收方（DHCP服务器）的MAC地址。前者就是本机网卡的MAC地址，后者这时不知道，就填入一个广播地址：<code>FF-FF-FF-FF-FF-FF</code>。<br>　　（2）后面的”IP标头”，设置发出方的IP地址和接收方的IP地址。这时，对于这两者，本机都不知道。于是，发出方的IP地址就设为<code>0.0.0.0</code>，接收方的IP地址设为<code>255.255.255.255</code>。<br>　　（3）最后的”UDP标头”，设置发出方的端口和接收方的端口。这一部分是DHCP协议规定好的，发出方是68端口，接收方是67端口。<br>这个数据包构造完成后，就可以发出了。以太网是广播发送，同一个子网络的每台计算机都收到了这个包。因为接收方的MAC地址是<code>FF-FF-FF-FF-FF-FF</code>，看不出是发给谁的，所以每台收到这个包的计算机，还必须分析这个包的IP地址，才能确定是不是发给自己的。当看到发出方IP地址是<code>0.0.0.0</code>，接收方是<code>255.255.255.255</code>，于是DHCP服务器知道”这个包是发给我的”，而其他计算机就可以丢弃这个包。</p>
+<p>接下来，DHCP服务器读出这个包的数据内容，分配好IP地址，发送回去一个”DHCP响应”数据包。这个响应包的结构也是类似的，以太网标头的MAC地址是双方的网卡地址，IP标头的IP地址是DHCP服务器的IP地址（发出方）和255.255.255.255（接收方），UDP标头的端口是67（发出方）和68（接收方），分配给请求端的IP地址和本网络的具体参数则包含在Data部分。<br>新加入的计算机收到这个响应包，于是就知道了自己的IP地址、子网掩码、网关地址、DNS服务器等等参数。</p>
+<p><strong>8.4 上网设置：小结</strong></p>
+<p>这个部分，需要记住的就是一点：不管是”静态IP地址”还是”动态IP地址”，电脑上网的首要步骤，是确定四个参数。这四个值很重要，值得重复一遍：<br>　　<em> 本机的IP地址　　</em> 子网掩码　　<em> 网关的IP地址　　</em> DNS的IP地址</p>
+<p>有了这几个数值，电脑就可以上网”冲浪”了。接下来，我们来看一个实例，当用户访问网页的时候，互联网协议是怎么运作的。</p>
+<p><strong>九、一个实例：访问网页</strong></p>
+<p><strong>9.1 本机参数</strong></p>
+<p>我们假定，经过上一节的步骤，用户设置好了自己的网络参数：<br>　　<em> 本机的IP地址：192.168.1.100　　</em> 子网掩码：255.255.255.0　　<em> 网关的IP地址：192.168.1.1　　</em> DNS的IP地址：8.8.8.8</p>
+<p>然后他打开浏览器，想要访问Google，在地址栏输入了网址：www.google.com。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-4099c002b2c6fdf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这意味着，浏览器要向Google发送一个网页请求的数据包。</p>
+<p><strong>9.2 DNS协议</strong></p>
+<p>我们知道，发送数据包，必须要知道对方的IP地址。但是，现在，我们只知道网址www.google.com，不知道它的IP地址。<br><a href="http://en.wikipedia.org/wiki/Domain_Name_System" target="_blank" rel="external">DNS协议</a>可以帮助我们，将这个网址转换成IP地址。已知DNS服务器为8.8.8.8，于是我们向这个地址发送一个DNS数据包（53端口）。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-68351749847a173e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>然后，DNS服务器做出响应，告诉我们Google的IP地址是172.194.72.105。于是，我们知道了对方的IP地址。</p>
+<p><strong>9.3 子网掩码</strong></p>
+<p>接下来，我们要判断，这个IP地址是不是在同一个子网络，这就要用到子网掩码。<br>已知子网掩码是255.255.255.0，本机用它对自己的IP地址192.168.1.100，做一个二进制的AND运算（两个数位都为1，结果为1，否则为0），计算结果为192.168.1.0；然后对Google的IP地址172.194.72.105也做一个AND运算，计算结果为172.194.72.0。这两个结果不相等，所以结论是，Google与本机不在同一个子网络。</p>
+<p>因此，我们要向Google发送数据包，必须通过网关192.168.1.1转发，也就是说，<strong>接收方的MAC地址将是网关的MAC地址</strong>。</p>
+<p><strong>9.4 应用层协议</strong></p>
+<p>浏览网页用的是HTTP协议，它的整个数据包构造是这样的：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-e0d0dc1443f06814.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>HTTP部分的内容，类似于下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1　　</div><div class="line">Host: www.google.com　　</div><div class="line">Connection: keep-alive　　</div><div class="line">User-Agent: Mozilla/5.0 (Windows NT 6.1) ......　　</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8　　</div><div class="line">Accept-Encoding: gzip,deflate,sdch　　</div><div class="line">Accept-Language: zh-CN,zh;q=0.8　　</div><div class="line">Accept-Charset: GBK,utf-8;q=0.7,*;q=0.3　　</div><div class="line">Cookie: ... ...</div></pre></td></tr></table></figure></p>
+<p>我们假定这个部分的长度为4960字节，它会被嵌在TCP数据包之中。</p>
+<p><strong>9.5 TCP协议</strong></p>
+<p>TCP数据包需要设置端口，接收方（Google）的HTTP端口默认是80，发送方（本机）的端口是一个随机生成的1024-65535之间的整数，假定为51775。<br>TCP数据包的标头长度为20字节，加上嵌入HTTP的数据包，总长度变为4980字节。</p>
+<p><strong>9.6 IP协议</strong></p>
+<p>然后，TCP数据包再嵌入IP数据包。IP数据包需要设置双方的IP地址，这是已知的，发送方是192.168.1.100（本机），接收方是172.194.72.105（Google）。<br>IP数据包的标头长度为20字节，加上嵌入的TCP数据包，总长度变为5000字节。</p>
+<p><strong>9.7 以太网协议</strong></p>
+<p>最后，IP数据包嵌入以太网数据包。以太网数据包需要设置双方的MAC地址，发送方为本机的网卡MAC地址，接收方为网关192.168.1.1的MAC地址（通过ARP协议得到）。<br>以太网数据包的数据部分，最大长度为1500字节，而现在的IP数据包长度为5000字节。因此，IP数据包必须分割成四个包。因为每个包都有自己的IP标头（20字节），所以四个包的IP数据包的长度分别为1500、1500、1500、560。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-137a41ccabd2fb80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>9.8 服务器端响应</strong></p>
+<p>经过多个网关的转发，Google的服务器172.194.72.105，收到了这四个以太网数据包。<br>根据IP标头的序号，Google将四个包拼起来，取出完整的TCP数据包，然后读出里面的”HTTP请求”，接着做出”HTTP响应”，再用TCP协议发回来。<br>本机收到HTTP响应以后，就可以将网页显示出来，完成一次网络通信。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-f60ec6a4882fe3e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这个例子就到此为止，虽然经过了简化，但它大致上反映了互联网协议的整个通信过程。</p>
+<p>参考链接：<a href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html" target="_blank" rel="external">互联网协议入门（二）-阮一峰</a></p>
+<hr>
+<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
 
       
 
@@ -470,7 +482,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/python35安装的各种工具和库（不是模块）/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/">展开全文 >></a>
         </p>
       
 
@@ -544,11 +556,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮箱</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮箱</a>
         		</li>
       		
 		</ul>
@@ -753,7 +765,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">AngularJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,15 +793,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,10 +817,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">邮箱</a>
               </li>
              
@@ -809,15 +829,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">域名</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -825,7 +837,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
             
             <div class="clearfix"></div>
