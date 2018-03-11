@@ -257,28 +257,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/4340772-52d53828985a9863.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="计算机网络"><br>计算机网络考试 复习时你应该要看的几道题！<br>文 |  <a href="https://www.jianshu.com/u/781142899214" target="_blank" rel="external">阿小庆</a> |  2018-01-03</p>
-<p>在学校马上就要考《计算机网络》这门课了，复习的过程中，发现有些题目很经典，特地整理总结了一下，我只挑了有用的以期回顾，若有观者阅，悦，那自己更是欣喜！☺</p>
-<p>下面即是计算机网络一些题目的解析：</p>
-<hr>
-<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><p>1、假定站点A和B在同一个10Mb/s以太网网段上。这两个站点之间的传播时延为225比特时间。现假定A开始发送一帧，并且在A发送结束之前B也发送一帧。如果A发送的是以太网所容许的最短的帧，那么A在检测到和B发生碰撞之前能否把自己的数据发送完毕？换言之，如果A在发送完毕之前并没有检测到碰撞，那么能否肯定A所发送的帧不会和B发送的帧发生碰撞？（提示：在计算时应当考虑到每一个以太网帧在发送到信道上时，在MAC帧前面还要增加若干字节的前同步码和帧定界符）<br>2、在上题中的站点A和B在t=0时同时发送了数据帧。当t=255比特时间，A和B同时检测到发生了碰撞，并且在t=255+48=273比特时间完成了干扰信号的传输。A和B在CSMA/CD算法中选择不同的r值退避。假定A和B选择的随机数分别是rA=0和rB=1。试问A和B各在什么时间开始重传其数据帧？A重传的数据帧在什么时间到达B？A重传的数据会不会和B重传的数据再次发生碰撞？B会不会在预定的重传时间停止发送数据？<br>这道题，开始我是懵的，在网上搜了下资料，发现下面这篇文章很好，就不再赘述，直接附链接：<br><a href="http://blog.csdn.net/angelniu1024/article/details/23793373" target="_blank" rel="external">http://blog.csdn.net/angelniu1024/article/details/23793373</a><br>下面是课本参考答案：</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://upload-images.jianshu.io/upload_images/4340772-05dcfa5d979964f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="课后答案"></h2><p>19.主机A发送IP数据报给主机B，途中经过了5个路由器。试问在IP数据报的发送过程中总共使用了几次ARP？ </p>
-<h2 id="6次，主机用一次，每个路由器各使用一次。"><a href="#6次，主机用一次，每个路由器各使用一次。" class="headerlink" title="   6次，主机用一次，每个路由器各使用一次。"></a>   6次，主机用一次，每个路由器各使用一次。</h2><h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>5—21        假定使用连续ARQ协议中，发送窗口大小事3，而序列范围[0,15],而传输媒体保证在接收方能够按序收到分组。在某时刻，接收方，下一个期望收到序号是5.<br>试问：<br>（1）      在发送方的发送窗口中可能有出现的序号组合有哪几种？<br>（2）      接收方已经发送出去的、但在网络中（即还未到达发送方）的确认分组可能有哪些？说明这些确认分组是用来确认哪些序号的分组。</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://upload-images.jianshu.io/upload_images/4340772-536ae19d497670e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="课后答案"></h2><h3 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h3><p>假定TCP在开始建立连接时，发送方设定超时重传时间是RTO=6s。<br>（1）当发送方接到对方的连接确认报文段时，测量出RTT样本值为1.5s。试计算现在的RTO值。<br>（2）当发送方发送数据报文段并接收到确认时，测量出RTT样本值为2.5s。试计算现在的RTO值。<br>课后答案是下面这样的<br><img src="http://upload-images.jianshu.io/upload_images/4340772-ffca1008037492d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>不过，我看和公式不符啊，网上搜罗了下，发现有位已经有了先见之明，下面这张图应该是对的！<br><img src="http://upload-images.jianshu.io/upload_images/4340772-0740d7b33c10edde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2 id="上图来源文章：TCP-IP详解-RTT和RTO的计算方法-CSDN博客"><a href="#上图来源文章：TCP-IP详解-RTT和RTO的计算方法-CSDN博客" class="headerlink" title=" 上图来源文章：TCP-IP详解: RTT和RTO的计算方法 - CSDN博客"></a> <a href="http://blog.csdn.net/wdscq1234/article/details/52505191" target="_blank" rel="external">上图来源文章：<em>TCP</em>-IP详解: RTT和<em>RTO的</em>计算方法 - CSDN博客</a></h2><p>5—13        一个UDP用户数据的数据字段为8192季节。在数据链路层要使用以太网来传送。试问应当划分为几个IP数据报片？说明每一个IP数据报字段长度和片偏移字段的值。</p>
-<p>答：6个<br>       数据字段的长度：前5个是1480字节，最后一个是800字节。<br>       片偏移字段的值分别是：0，1480，2960，4440，5920和7400.<br><strong>因为UDP用户数据报的数据字段为8192字节，所以数据报文的长度是8192+upd首部8字节=8200。</strong><br>所以第6个数据报片使8200-1480*5=800</p>
-<p><strong>注意</strong>：链路层具有最大传输单元<a href="https://www.baidu.com/s?wd=MTU&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1dbPhN9ujT3uhczuhn1Py7W0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EPj6knW0dn1bz" target="_blank" rel="external">MTU</a>这个特性，它限制了数据帧的最大长度<br><strong>以太网的MTU为1500字节，一般IP首部为20字节，UDP首部为8字节，数据的净荷（payload）部分预留是1500-20-8=1472字节。如果数据部分大于1472字节，就会出现分片现象。</strong></p>
-<hr>
-<p>5—23        主机A向主机B连续发送了两个TCP报文段，其序号分别为70和100。试问：<br>（1）      第一个报文段携带了多少个字节的数据？<br>（2）      主机B收到第一个报文段后发回的确认中的确认号应当是多少？<br>（3）      如果主机B收到第二个报文段后发回的确认中的确认号是180，试问A发送的第二个报文段中的数据有多少字节？<br>（4）      如果A发送的第一个报文段丢失了，但第二个报文段到达了B。B在第二个报文段到达后向A发送确认。试问这个确认号应为多少？</p>
-<p><strong>解</strong>：（1）第一个报文段的数据序号是70到99，共30字节的数据。<br>（2）确认号应为100.<br>（3）80字节。</p>
-<h2 id="（4）70"><a href="#（4）70" class="headerlink" title="（4）70"></a>（4）70</h2><p>5—39        TCP的拥塞窗口cwnd大小与传输轮次n的关系如下所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-d77a09fe70d12d11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p> （1）试画出如图5-25所示的拥塞窗口与传输轮次的关系曲线。<br>（2）指明TCP工作在慢开始阶段的时间间隔。<br>（3）指明TCP工作在拥塞避免阶段的时间间隔。<br>（4）在第16轮次和第22轮次之后发送方是通过收到三个重复的确认还是通过超市检测到丢失了报文段？<br>（5）在第1轮次，第18轮次和第24轮次发送时，门限ssthresh分别被设置为多大？<br>（6）在第几轮次发送出第70个报文段？<br>（7）假定在第26轮次之后收到了三个重复的确认，因而检测出了报文段的丢失，那么拥塞窗口cwnd和门限ssthresh应设置为多大？</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-b185b55f5cdae75d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="http://upload-images.jianshu.io/upload_images/4340772-7e4f29a5f0b2348c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></h2><p>好了，总结基本到这里了，其实还有很多内容，我只是挑了一些重要的点出来，大家接着复习吧，哈哈！</p>
-<hr>
-<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-
+        <p><img src="http://upload-images.jianshu.io/upload_images/4340772-52d53828985a9863.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="计算机网络"><br>
+        
+          <a class="article-more-a" href="/2018/01/13/计算机网络考试-复习时你应该要看的几道题！/#more">more >></a>
+        
       
 
       
@@ -565,7 +547,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

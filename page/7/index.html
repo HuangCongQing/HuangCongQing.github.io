@@ -159,6 +159,347 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/4340772-6d5a90dce8026e93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="线性代数，不知多少人对这本书很是熟悉，哈哈"></p>
+<blockquote>
+<p>本文主要讨论神魔是矩阵和向量，谈谈如何加减乘矩阵及向量，讨论逆矩阵和转置矩阵的概念！！如果十分熟悉这些概念，可以很快的浏览一遍，如果对这些概念有些许的不确定，可以细看一下，慢慢咀嚼！</p>
+</blockquote>
+<p>##3.1 矩阵和向量</p>
+<p>如图 ：这个 ：这个 是 4×2矩阵 ，即 4行 2列，如 m为行， 为行， n为列，那么 为列，那么 为列，那么 m×n即 4×2<br><img src="http://upload-images.jianshu.io/upload_images/4340772-a79ea1ad00485b33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="矩阵"></p>
+<p>矩阵的维数即行数×列数<br>矩阵元素（矩阵项）：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-e128b7ca2d813c65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-39101576361f3b2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-eb3ebb52f902774e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>##3.2 加法 和标量乘加法<br>矩阵的加法：行列数相等的可以加。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-68af41b4e3cc49d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>矩阵的乘法：每个元素都要乘</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-1b30e64eb93e27a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>组合算法也类似。</p>
+<h2 id="3-3-矩阵向量乘法"><a href="#3-3-矩阵向量乘法" class="headerlink" title="3.3 矩阵向量乘法"></a>3.3 矩阵向量乘法</h2><p>矩阵和向量的乘法如图：m×n 的矩阵乘以 n×1 的向量，得到的是 m×1 的向量</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-8818792dcab96753.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>算法 举例： </p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-57439f777b7d06b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="3-4-矩阵乘法"><a href="#3-4-矩阵乘法" class="headerlink" title="3.4 矩阵乘法"></a>3.4 矩阵乘法</h2><p>矩阵乘法：<br>m×n 矩阵乘以 n×o 矩阵，变成 m×o 矩阵。<br>如果这样说不好理解的话就举一个例子来说明一下，比如说现在有两个矩阵 A 和 B，那<br>么它们的乘积就可以表示为图中所示的形式。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-770440c37042c866.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="3-5-矩阵乘法的性质"><a href="#3-5-矩阵乘法的性质" class="headerlink" title="3.5 矩阵乘法的性质"></a>3.5 矩阵乘法的性质</h2><p>矩阵乘法的性质：</p>
+<ul>
+<li>矩阵的乘法不满足交换律：A×B≠B×A</li>
+<li>矩阵的乘法满足结合律。即：A×（B×C）=（A×B）×C</li>
+<li>单位矩阵：在矩阵的乘法中，有一种矩阵起着特殊的作用，如同数的乘法中的 1,我们称<br>这种矩阵为单位矩阵．它是个方阵，一般用 I 或者 E 表示，本讲义都用 I 代表单位矩阵，从<br>左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0。如：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-dac241cf3d2e2173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>对于单位矩阵，有 AI=IA=A<h2 id="3-6-逆、转置"><a href="#3-6-逆、转置" class="headerlink" title="3.6 逆、转置"></a>3.6 逆、转置</h2><strong>矩阵的逆</strong>：如矩阵 A 是一个 m×m 矩阵（方阵），如果有逆矩阵，则：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-9bfa5e1ba265fd0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>我们一般在 OCTAVE 或者 MATLAB 中进行计算矩阵的逆矩阵。<br><strong>矩阵的转置</strong>：设 A 为 m×n 阶矩阵（即 m 行 n 列），第 i 行 j 列的元素是 a(i,j)，即：<br>A=a(i,j)<br>定义 A 的转置为这样一个 n×m 阶矩阵 B，满足 B=a(j,i)，即 b (i,j)=a (j,i)（B 的第 i 行第<br>j 列元素是 A 的第 j 行第 i 列元素），记 A<br>T=B。(有些书记为 A’=B）<br>直观来看，将 A 的所有元素绕着一条从第 1 行第 1 列元素出发的右下方 45 度的射线作<br>镜面反转，即得到 A 的转置。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-6496da9c345b3a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>矩阵的转置基本性质:</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-cf8b4a015a9fcced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>matlab 中矩阵转置：<br>直接打一撇，x=y’。</p>
+<hr>
+<p>课程代码：<a href="https://github.com/HuangCongQing/MachineLearning_Ng" target="_blank" rel="external">https://github.com/HuangCongQing/MachineLearning_Ng</a><br>本文参考自-黄海广博士 斯坦福大学 2014机器学习教程中文 笔记<br>链接：<a href="http://pan.baidu.com/s/1dF2asvf#1ewf" target="_blank" rel="external">http://pan.baidu.com/s/1dF2asvf</a> 密码：1ewf</p>
+<p>分享吴恩达机器学习视频 下载 链接：<br>链接： <a href="http://pan.baidu.com/s/1pKLATJl" target="_blank" rel="external">http://pan.baidu.com/s/1pKLATJl</a> 密码： xn4w</p>
+<hr>
+<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/3吴恩达Meachine-Learing之线性代数回顾-(Linear-Algebra-Review)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-1吴恩达Meachine-Learing之监督学习和非监督学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="监督学习（Supervised-Learning）"><a href="#监督学习（Supervised-Learning）" class="headerlink" title="监督学习（Supervised Learning）"></a>监督学习（Supervised Learning）</h2><p>介绍监督学习。 其基本思想是，监督学习中，对于数据集中的每个数据， 都有相应的正确答案，（训练集） 算法就是基于这些来做出预测。</p>
+<p>受监督的学习问题分为<strong>“回归”和“分类”</strong>问题。</p>
+<ul>
+<li>回归（连续）</li>
+<li>分类（离散）</li>
+</ul>
+<p>在回归问题中，我们试图在连续输出中预测结果，这意味着我们正在尝试将输入变量映射到一些连续函数。<br>在分类问题中，我们试图用离散输出来预测结果。换句话说，我们正在尝试将输入变量映射到离散类别。</p>
+<ul>
+<li>后面介绍了回归问题。 即通过回归来预测一个连续值输出。 </li>
+<li>我们还谈到了分类问题， 目标是预测离散值输出。</li>
+</ul>
+<p>示例2：</p>
+<p>（a）<strong>回归</strong> - 鉴于一个人的照片，我们必须根据给定的图片来<strong>预测</strong>他们的年龄</p>
+<p>（b）<strong>分类</strong> - 鉴于肿瘤患者，我们必须预测肿瘤是恶性还是良性（<strong>非黑即白//0|1</strong>）。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
+<li>在一些学习问题中，不希望只用3,5种特征，相反，想用无限多种特征，好让算法利用大量的特征来做推测。那你怎么处理无限特征，甚至怎么存储这些特征都存在问题，你的电脑内存肯定不够用。<strong>以后会讲一个算法，叫支持向量机，里面有一个巧妙的数学技巧，能让计算机处理无限多个特征</strong></li>
+</ul>
+<h2 id="非监督学习（Unsupervised-Learning）"><a href="#非监督学习（Unsupervised-Learning）" class="headerlink" title="非监督学习（Unsupervised Learning）"></a>非监督学习（Unsupervised Learning）</h2><blockquote>
+<p>无监督学习使我们能够<strong>很少或不知道我们的结果</strong>应该如何处理问题。<br>我们可以从数据导出结构，我们不一定知道变量的影响。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-c0c1e1acd3a9ba62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有无标签"></p>
+<p>在上一节中 我们已经讲过了监督学习 回想起上次的数据集 每个样本 都已经被标明为 正样本或者负样本 即良性或恶性肿瘤 。因此 对于监督学习中的每一个样本 我们已经被清楚地告知了 什么是所谓的正确答案 即它们是良性还是恶性 。<br><strong>在无监督学习中 我们用的数据会和监督学习里的看起来有些不一样在无监督学习中没有“属性或标签这一概念” 也就是说所有的数据 都是一样的 没有区别</strong></p>
+<p><strong>我们可以通过基于数据中的变量之间的关系对数据进行聚类来导出该结构。</strong></p>
+<p> <strong>无监督学习算法 ，针对数据集，自动的找出数据中的结构，会把这些数据分成两个不同的簇，所以叫做聚类算法</strong></p>
+<p>无监督学习或聚类算法在其他领域也有着大量的应用 ，例如谷歌新闻每天手机非常多的新闻内容，然后把同一主题的放在一起</p>
+<p><strong>例：</strong><br>聚类：收集100万个不同的基因，并找到一种自动将这些基因组合成不同变量（如寿命，位置，作用等）相似或相关的组。</p>
+<p>其实聚类只是无监督学习的一种，还有一种非聚类算法</p>
+<p>非聚类：“鸡尾酒会算法”，让您在混乱的环境中找到结构。<br>（即从<a href="https://en.wikipedia.org/wiki/Cocktail_party_effect" target="_blank" rel="external">鸡尾酒会</a>的声音网格中识别个人的声音和音乐）。</p>
+<h2 id="以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！"><a href="#以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！" class="headerlink" title="以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！"></a>以上就是监督学习和非监督学习的全部内容，大家有疑问的，欢迎提问！</h2><p>课程代码：<a href="https://github.com/HuangCongQing/MachineLearning_Ng" target="_blank" rel="external">https://github.com/HuangCongQing/MachineLearning_Ng</a><br>本文参考自-黄海广博士 斯坦福大学 2014机器学习教程中文 笔记<br>链接：<a href="http://pan.baidu.com/s/1dF2asvf#1ewf" target="_blank" rel="external">http://pan.baidu.com/s/1dF2asvf</a> 密码：1ewf</p>
+<p>分享吴恩达机器学习视频 下载 链接： </p>
+<h2 id="链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w"><a href="#链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w" class="headerlink" title="链接： http://pan.baidu.com/s/1pKLATJl 密码： xn4w"></a>链接： <a href="http://pan.baidu.com/s/1pKLATJl" target="_blank" rel="external">http://pan.baidu.com/s/1pKLATJl</a> 密码： xn4w</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/1吴恩达Meachine-Learing之监督学习和非监督学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python35安装的各种工具和库（不是模块）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/python35安装的各种工具和库（不是模块）/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/python35安装的各种工具和库（不是模块）/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>2017/10/25</p>
+<h3 id="ImportError-No-module-named-‘h5py’"><a href="#ImportError-No-module-named-‘h5py’" class="headerlink" title="ImportError: No module named ‘h5py’"></a>ImportError: No module named ‘h5py’</h3><ul>
+<li>h5py文件是存放两类对象的容器，数据集(dataset)和组(group)</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-357ad3e8d09c9b48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip3 install h5py"></p>
+<h3 id="ImportError-No-module-named-‘tf-utils’"><a href="#ImportError-No-module-named-‘tf-utils’" class="headerlink" title="ImportError: No module named ‘tf_utils’"></a>ImportError: No module named ‘tf_utils’</h3><p>无此模块，待定</p>
+<h3 id="ImportError-No-module-named-‘Chromosome’"><a href="#ImportError-No-module-named-‘Chromosome’" class="headerlink" title="ImportError: No module named ‘Chromosome’"></a>ImportError: No module named ‘Chromosome’</h3><p>2017/10/13</p>
+<ul>
+<li>pip install matplotlib(出现问题)</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-467dab3631c6c506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>解决方案：<br>安装包的链接<a href="https://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.5.2/" target="_blank" rel="external">https://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.5.2/</a><br>matplotlib-1.5.0-cp35-none-win_amd64.whl</p>
+<p>将下载的numpy包拷贝到D:\路径\Python35\Scripts下（不知道怎么回事只有在这个目录下 pip安装命令才好使） </p>
+<ul>
+<li>pip install “[numpy包名称]” <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C:\Users\hasee\AppData\Local\Programs\Python\Python35\Scripts&gt;pip install &quot;matpl</div><div class="line">otlib-1.5.0-cp35-none-win_amd64.whl&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：</p>
+<h2 id="①-numpy包名称要加英文双引号。"><a href="#①-numpy包名称要加英文双引号。" class="headerlink" title="① numpy包名称要加英文双引号。"></a>① numpy包名称要加英文双引号。</h2><h2 id="②-下载的-numpy-包要拷贝到Python安装目录下的scripts文件夹下，如D-路径-Python35-Scripts下，因为只有在这个目录下-pip安装命令才好使。"><a href="#②-下载的-numpy-包要拷贝到Python安装目录下的scripts文件夹下，如D-路径-Python35-Scripts下，因为只有在这个目录下-pip安装命令才好使。" class="headerlink" title="② 下载的 numpy 包要拷贝到Python安装目录下的scripts文件夹下，如D:\路径\Python35\Scripts下，因为只有在这个目录下 pip安装命令才好使。"></a>② 下载的 numpy 包要拷贝到Python安装目录下的scripts文件夹下，如D:\路径\Python35\Scripts下，因为只有在这个目录下 pip安装命令才好使。</h2><h2 id="这样就成功了"><a href="#这样就成功了" class="headerlink" title="这样就成功了"></a>这样就成功了</h2><blockquote>
+<p>pip install -U scikit-learn中-U是？？？<br>pip install -h 就有说明了，就是 –upgrade，意思是如果已安装就升级到最新版。</p>
+</blockquote>
+<p><a href="http://lib.csdn.net/base/python" target="_blank" rel="external">Python</a>是最为流行的，原因可能和它的快捷有关，而<a href="http://lib.csdn.net/base/python" target="_blank" rel="external">python</a>常用的数值计算，特别是和矩阵操作、优化等有关的数值计算可以用numpy、scipy、theano等包实现。一个简单的在<a href="http://lib.csdn.net/base/linux" target="_blank" rel="external">Linux</a>下安装这些包的方法就是安装Anaconda了。<br><a href="http://www.afox.cc/archives/390" target="_blank" rel="external">使用方法</a></p>
+<ul>
+<li>selenium</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5c8ed11776b196e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>pip install jupyter<br><img src="http://upload-images.jianshu.io/upload_images/4340772-800c8887c1d9a6a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></li>
+</ul>
+<p>安装完成后，默认安装在pythonXX/scripts</p>
+<p>我的安装在<code>C:\Users\hasee\AppData\Local\Programs\Python\Python35\Scripts</code></p>
+<p><a href="http://blog.csdn.net/lee_j_r/article/details/52791228" target="_blank" rel="external">使用方法</a></p>
+<ul>
+<li><p>pip install pandas<br>安装完成后<br><img src="http://upload-images.jianshu.io/upload_images/4340772-73828fcbff8090c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br><a href="https://www.zhihu.com/question/47003185" target="_blank" rel="external">如何优雅的安装Python的pandas?</a></p>
+</li>
+<li><p>scikit-learn</p>
+</li>
+</ul>
+<p>如果已经安装好numpy和scipy，最便捷的安装scikit-learn的方式就是通过pip:<br>[站外图片上传中……(3)]</p>
+<ul>
+<li><p>scipy<br><img src="http://upload-images.jianshu.io/upload_images/4340772-050c8526de91c57c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+</li>
+<li><p>PyQuery<br><img src="http://upload-images.jianshu.io/upload_images/4340772-7e20fe1969e67748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+</li>
+<li><p>pip install config<br><img src="http://upload-images.jianshu.io/upload_images/4340772-5ff2506fdb8e843c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip install config"></p>
+</li>
+<li><p>pip install pymongo</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-668b3748ab4447f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/python35安装的各种工具和库（不是模块）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-在腾讯企业邮箱设置自己的域名邮箱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -315,246 +656,9 @@
 
 
   
-    <article id="post-Sublime侧边栏字体变大" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/15/Sublime侧边栏字体变大/">Sublime侧边栏[SideBar]字体变大</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/15/Sublime侧边栏字体变大/" class="archive-article-date">
-  	<time datetime="2017-01-15T08:05:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/15/Sublime侧边栏字体变大/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mpic神器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/12/Mpic神器/">MPic神器-上传照片直接生成外链</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/12/Mpic神器/" class="archive-article-date">
-  	<time datetime="2017-01-12T06:31:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一直以来写博文，上传本地照片是一个特别麻烦的事，一来webstorm收费，其次cmd Markdown上传照片只支持外联，而上传照片到七牛云不失为一个好方法，但操作过程复杂，正在我愁眉不展时，上网一搜，搜到了一神器<strong>Mpic-图床神器</strong>。可以和七牛云绑定一起发挥威力。<br><a href="http://mpic.lzhaofu.cn/" target="_blank" rel="external">下载链接</a><br>经过自己的一番折腾，最终发现MPic果然省时省事不少，目前我知道的上传方式有2种：</p>
-<ul>
-<li>截图上传（QQ截图个人感觉不错）</li>
-<li>拖拽本地图片上传<br>下载之后的界面：<br><img src="http://ojmcn9nlw.qnssl.com/blog/20170116/230234883.png" alt="mark"><h2 id="下面介绍一下下载软件之后的操作步骤："><a href="#下面介绍一下下载软件之后的操作步骤：" class="headerlink" title="下面介绍一下下载软件之后的操作步骤："></a>下面介绍一下下载软件之后的操作步骤：</h2>
-        
-          <a class="article-more-a" href="/2017/01/12/Mpic神器/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/12/Mpic神器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTML5-canvas之绘制圆弧和贝塞尔曲线" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/01/HTML5-canvas之绘制圆弧和贝塞尔曲线/">HTML5-canvas之绘制圆弧和贝塞尔曲线(3)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/01/HTML5-canvas之绘制圆弧和贝塞尔曲线/" class="archive-article-date">
-  	<time datetime="2017-01-01T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>今天我们主要是学习如何绘制圆弧和贝塞尔曲线。</p>
-<h3 id="圆弧的绘制"><a href="#圆弧的绘制" class="headerlink" title="圆弧的绘制"></a>圆弧的绘制</h3><p>圆弧可以理解为一个圆上的某部分线段，在canvas中，绘制一条圆弧的语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.arc( 圆心x坐标, 圆心y坐标, 圆的半径r , 开始角度, 结束角度 );</div></pre></td></tr></table></figure></p>
-<p>其中的 “开始角度” 和 “结束角度” 是相对360度的 <strong>顺时针</strong> 的极坐标而言的，可配合下图理解：</p>
-<p><img src="http://images.cnitblog.com/i/561179/201408/201729364715288.gif" alt="圆弧"></p>
-<p>我们来一个例子，绘制一个圆心坐标为(80,80)，半径为40，开始角度为30度，结束角度为90度，那么可以这样绘制：<br>
-        
-          <a class="article-more-a" href="/2017/01/01/HTML5-canvas之绘制圆弧和贝塞尔曲线/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/01/HTML5-canvas之绘制圆弧和贝塞尔曲线/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 

@@ -64,9 +64,9 @@
     <link href="http://yoursite.com/2018/01/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%80%83%E8%AF%95-%E5%A4%8D%E4%B9%A0%E6%97%B6%E4%BD%A0%E5%BA%94%E8%AF%A5%E8%A6%81%E7%9C%8B%E7%9A%84%E5%87%A0%E9%81%93%E9%A2%98%EF%BC%81/"/>
     <id>http://yoursite.com/2018/01/13/计算机网络考试-复习时你应该要看的几道题！/</id>
     <published>2018-01-13T09:50:33.000Z</published>
-    <updated>2018-03-11T17:56:26.413Z</updated>
+    <updated>2018-03-11T17:57:52.759Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4340772-52d53828985a9863.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="计算机网络"><br>计算机网络考试 复习时你应该要看的几道题！<br>文 |  <a href="https://www.jianshu.com/u/781142899214" target="_blank" rel="external">阿小庆</a> |  2018-01-03</p>
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4340772-52d53828985a9863.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="计算机网络"><br><a id="more"></a><br>计算机网络考试 复习时你应该要看的几道题！<br>文 |  <a href="https://www.jianshu.com/u/781142899214" target="_blank" rel="external">阿小庆</a> |  2018-01-03</p>
 <p>在学校马上就要考《计算机网络》这门课了，复习的过程中，发现有些题目很经典，特地整理总结了一下，我只挑了有用的以期回顾，若有观者阅，悦，那自己更是欣喜！☺</p>
 <p>下面即是计算机网络一些题目的解析：</p>
 <hr>
@@ -91,7 +91,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-52d53828985a9863.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-52d53828985a9863.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;计算机网络&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -1007,59 +1007,6 @@ ta\data\log\mongodb.log&quot; --logappend --dbpath &quot;D:\mongodbData/data/db&
   </entry>
   
   <entry>
-    <title>python3X安装beautifulsoup&amp;&amp;BS64遇到的一些error</title>
-    <link href="http://yoursite.com/2017/08/19/python3X%E5%AE%89%E8%A3%85beautifulsoup&amp;&amp;BS64%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9Berror/"/>
-    <id>http://yoursite.com/2017/08/19/python3X安装beautifulsoup&amp;&amp;BS64遇到的一些error/</id>
-    <published>2017-08-19T09:50:33.000Z</published>
-    <updated>2018-03-11T17:11:18.856Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503121701573&amp;di=6299ff4b6aefe2b11141cae630eb6da1&amp;imgtype=0&amp;src=http%3A%2F%2Fimage.lxway.com%2Fupload%2Fa%2F1b%2Fa1bc79d237bf05535330b1af1dc28afc_thumb.jpg" alt="beautifulsoup&amp;&amp;BS64"><br><a href="https://github.com/HuangCongQing/python-NLP/blob/master/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96.py" target="_blank" rel="external">用beautifulsoup写的没错的小爬虫地址：</a><br><img src="http://upload-images.jianshu.io/upload_images/4340772-4cd3cf67dceb2a50.gif?imageMogr2/auto-orient/strip" alt=""></p>
-<blockquote>
-<p>前言: Beautiful Soup 3 目前已经停止开发，推荐在现在的项目中使用Beautiful Soup 4，不过它已经被移植到BS4了，也就是说导入时我们需要 import bs4 。所以这里我们用的版本是 Beautiful Soup 4.3.2 (简称BS4)，另外据说 BS4 对 Python3 的支持不够好，虽然我用的Python35，如果有小伙伴用的是 Python3 版本，可以考虑下载 BS3 版本。<br>自己搞网页数据爬取时，需要 <code>from bs4 import BeautifulSoup</code>,所以在py程序运行中遇到了一系列错误…….<br><a id="more"></a></p>
-</blockquote>
-<h2 id="错误一：ImportError-No-module-named-39-bs4-39"><a href="#错误一：ImportError-No-module-named-39-bs4-39" class="headerlink" title="错误一：ImportError: No module named &#39;bs4&#39;"></a>错误一：<code>ImportError: No module named &#39;bs4&#39;</code></h2><p>错误如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-b364e751ce6cbd53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ImportError: No module named &#39;bs4"></p>
-<ul>
-<li>解决方法如下</li>
-</ul>
-<p>Python如何安装模块：</p>
-<p>1.下载BS4模块：</p>
-<p><a href="http://www.crummy.com/software/BeautifulSoup/bs4/download/4.3/beautifulsoup4-4.3.2.tar.gz" target="_blank" rel="external">http://www.crummy.com/software/BeautifulSoup/bs4/download/4.3/beautifulsoup4-4.3.2.tar.gz</a></p>
-<p>2.解压到Python安装目录下的根目录中：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-7210e5b25ea26561.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="根目录"></p>
-<p>3.运行cmd，进入解压缩后的目录（如果Python默认安装在C盘下，打开cmd之后可以使用cd …语句先返回根目录，再进入Python27\beautifulsoup4-4.3.2）<br><img src="http://upload-images.jianshu.io/upload_images/4340772-40d18bbfcd7bffb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br>4.进入Python27\beautifulsoup4-4.3.2之后安装BS4模块：<br>执行：<code>python setup.py install</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-ebac366f3a3386b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="python setup.py install"></p>
-<p>可参考链接：<a href="http://www.cnblogs.com/victor5230/p/6397449.html" target="_blank" rel="external">http://www.cnblogs.com/victor5230/p/6397449.html</a></p>
-<hr>
-<p>然而又出现错误：</p>
-<h2 id="错误二：-ImportError-cannot-import-name-39-HTMLParseError-39"><a href="#错误二：-ImportError-cannot-import-name-39-HTMLParseError-39" class="headerlink" title="错误二： ImportError: cannot import name &#39;HTMLParseError&#39;"></a>错误二： <code>ImportError: cannot import name &#39;HTMLParseError&#39;</code></h2><p>解决bs4在Python 3.5下出现“ImportError: cannot import name ‘HTMLParseError’”错误</p>
-<ul>
-<li>解决方法如下：<br>直接在cmd命令框中执行<code>pip --upgrade beautifulsoup4</code></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5f48c2ff74be1dcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip --upgrade beautifulsoup4"></p>
-<p>可参考链接：<a href="http://blog.csdn.net/sinat_26599509/article/details/50609646" target="_blank" rel="external">http://blog.csdn.net/sinat_26599509/article/details/50609646</a></p>
-<hr>
-<h2 id="错误三：bs4-FeatureNotFound"><a href="#错误三：bs4-FeatureNotFound" class="headerlink" title="错误三：bs4.FeatureNotFound"></a>错误三：<code>bs4.FeatureNotFound</code></h2><p>又出现错误:如下<br>  <code>bs4.FeatureNotFound: Couldn&#39;t find a tree builder with the features you requested: lxml. Do you need to install a parser library?</code><br><img src="http://upload-images.jianshu.io/upload_images/4340772-0824f13ed3aa237d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bs4.FeatureNotFound"></p>
-<ul>
-<li>解决方法：<br>首先安装’pip install wheel’<br><a href="https://www.zhihu.com/question/49221958/answer/115712155" target="_blank" rel="external">https://www.zhihu.com/question/49221958/answer/115712155</a><br><img src="http://upload-images.jianshu.io/upload_images/4340772-c64102d6ece6724a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip install wheel"></li>
-</ul>
-<p>安装<code>pip install lxml</code><br><img src="http://upload-images.jianshu.io/upload_images/4340772-e7ada87d9ee63707.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip install lxml"><br>可参考链接1：<a href="https://www.zhihu.com/question/49221958/answer/115712155" target="_blank" rel="external">https://www.zhihu.com/question/49221958/answer/115712155</a><br>可参考链接2：<a href="http://study.163.com/forum/detail/1002230039.htm" target="_blank" rel="external">http://study.163.com/forum/detail/1002230039.htm</a></p>
-<p>竟然就好了！！！！！！！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://timgsa.baidu.com/timg?image&amp;amp;quality=80&amp;amp;size=b9999_10000&amp;amp;sec=1503121701573&amp;amp;di=6299ff4b6aefe2b11141cae630eb6da1&amp;amp;imgtype=0&amp;amp;src=http%3A%2F%2Fimage.lxway.com%2Fupload%2Fa%2F1b%2Fa1bc79d237bf05535330b1af1dc28afc_thumb.jpg&quot; alt=&quot;beautifulsoup&amp;amp;&amp;amp;BS64&quot;&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/HuangCongQing/python-NLP/blob/master/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;用beautifulsoup写的没错的小爬虫地址：&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-4cd3cf67dceb2a50.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;前言: Beautiful Soup 3 目前已经停止开发，推荐在现在的项目中使用Beautiful Soup 4，不过它已经被移植到BS4了，也就是说导入时我们需要 import bs4 。所以这里我们用的版本是 Beautiful Soup 4.3.2 (简称BS4)，另外据说 BS4 对 Python3 的支持不够好，虽然我用的Python35，如果有小伙伴用的是 Python3 版本，可以考虑下载 BS3 版本。&lt;br&gt;自己搞网页数据爬取时，需要 &lt;code&gt;from bs4 import BeautifulSoup&lt;/code&gt;,所以在py程序运行中遇到了一系列错误…….&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Python 爬虫必备-正则表达式（re模块）</title>
     <link href="http://yoursite.com/2017/08/19/Python-%E7%88%AC%E8%99%AB%E5%BF%85%E5%A4%87-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88re%E6%A8%A1%E5%9D%97%EF%BC%89/"/>
     <id>http://yoursite.com/2017/08/19/Python-爬虫必备-正则表达式（re模块）/</id>
@@ -1121,6 +1068,59 @@ ta\data\log\mongodb.log&quot; --logappend --dbpath &quot;D:\mongodbData/data/db&
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;正则表达式语法规则&quot;&gt;&lt;a href=&quot;#正则表达式语法规则&quot; class=&quot;headerlink&quot; title=&quot;正则表达式语法规则&quot;&gt;&lt;/a&gt;正则表达式语法规则&lt;/h2&gt;&lt;p&gt;下面是Python中正则表达式的一些匹配规则，图片资料来自CSDN&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-b0baf49f04744a80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;正则表达式&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python3X安装beautifulsoup&amp;&amp;BS64遇到的一些error</title>
+    <link href="http://yoursite.com/2017/08/19/python3X%E5%AE%89%E8%A3%85beautifulsoup&amp;&amp;BS64%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9Berror/"/>
+    <id>http://yoursite.com/2017/08/19/python3X安装beautifulsoup&amp;&amp;BS64遇到的一些error/</id>
+    <published>2017-08-19T09:50:33.000Z</published>
+    <updated>2018-03-11T17:11:18.856Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503121701573&amp;di=6299ff4b6aefe2b11141cae630eb6da1&amp;imgtype=0&amp;src=http%3A%2F%2Fimage.lxway.com%2Fupload%2Fa%2F1b%2Fa1bc79d237bf05535330b1af1dc28afc_thumb.jpg" alt="beautifulsoup&amp;&amp;BS64"><br><a href="https://github.com/HuangCongQing/python-NLP/blob/master/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96.py" target="_blank" rel="external">用beautifulsoup写的没错的小爬虫地址：</a><br><img src="http://upload-images.jianshu.io/upload_images/4340772-4cd3cf67dceb2a50.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<blockquote>
+<p>前言: Beautiful Soup 3 目前已经停止开发，推荐在现在的项目中使用Beautiful Soup 4，不过它已经被移植到BS4了，也就是说导入时我们需要 import bs4 。所以这里我们用的版本是 Beautiful Soup 4.3.2 (简称BS4)，另外据说 BS4 对 Python3 的支持不够好，虽然我用的Python35，如果有小伙伴用的是 Python3 版本，可以考虑下载 BS3 版本。<br>自己搞网页数据爬取时，需要 <code>from bs4 import BeautifulSoup</code>,所以在py程序运行中遇到了一系列错误…….<br><a id="more"></a></p>
+</blockquote>
+<h2 id="错误一：ImportError-No-module-named-39-bs4-39"><a href="#错误一：ImportError-No-module-named-39-bs4-39" class="headerlink" title="错误一：ImportError: No module named &#39;bs4&#39;"></a>错误一：<code>ImportError: No module named &#39;bs4&#39;</code></h2><p>错误如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-b364e751ce6cbd53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ImportError: No module named &#39;bs4"></p>
+<ul>
+<li>解决方法如下</li>
+</ul>
+<p>Python如何安装模块：</p>
+<p>1.下载BS4模块：</p>
+<p><a href="http://www.crummy.com/software/BeautifulSoup/bs4/download/4.3/beautifulsoup4-4.3.2.tar.gz" target="_blank" rel="external">http://www.crummy.com/software/BeautifulSoup/bs4/download/4.3/beautifulsoup4-4.3.2.tar.gz</a></p>
+<p>2.解压到Python安装目录下的根目录中：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-7210e5b25ea26561.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="根目录"></p>
+<p>3.运行cmd，进入解压缩后的目录（如果Python默认安装在C盘下，打开cmd之后可以使用cd …语句先返回根目录，再进入Python27\beautifulsoup4-4.3.2）<br><img src="http://upload-images.jianshu.io/upload_images/4340772-40d18bbfcd7bffb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br>4.进入Python27\beautifulsoup4-4.3.2之后安装BS4模块：<br>执行：<code>python setup.py install</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-ebac366f3a3386b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="python setup.py install"></p>
+<p>可参考链接：<a href="http://www.cnblogs.com/victor5230/p/6397449.html" target="_blank" rel="external">http://www.cnblogs.com/victor5230/p/6397449.html</a></p>
+<hr>
+<p>然而又出现错误：</p>
+<h2 id="错误二：-ImportError-cannot-import-name-39-HTMLParseError-39"><a href="#错误二：-ImportError-cannot-import-name-39-HTMLParseError-39" class="headerlink" title="错误二： ImportError: cannot import name &#39;HTMLParseError&#39;"></a>错误二： <code>ImportError: cannot import name &#39;HTMLParseError&#39;</code></h2><p>解决bs4在Python 3.5下出现“ImportError: cannot import name ‘HTMLParseError’”错误</p>
+<ul>
+<li>解决方法如下：<br>直接在cmd命令框中执行<code>pip --upgrade beautifulsoup4</code></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5f48c2ff74be1dcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip --upgrade beautifulsoup4"></p>
+<p>可参考链接：<a href="http://blog.csdn.net/sinat_26599509/article/details/50609646" target="_blank" rel="external">http://blog.csdn.net/sinat_26599509/article/details/50609646</a></p>
+<hr>
+<h2 id="错误三：bs4-FeatureNotFound"><a href="#错误三：bs4-FeatureNotFound" class="headerlink" title="错误三：bs4.FeatureNotFound"></a>错误三：<code>bs4.FeatureNotFound</code></h2><p>又出现错误:如下<br>  <code>bs4.FeatureNotFound: Couldn&#39;t find a tree builder with the features you requested: lxml. Do you need to install a parser library?</code><br><img src="http://upload-images.jianshu.io/upload_images/4340772-0824f13ed3aa237d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bs4.FeatureNotFound"></p>
+<ul>
+<li>解决方法：<br>首先安装’pip install wheel’<br><a href="https://www.zhihu.com/question/49221958/answer/115712155" target="_blank" rel="external">https://www.zhihu.com/question/49221958/answer/115712155</a><br><img src="http://upload-images.jianshu.io/upload_images/4340772-c64102d6ece6724a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip install wheel"></li>
+</ul>
+<p>安装<code>pip install lxml</code><br><img src="http://upload-images.jianshu.io/upload_images/4340772-e7ada87d9ee63707.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip install lxml"><br>可参考链接1：<a href="https://www.zhihu.com/question/49221958/answer/115712155" target="_blank" rel="external">https://www.zhihu.com/question/49221958/answer/115712155</a><br>可参考链接2：<a href="http://study.163.com/forum/detail/1002230039.htm" target="_blank" rel="external">http://study.163.com/forum/detail/1002230039.htm</a></p>
+<p>竟然就好了！！！！！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://timgsa.baidu.com/timg?image&amp;amp;quality=80&amp;amp;size=b9999_10000&amp;amp;sec=1503121701573&amp;amp;di=6299ff4b6aefe2b11141cae630eb6da1&amp;amp;imgtype=0&amp;amp;src=http%3A%2F%2Fimage.lxway.com%2Fupload%2Fa%2F1b%2Fa1bc79d237bf05535330b1af1dc28afc_thumb.jpg&quot; alt=&quot;beautifulsoup&amp;amp;&amp;amp;BS64&quot;&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/HuangCongQing/python-NLP/blob/master/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;用beautifulsoup写的没错的小爬虫地址：&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-4cd3cf67dceb2a50.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;前言: Beautiful Soup 3 目前已经停止开发，推荐在现在的项目中使用Beautiful Soup 4，不过它已经被移植到BS4了，也就是说导入时我们需要 import bs4 。所以这里我们用的版本是 Beautiful Soup 4.3.2 (简称BS4)，另外据说 BS4 对 Python3 的支持不够好，虽然我用的Python35，如果有小伙伴用的是 Python3 版本，可以考虑下载 BS3 版本。&lt;br&gt;自己搞网页数据爬取时，需要 &lt;code&gt;from bs4 import BeautifulSoup&lt;/code&gt;,所以在py程序运行中遇到了一系列错误…….&lt;br&gt;
     
     </summary>
     

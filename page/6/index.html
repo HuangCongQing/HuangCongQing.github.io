@@ -159,6 +159,232 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.jianshu.com/p/6ee3ee9c3cfd" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】</a><br><a href="http://www.jianshu.com/p/240577c76625" target="_blank" rel="external">五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文二】</a></p>
+<p>上两篇文章分析了互联网的总体构思，从下至上，每一层协议的设计思想。</p>
+<p>这是从设计者的角度看问题，今天我想切换到用户的角度，看看用户是如何从上至下，与这些协议互动的。</p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-89d429fabaf3f51c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>（接上文）</p>
+<p><strong>七、一个小结</strong><br>先对前面的内容，做一个小结。<br>我们已经知道，网络通信就是交换数据包。电脑A向电脑B发送一个数据包，后者收到了，回复一个数据包，从而实现两台电脑之间的通信。数据包的结构，基本上是下面这样：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-aac5b2b7bd7cc56e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>发送这个包，需要知道两个地址：</p>
+<ul>
+<li>对方的MAC地址</li>
+<li>对方的IP地址</li>
+</ul>
+<p>有了这两个地址，数据包才能准确送到接收者手中。但是，前面说过，MAC地址有局限性，如果两台电脑不在同一个子网络，就无法知道对方的MAC地址，必须<strong>通过网关（gateway）</strong>转发。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-d3f87019d309d273.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>上图中，1号电脑要向4号电脑发送一个数据包。它先判断4号电脑是否在同一个子网络，结果发现不是（后文介绍判断方法），于是就把这个数据包发到网关A。网关A通过路由协议，发现4号电脑位于子网络B，又把数据包发给网关B，网关B再转发到4号电脑。<br>1号电脑把数据包发到网关A，必须知道网关A的MAC地址。所以，数据包的目标地址，实际上分成两种情况：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>数据包地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同一个子网络</td>
+<td>对方的MAC地址，对方的IP地址</td>
+</tr>
+<tr>
+<td>非同一个子网络</td>
+<td>网关的MAC地址，对方的IP地址</td>
+</tr>
+</tbody>
+</table>
+<p>发送数据包之前，电脑必须判断对方是否在同一个子网络，然后选择相应的MAC地址。接下来，我们就来看，实际使用中，这个过程是怎么完成的。</p>
+<p><strong>八、用户的上网设置</strong></p>
+<p><strong>8.1 静态IP地址</strong></p>
+<p>你买了一台新电脑，插上网线，开机，这时电脑能够上网吗？<br><img src="http://upload-images.jianshu.io/upload_images/4340772-05d2d213fa05250b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>通常你必须做一些设置。有时，管理员（或者ISP）会告诉你下面四个参数，你把它们填入操作系统，计算机就能连上网了：</p>
+<ul>
+<li>本机的IP地址　　</li>
+<li>子网掩码　　</li>
+<li>网关的IP地址　　</li>
+<li>DNS的IP地址</li>
+</ul>
+<p>下图是Windows系统的设置窗口。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-6314ea0a79f8a44f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这四个参数缺一不可，后文会解释为什么需要知道它们才能上网。由于它们是给定的，计算机每次开机，都会分到同样的IP地址，所以这种情况被称作”静态IP地址上网”。<br>但是，这样的设置很专业，普通用户望而生畏，而且如果一台电脑的IP地址保持不变，其他电脑就不能使用这个地址，不够灵活。出于这两个原因，<strong>大多数用户使用”动态IP地址上网”。</strong></p>
+<p><strong>8.2 动态IP地址</strong></p>
+<p>所谓”动态IP地址”，指计算机开机后，会自动分配到一个IP地址，不用人为设定。它使用的协议叫做<a href="http://zh.wikipedia.org/zh/DHCP" target="_blank" rel="external">DHCP协议</a>。<br>这个协议规定，每一个子网络中，有一台计算机负责管理本网络的所有IP地址，它叫做”DHCP服务器”。新的计算机加入网络，必须向”DHCP服务器”发送一个”DHCP请求”数据包，申请IP地址和相关的网络参数。<br>前面说过，如果两台计算机在同一个子网络，必须知道对方的MAC地址和IP地址，才能发送数据包。但是，新加入的计算机不知道这两个地址，怎么发送数据包呢？<br>DHCP协议做了一些巧妙的规定。</p>
+<p><strong>8.3 DHCP协议</strong></p>
+<p>首先，它是一种应用层协议，建立在UDP协议之上，所以整个数据包是这样的：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-1cdc3e2a92343912.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>　　（1）最前面的”以太网标头”，设置发出方（本机）的MAC地址和接收方（DHCP服务器）的MAC地址。前者就是本机网卡的MAC地址，后者这时不知道，就填入一个广播地址：<code>FF-FF-FF-FF-FF-FF</code>。<br>　　（2）后面的”IP标头”，设置发出方的IP地址和接收方的IP地址。这时，对于这两者，本机都不知道。于是，发出方的IP地址就设为<code>0.0.0.0</code>，接收方的IP地址设为<code>255.255.255.255</code>。<br>　　（3）最后的”UDP标头”，设置发出方的端口和接收方的端口。这一部分是DHCP协议规定好的，发出方是68端口，接收方是67端口。<br>这个数据包构造完成后，就可以发出了。以太网是广播发送，同一个子网络的每台计算机都收到了这个包。因为接收方的MAC地址是<code>FF-FF-FF-FF-FF-FF</code>，看不出是发给谁的，所以每台收到这个包的计算机，还必须分析这个包的IP地址，才能确定是不是发给自己的。当看到发出方IP地址是<code>0.0.0.0</code>，接收方是<code>255.255.255.255</code>，于是DHCP服务器知道”这个包是发给我的”，而其他计算机就可以丢弃这个包。</p>
+<p>接下来，DHCP服务器读出这个包的数据内容，分配好IP地址，发送回去一个”DHCP响应”数据包。这个响应包的结构也是类似的，以太网标头的MAC地址是双方的网卡地址，IP标头的IP地址是DHCP服务器的IP地址（发出方）和255.255.255.255（接收方），UDP标头的端口是67（发出方）和68（接收方），分配给请求端的IP地址和本网络的具体参数则包含在Data部分。<br>新加入的计算机收到这个响应包，于是就知道了自己的IP地址、子网掩码、网关地址、DNS服务器等等参数。</p>
+<p><strong>8.4 上网设置：小结</strong></p>
+<p>这个部分，需要记住的就是一点：不管是”静态IP地址”还是”动态IP地址”，电脑上网的首要步骤，是确定四个参数。这四个值很重要，值得重复一遍：<br>　　<em> 本机的IP地址　　</em> 子网掩码　　<em> 网关的IP地址　　</em> DNS的IP地址</p>
+<p>有了这几个数值，电脑就可以上网”冲浪”了。接下来，我们来看一个实例，当用户访问网页的时候，互联网协议是怎么运作的。</p>
+<p><strong>九、一个实例：访问网页</strong></p>
+<p><strong>9.1 本机参数</strong></p>
+<p>我们假定，经过上一节的步骤，用户设置好了自己的网络参数：<br>　　<em> 本机的IP地址：192.168.1.100　　</em> 子网掩码：255.255.255.0　　<em> 网关的IP地址：192.168.1.1　　</em> DNS的IP地址：8.8.8.8</p>
+<p>然后他打开浏览器，想要访问Google，在地址栏输入了网址：www.google.com。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-4099c002b2c6fdf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这意味着，浏览器要向Google发送一个网页请求的数据包。</p>
+<p><strong>9.2 DNS协议</strong></p>
+<p>我们知道，发送数据包，必须要知道对方的IP地址。但是，现在，我们只知道网址www.google.com，不知道它的IP地址。<br><a href="http://en.wikipedia.org/wiki/Domain_Name_System" target="_blank" rel="external">DNS协议</a>可以帮助我们，将这个网址转换成IP地址。已知DNS服务器为8.8.8.8，于是我们向这个地址发送一个DNS数据包（53端口）。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-68351749847a173e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>然后，DNS服务器做出响应，告诉我们Google的IP地址是172.194.72.105。于是，我们知道了对方的IP地址。</p>
+<p><strong>9.3 子网掩码</strong></p>
+<p>接下来，我们要判断，这个IP地址是不是在同一个子网络，这就要用到子网掩码。<br>已知子网掩码是255.255.255.0，本机用它对自己的IP地址192.168.1.100，做一个二进制的AND运算（两个数位都为1，结果为1，否则为0），计算结果为192.168.1.0；然后对Google的IP地址172.194.72.105也做一个AND运算，计算结果为172.194.72.0。这两个结果不相等，所以结论是，Google与本机不在同一个子网络。</p>
+<p>因此，我们要向Google发送数据包，必须通过网关192.168.1.1转发，也就是说，<strong>接收方的MAC地址将是网关的MAC地址</strong>。</p>
+<p><strong>9.4 应用层协议</strong></p>
+<p>浏览网页用的是HTTP协议，它的整个数据包构造是这样的：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-e0d0dc1443f06814.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>HTTP部分的内容，类似于下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1　　</div><div class="line">Host: www.google.com　　</div><div class="line">Connection: keep-alive　　</div><div class="line">User-Agent: Mozilla/5.0 (Windows NT 6.1) ......　　</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8　　</div><div class="line">Accept-Encoding: gzip,deflate,sdch　　</div><div class="line">Accept-Language: zh-CN,zh;q=0.8　　</div><div class="line">Accept-Charset: GBK,utf-8;q=0.7,*;q=0.3　　</div><div class="line">Cookie: ... ...</div></pre></td></tr></table></figure></p>
+<p>我们假定这个部分的长度为4960字节，它会被嵌在TCP数据包之中。</p>
+<p><strong>9.5 TCP协议</strong></p>
+<p>TCP数据包需要设置端口，接收方（Google）的HTTP端口默认是80，发送方（本机）的端口是一个随机生成的1024-65535之间的整数，假定为51775。<br>TCP数据包的标头长度为20字节，加上嵌入HTTP的数据包，总长度变为4980字节。</p>
+<p><strong>9.6 IP协议</strong></p>
+<p>然后，TCP数据包再嵌入IP数据包。IP数据包需要设置双方的IP地址，这是已知的，发送方是192.168.1.100（本机），接收方是172.194.72.105（Google）。<br>IP数据包的标头长度为20字节，加上嵌入的TCP数据包，总长度变为5000字节。</p>
+<p><strong>9.7 以太网协议</strong></p>
+<p>最后，IP数据包嵌入以太网数据包。以太网数据包需要设置双方的MAC地址，发送方为本机的网卡MAC地址，接收方为网关192.168.1.1的MAC地址（通过ARP协议得到）。<br>以太网数据包的数据部分，最大长度为1500字节，而现在的IP数据包长度为5000字节。因此，IP数据包必须分割成四个包。因为每个包都有自己的IP标头（20字节），所以四个包的IP数据包的长度分别为1500、1500、1500、560。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-137a41ccabd2fb80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>9.8 服务器端响应</strong></p>
+<p>经过多个网关的转发，Google的服务器172.194.72.105，收到了这四个以太网数据包。<br>根据IP标头的序号，Google将四个包拼起来，取出完整的TCP数据包，然后读出里面的”HTTP请求”，接着做出”HTTP响应”，再用TCP协议发回来。<br>本机收到HTTP响应以后，就可以将网页显示出来，完成一次网络通信。<br><img src="http://upload-images.jianshu.io/upload_images/4340772-f60ec6a4882fe3e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这个例子就到此为止，虽然经过了简化，但它大致上反映了互联网协议的整个通信过程。</p>
+<p>参考链接：<a href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html" target="_blank" rel="external">互联网协议入门（二）-阮一峰</a></p>
+<hr>
+<p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文三】/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-域名解析后主机记录和记录值怎么填写？都是什么意思？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/" class="archive-article-date">
+  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="gt-之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！"><a href="#gt-之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！" class="headerlink" title="&gt;之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！"></a>&gt;之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！</h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-6a5c1d2eee05d348.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加记录"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-20f7cdb784a973e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="记录类型"></p>
+<h3 id="主机记录："><a href="#主机记录：" class="headerlink" title="主机记录："></a>主机记录：</h3><p>主机记录就是域名前缀，常见用法有：</p>
+<ul>
+<li>www：解析后的域名为 www.1756260160.com</li>
+<li>@：直接解析主域名 1756260160.com</li>
+<li><p>：泛解析，匹配其他所有域名 *.1756260160.com</p>
+        
+          <a class="article-more-a" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-五（七）层互联网协议（计算机网络）深入浅出，看完必懂【图文一】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -275,19 +501,19 @@
 
 
   
-    <article id="post-域名解析后主机记录和记录值怎么填写？都是什么意思？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
+      <a class="article-title" href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/" class="archive-article-date">
+        <a href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/" class="archive-article-date">
   	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -295,219 +521,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="gt-之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！"><a href="#gt-之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！" class="headerlink" title="&gt;之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！"></a>&gt;之前我买的域名在腾讯云解析之后，需要添加记录，开始一脸懵啊，在网上搜查了一些资料，整理了一下，希望为大家解点惑吧！</h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-6a5c1d2eee05d348.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加记录"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-20f7cdb784a973e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="记录类型"></p>
-<h3 id="主机记录："><a href="#主机记录：" class="headerlink" title="主机记录："></a>主机记录：</h3><p>主机记录就是域名前缀，常见用法有：</p>
+        <p>我们的第一个学习算法是<strong>线性回归算法</strong>。在这段视频中，你会看到这个算法的概况，更<br>重要的是你将会了解监督学习过程完整的流程。</p>
+<h2 id="模型表示（Model-Representation）"><a href="#模型表示（Model-Representation）" class="headerlink" title="模型表示（Model Representation）"></a>模型表示（Model Representation）</h2><p>让我们通过一个例子来开始：这个例子是预测住房价格的，我们要使用一个数据集，数<br>据集包含俄勒冈州波特兰市的住房价格。<strong>比方说，如果你朋友的房子是 1250 平方尺大小，你要告诉他们这房子能卖多少钱</strong>。</p>
+<p>它被称作<strong>监督学习</strong>是因为对于每个数据来说，我们给出了“正确的答案”，即告诉我们：<br>根据我们的数据来说，房子实际的价格是多少，而且，<strong>更具体来说，这是一个回归问题</strong>。回<br>归一词指的是，我们根据之前的数据预测出一个准确的输出值，对于这个例子就是价格，同<br>时，还有另一种最常见的监督学习方式，叫做分类问题，当我们想要预测离散的输出值，例<br>如，我们正在寻找癌症肿瘤，并想要确定肿瘤是良性的还是恶性的，这就是 0/1 离散输出的<br>问题。更进一步来说，<strong>在监督学习中我们有一个数据集，这个数据集被称训练集。</strong></p>
+<p><strong>我将在整个课程中用小写的 m 来表示训练样本的数目。</strong></p>
+<p>以之前的房屋交易问题为例，假使我们回归问题的训练集（Training Set）如下表所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-8990385805b2692f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Training Set"></p>
 <ul>
-<li>www：解析后的域名为 www.1756260160.com</li>
-<li>@：直接解析主域名 1756260160.com</li>
-<li><p>：泛解析，匹配其他所有域名 *.1756260160.com</p>
-        
-          <a class="article-more-a" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/域名解析后主机记录和记录值怎么填写？都是什么意思？/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-各种邮箱pop，SMTP设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/各种邮箱pop，SMTP设置/">各种邮箱pop，SMTP设置</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/31/各种邮箱pop，SMTP设置/" class="archive-article-date">
-  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>看到很多用户在绑定邮箱时出现各种各样的问题，特将主流邮箱的配置问题汇总,供大家参考也供自己参考</p>
-</blockquote>
-<ul>
-<li>首先向大家简单介绍一下尚邮绑定邮箱的注意事项： 1、请先确认您的邮箱支持pop3<br>只要支持pop3或者imap4协议的公众邮箱和企业邮箱都可以使用尚邮。 目前大多数免费公众邮箱都支持pop功能，但是部分需要要手动开启（在本文的后面我们会针对几个常见的公众邮箱开通POP服务以及服务器配置方式进行介绍）。确认您的邮箱支持pop3或者imap4协议后您就可以绑定邮箱了
-        
-          <a class="article-more-a" href="/2017/07/31/各种邮箱pop，SMTP设置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮箱</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/各种邮箱pop，SMTP设置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python35安装的各种工具和库（不是模块）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/python35安装的各种工具和库（不是模块）/">域名解析后主机记录和记录值怎么填写？都是什么意思？</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/31/python35安装的各种工具和库（不是模块）/" class="archive-article-date">
-  	<time datetime="2017-07-31T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>2017/10/25</p>
-<h3 id="ImportError-No-module-named-‘h5py’"><a href="#ImportError-No-module-named-‘h5py’" class="headerlink" title="ImportError: No module named ‘h5py’"></a>ImportError: No module named ‘h5py’</h3><ul>
-<li>h5py文件是存放两类对象的容器，数据集(dataset)和组(group)</li>
+<li>m 代表训练集中实例的数量</li>
+<li>x 代表特征/输入变量</li>
+<li>y 代表目标变量/输出变量</li>
+<li>(x,y) 代表训练集中的实例</li>
+<li>( x(i),y(i)  ) 代表第 i 个观察实例</li>
+<li>h 代表学习算法的解决方案或函数也称为假设（hypothesis）</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-357ad3e8d09c9b48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip3 install h5py"></p>
-<h3 id="ImportError-No-module-named-‘tf-utils’"><a href="#ImportError-No-module-named-‘tf-utils’" class="headerlink" title="ImportError: No module named ‘tf_utils’"></a>ImportError: No module named ‘tf_utils’</h3><p>无此模块，待定</p>
-<h3 id="ImportError-No-module-named-‘Chromosome’"><a href="#ImportError-No-module-named-‘Chromosome’" class="headerlink" title="ImportError: No module named ‘Chromosome’"></a>ImportError: No module named ‘Chromosome’</h3><p>2017/10/13</p>
-<ul>
-<li>pip install matplotlib(出现问题)</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-467dab3631c6c506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>解决方案：<br>安装包的链接<a href="https://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.5.2/" target="_blank" rel="external">https://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.5.2/</a><br>matplotlib-1.5.0-cp35-none-win_amd64.whl</p>
-<p>将下载的numpy包拷贝到D:\路径\Python35\Scripts下（不知道怎么回事只有在这个目录下 pip安装命令才好使） </p>
-<ul>
-<li>pip install “[numpy包名称]” <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C:\Users\hasee\AppData\Local\Programs\Python\Python35\Scripts&gt;pip install &quot;matpl</div><div class="line">otlib-1.5.0-cp35-none-win_amd64.whl&quot;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意：</p>
-<h2 id="①-numpy包名称要加英文双引号。"><a href="#①-numpy包名称要加英文双引号。" class="headerlink" title="① numpy包名称要加英文双引号。"></a>① numpy包名称要加英文双引号。</h2><h2 id="②-下载的-numpy-包要拷贝到Python安装目录下的scripts文件夹下，如D-路径-Python35-Scripts下，因为只有在这个目录下-pip安装命令才好使。"><a href="#②-下载的-numpy-包要拷贝到Python安装目录下的scripts文件夹下，如D-路径-Python35-Scripts下，因为只有在这个目录下-pip安装命令才好使。" class="headerlink" title="② 下载的 numpy 包要拷贝到Python安装目录下的scripts文件夹下，如D:\路径\Python35\Scripts下，因为只有在这个目录下 pip安装命令才好使。"></a>② 下载的 numpy 包要拷贝到Python安装目录下的scripts文件夹下，如D:\路径\Python35\Scripts下，因为只有在这个目录下 pip安装命令才好使。</h2><h2 id="这样就成功了"><a href="#这样就成功了" class="headerlink" title="这样就成功了"></a>这样就成功了</h2><blockquote>
-<p>pip install -U scikit-learn中-U是？？？<br>pip install -h 就有说明了，就是 –upgrade，意思是如果已安装就升级到最新版。</p>
-</blockquote>
-<p><a href="http://lib.csdn.net/base/python" target="_blank" rel="external">Python</a>是最为流行的，原因可能和它的快捷有关，而<a href="http://lib.csdn.net/base/python" target="_blank" rel="external">python</a>常用的数值计算，特别是和矩阵操作、优化等有关的数值计算可以用numpy、scipy、theano等包实现。一个简单的在<a href="http://lib.csdn.net/base/linux" target="_blank" rel="external">Linux</a>下安装这些包的方法就是安装Anaconda了。<br><a href="http://www.afox.cc/archives/390" target="_blank" rel="external">使用方法</a></p>
-<ul>
-<li>selenium</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5c8ed11776b196e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>pip install jupyter<br><img src="http://upload-images.jianshu.io/upload_images/4340772-800c8887c1d9a6a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></li>
-</ul>
-<p>安装完成后，默认安装在pythonXX/scripts</p>
-<p>我的安装在<code>C:\Users\hasee\AppData\Local\Programs\Python\Python35\Scripts</code></p>
-<p><a href="http://blog.csdn.net/lee_j_r/article/details/52791228" target="_blank" rel="external">使用方法</a></p>
-<ul>
-<li><p>pip install pandas<br>安装完成后<br><img src="http://upload-images.jianshu.io/upload_images/4340772-73828fcbff8090c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"><br><a href="https://www.zhihu.com/question/47003185" target="_blank" rel="external">如何优雅的安装Python的pandas?</a></p>
-</li>
-<li><p>scikit-learn</p>
-</li>
-</ul>
-<p>如果已经安装好numpy和scipy，最便捷的安装scikit-learn的方式就是通过pip:<br>[站外图片上传中……(3)]</p>
-<ul>
-<li><p>scipy<br><img src="http://upload-images.jianshu.io/upload_images/4340772-050c8526de91c57c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-</li>
-<li><p>PyQuery<br><img src="http://upload-images.jianshu.io/upload_images/4340772-7e20fe1969e67748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-</li>
-<li><p>pip install config<br><img src="http://upload-images.jianshu.io/upload_images/4340772-5ff2506fdb8e843c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pip install config"></p>
-</li>
-<li><p>pip install pymongo</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-668b3748ab4447f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-55990933583b4806.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我将选择最初的使用规则 h 代表 hypothesis，因而，要解决房价预测问题，我们实际上<br>是要将训练集“喂”给我们的学习算法，<strong>进而学习得到一个假设 h</strong>，然后将我们要预测的房屋<br>的尺寸作为输入变量输入给 h，预测出该房屋的交易价格作为输出变量输出为结果。那么，<br>对于我们的房价预测问题，我们该如何表达 h？</p>
+<p><strong>一种可能的表达方式为：<img src="http://upload-images.jianshu.io/upload_images/4340772-ba14eb3d869c3e9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br> 因为只含有一个特征/输入变量，因此这样的问题叫作单变量线性回归问题。</strong></p>
+<h2 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h2><p>在这段视频中我们将定义代价函数的概念，这有助于我们弄清楚如何把最有可能的直线<br>与我们的数据相拟合。如图<br><img src="http://upload-images.jianshu.io/upload_images/4340772-150c1b462ba68db4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在线性回归中我们有一个像这样的训练集，m 代表了训练样本的数量，比如 m = 47。<br>而我们的假设函数，也就是用来进行预测的函数，是这样的线性函数形式：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-4ebf3384caed6056.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>接下来我们会引入一些术语我们现在要做的便是为我们的模型选择合适的<strong>参数</strong><br>（parameters）θ0 和 θ1，在房价问题这个例子中便是直线的斜率和在 y 轴上的截距。</p>
+<p>我们选择的参数决定了我们得到的直线相对于我们的训练集的准确程度，模型所预测的<br>值与训练集中实际值之间的差距（下图中蓝线所指）就是<strong>建模误差（modeling error）</strong>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-878252e6654d6c0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>我们的目标便是选择出可以使得建模误差的平方和能够最小的模型参数。 即使得代价函数</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-495731d0876394da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>最小。</p>
+<p>我们绘制一个等高线图，三个坐标分别为 θ0 和 θ1 和 J(θ0,θ1)：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-9d916a27ec8a7e20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>则可以看出在三维空间中存在一个使得 J(θ0,θ1)最小的点。<br><strong>代价函数也被称作平方误差函数，有时也被称为平方误差代价函数。我们之所以要求出<br>误差的平方和，是因为误差平方代价函数，对于大多数问题，特别是回归问题，都是一个合<br>理的选择。</strong>还有其他的代价函数也能很好地发挥作用，但是平方误差代价函数可能是解决回<br>归问题最常用的手段了。</p>
+<p>也许这个函数J(θ0,θ1)有点抽象，可能你仍然不知道它的内涵，在接下来的几个视频里，<br>我们要更进一步解释代价函数J 的工作原理 ，并尝试更直观地解释它在计算什么，以及我<br>们使用它的目的。</p>
+<h3 id="代价函数的直观理解"><a href="#代价函数的直观理解" class="headerlink" title="代价函数的直观理解"></a>代价函数的直观理解</h3><p>在上一个视频中，我们给了代价函数一个数学上的定义。在这个视频里，让我们通过一<br>些例子来获取一些直观的感受，看看代价函数到底是在干什么。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-872a859781af7b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>当然，我们真正需要的是一种有效的算法，能够自动地找出这些使代价函数 J 取最小值<br>的参数 θ0 和 θ1 来。<br>我们也不希望编个程序把这些点画出来，然后人工的方法来读出这些点的数值，这很明<br>显不是一个好办法。我们会遇到更复杂、更高维度、更多参数的情况，而这些情况是很难画<br>出图的，因此更无法将其可视化，因此我们真正需要的<strong>是编写程序来找出这些最小化代价函<br>数的 θ0 和 θ1 的值</strong>，在下一节视频中，我们将介绍一种算法，能够自动地找出能使代价函数<br>J 最小化的参数 θ0 和 θ1 的值。</p>
+<h2 id="梯度下降Gradient-Descent（自动地找出能使代价函数J-最小化的参数-θ0-和-θ1-的值）"><a href="#梯度下降Gradient-Descent（自动地找出能使代价函数J-最小化的参数-θ0-和-θ1-的值）" class="headerlink" title="梯度下降Gradient Descent（自动地找出能使代价函数J 最小化的参数 θ0 和 θ1 的值）"></a>梯度下降Gradient Descent（自动地找出能使代价函数J 最小化的参数 θ0 和 θ1 的值）</h2><p>梯度下降是一个用来求函数最小值的算法，我们将使用梯度下降算法来求出代价函数<br>J(θ0,θ1) 的最小值。</p>
+<p>梯度下降背后的思想是：开始时我们随机选择一个参数的组合（θ0,θ1,…,θn），计算代价<br>函数，然后我们寻找下一个能让代价函数值下降最多的参数组合。我们持续这么做直到到到<br>一个<strong>局部最小值（local minimum）</strong>，因为我们并没有尝试完所有的参数组合，所以不能确定<br>我们得到的<strong>局部最小值是否便是全局最小值（global minimum），选择不同的初始参数组合，可能会找到不同的局部最小值。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-1663639ee036284e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>想象一下你正站立在山的这一点上，站立在你想象的公园这座红色山上，在梯度下降算<br>法中，我们要做的就是旋转 360 度，看看我们的周围，并问自己要在某个方向上，用小碎步<br>尽快下山。这些小碎步需要朝什么方向？如果我们站在山坡上的这一点，你看一下周围，你<br>会发现最佳的下山方向，你再看看周围，然后再一次想想，我应该从什么方向迈着小碎步下<br>山？然后你按照自己的判断又迈出一步，重复上面的步骤，从这个新的点，你环顾四周，并<br>决定从什么方向将会最快下山，然后又迈进了一小步，并依此类推，直到你接近局部最低点<br>的位置。</p>
+<p>批量梯度下降（batch gradient descent）算法的公式为：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-e61eda9253492b51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>其中 α 是学习率（learning rate），它决定了我们沿着能让代价函数下降程度最大的方<br>向向下迈出的步子有多大，在批量梯度下降中，我们每一次都同时让所有的参数减去学习速<br>率乘以代价函数的导数。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-df9bd833a4427928.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在梯度下降算法中，还有一个更微妙的问题，梯度下降中，我们要更新 θ0 和 θ1 ，当 j=0<br>和 j=1 时，会产生更新，所以你将更新 Jθ0 和 Jθ1。实现梯度下降算法的微妙之处是，在这<br>个表达式中，如果你要更新这个等式，你需要同时更新 θ0 和 θ1，我的意思是在这个等式中，<br>我们要这样更新：<br>θ0:= θ0 ，并更新 θ1:= θ1。<br>实现方法是：你应该计算公式右边的部分，通过那一部分计算出 θ0 和 θ1 的值，然后同<br>时更新 θ0 和 θ1。<br>让我进一步阐述这个过程：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-4774806c6088fb25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在梯度下降算法中，这是正确实现同时更新的方法。我不打算解释为什么你需要同时更<br>新，同时更新是梯度下降中的一种常用方法。我们之后会讲到，同步更新是更自然的实现方<br>法。当人们谈到梯度下降时，他们的意思就是同步更新。<br>在接下来的视频中，我们要进入这个微分项的细节之中。我已经写了出来但没有真正定<br>义，如果你已经修过微积分课程，如果你熟悉偏导数和导数，这其实就是这个微分项：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-4727a43c0232360a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>如果你不熟悉微积分，不用担心，即使你之前没有看过微积分，或者没有接触过偏导数<br>在接下来的视频中，你会得到一切你需要知道，如何计算这个微分项的知识。<br>下一个视频中，希望我们能够给出实现梯度下降算法的所有知识 。</p>
+<h2 id="梯度下降的直观理解"><a href="#梯度下降的直观理解" class="headerlink" title="梯度下降的直观理解"></a>梯度下降的直观理解</h2><p>在之前的视频中，我们给出了一个数学上关于梯度下降的定义，本次视频我们更深入研<br>究一下，更直观地感受一下这个算法是做什么的，以及梯度下降算法的更新过程有什么意义。<br>梯度下降算法如下图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-24d8187f7f3fe86b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>描述：对 θ 赋值，使得 J(θ)按梯度下降最快方向进行，一直迭代下去，最终得到局部最<br>小值。其中 α 是学习率（learning rate），它决定了我们沿着能让代价函数下降程度最大的方<br>向向下迈出的步子有多大。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-73d1a1e133350330.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>对于这个问题，求导的目的，基本上可以说取这个红点的切线，就是这样一条红色的直<br>线，刚好与函数相切于这一点，让我们看看这条红色直线的斜率，就是这条刚好与函数曲线<br>相切的这条直线，这条直线的斜率正好是这个三角形的高度除以这个水平长度，现在，这条<br>线有一个正斜率，也就是说它有正导数，因此，我得到的新的 θ1，θ1 更新后等于 θ1 减去一<br>个正数乘以 α。<br>这就是我梯度下降法的更新规则：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-670a606ceaa26a1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="让我们来看看如果-α-太小或-α-太大会出现什么情况："><a href="#让我们来看看如果-α-太小或-α-太大会出现什么情况：" class="headerlink" title="让我们来看看如果 α 太小或 α 太大会出现什么情况："></a>让我们来看看如果 α 太小或 α 太大会出现什么情况：</h5><p>如果 α 太小了，即我的学习速率太小，结果就是只能这样像小宝宝一样一点点地挪动，<br>去努力接近最低点，这样就需要很多步才能到达最低点，所以如果 α 太小的话，可能会很慢<br>因为它会一点点挪动，它会需要很多步才能到达全局最低点。</p>
+<p>如果 α 太大，那么梯度下降法可能会越过最低点，甚至可能无法收敛，下一次迭代又移<br>动了一大步，越过一次，又越过一次，一次次越过最低点，直到你发现实际上离最低点越来<br>越远，所以，如果 α 太大，它会导致无法收敛，甚至发散。</p>
+<p>现在，我还有一个问题，当我第一次学习这个地方时，我花了很长一段时间才理解这个<br>问题，如果我们预先把 θ1放在一个局部的最低点，你认为下一步梯度下降法会怎样工作？</p>
+<p>假设你将 θ1初始化在局部最低点，在这儿，它已经在一个局部的最优处或局部最低点。<br>结果是局部最优点的导数将等于零，因为它是那条切线的斜率。这意味着你已经在局部最优<br>点，它使得 θ1不再改变，也就是新的 θ1等于原来的 θ1，因此，如果你的参数已经处于局部<br>最低点，那么梯度下降法更新其实什么都没做，它不会改变参数的值。这也解释了为什么即<br>使学习速率 α 保持不变时，梯度下降也可以收敛到局部最低点。</p>
+<p>在接下来的视频中，我们要用代价函数 J，回到它的本质，线性回归中的代价函数。也<br>就是我们前面得出的平方误差函数，结合梯度下降法，以及平方代价函数，我们会得出第一<br>个机器学习算法，即线性回归算法。</p>
+<h2 id="梯度下降的线性回归"><a href="#梯度下降的线性回归" class="headerlink" title="梯度下降的线性回归"></a>梯度下降的线性回归</h2><p>在以前的视频中我们谈到关于梯度下降算法，梯度下降是很常用的算法，它不仅被用在<br>线性回归上和线性回归模型、平方误差代价函数。在这段视频中，我们要将梯度下降和代价<br>函数结合。我们将用到此算法，并将其应用于具体的拟合直线的线性回归算法里。</p>
+<p>梯度下降算法和线性回归算法比较如图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-7bf69297fd5b4d61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>对我们之前的线性回归问题运用梯度下降法，关键在于求出代价函数的导数，即：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-ec4b8d6ec0067144.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>则算法改写成：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-ab4a614ccac4df4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我们刚刚使用的算法，有时也称为批量梯度下降。实际上，在机器学习中，通常不太会<br>给算法起名字，但这个名字”批量梯度下降”，指的是在梯度下降的每一步中，我们都用到了<br>所有的训练样本，在梯度下降中，在计算微分求导项时，我们需要进行求和运算，所以，在<br>每一个单独的梯度下降中，我们最终都要计算这样一个东西，这个项需要对所有 m 个训练<br>样本求和。因此，批量梯度下降法这个名字说明了我们需要考虑所有这一”批”训练样本，而<br>事实上，有时也有其他类型的梯度下降法，不是这种”批量”型的，不考虑整个的训练集，而<br>是每次只关注训练集中的一些小的子集。在后面的课程中，我们也将介绍这些方法。<br>但就目前而言，应用刚刚学到的算法，你应该已经掌握了批量梯度算法，并且能把它应<br>用到线性回归中了，这就是<strong>用于线性回归的梯度下降法</strong>。</p>
+<hr>
+<p>课程代码：<a href="https://github.com/HuangCongQing/MachineLearning_Ng" target="_blank" rel="external">https://github.com/HuangCongQing/MachineLearning_Ng</a><br>本文参考自-黄海广博士 斯坦福大学 2014机器学习教程中文 笔记<br>链接：<a href="http://pan.baidu.com/s/1dF2asvf#1ewf" target="_blank" rel="external">http://pan.baidu.com/s/1dF2asvf</a> 密码：1ewf</p>
+<p>分享吴恩达机器学习视频 下载 链接： </p>
+<h2 id="链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w"><a href="#链接：-http-pan-baidu-com-s-1pKLATJl-密码：-xn4w" class="headerlink" title="链接： http://pan.baidu.com/s/1pKLATJl 密码： xn4w"></a>链接： <a href="http://pan.baidu.com/s/1pKLATJl" target="_blank" rel="external">http://pan.baidu.com/s/1pKLATJl</a> 密码： xn4w</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
 
       
 
@@ -531,7 +607,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/python35安装的各种工具和库（不是模块）/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/2吴恩达Meachine-Learing之单变量线性回归(Linear-Regression-with-One-Variable/">展开全文 >></a>
         </p>
       
 
@@ -639,7 +715,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
