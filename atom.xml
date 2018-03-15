@@ -316,36 +316,6 @@
   </entry>
   
   <entry>
-    <title>TensorFlow版本更新后运行代码所遇到的error（持续更新）</title>
-    <link href="http://yoursite.com/2017/10/25/TensorFlow%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%90%8E%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84error%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/10/25/TensorFlow版本更新后运行代码所遇到的error（持续更新）/</id>
-    <published>2017-10-25T09:50:33.000Z</published>
-    <updated>2018-03-11T17:49:16.971Z</updated>
-    
-    <content type="html"><![CDATA[<p>本博客会<strong>持续更新</strong>，如果遇到新的问题，欢迎大家提问，大家一起进步！</p>
-<h2 id="AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’"><a href="#AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’" class="headerlink" title="AttributeError: module ‘tensorflow’ has no attribute ‘mul’"></a>AttributeError: module ‘tensorflow’ has no attribute ‘mul’</h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-1c99e17cc1b70071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
-<ul>
-<li>原因：TensorFlow 发布的新版本的 API 修改了<br><strong>tf.mul, tf.sub and tf.neg are deprecated in favor of tf.multiply, tf.subtract and tf.negative.</strong></li>
-<li>解决方法：使用时将 tf.mul 改成 tf.multiply 即可<br>其余的 tf.sub 和 tf.neg 也要相应修改为 tf.subtract 和 tf.negative。</li>
-</ul>
-<hr>
-<p>相關學習：<br><a href="http://www.infoq.com/cn/news/2017/08/changes-tensorflow-1-3" target="_blank" rel="external">Tensorflow 1.3版本更新概览</a></p>
-<h2 id="windows-tensorflow-版本与升级"><a href="#windows-tensorflow-版本与升级" class="headerlink" title="windows tensorflow 版本与升级"></a><a href="http://blog.csdn.net/lanchunhui/article/details/72892258" target="_blank" rel="external">windows tensorflow 版本与升级</a></h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本博客会&lt;strong&gt;持续更新&lt;/strong&gt;，如果遇到新的问题，欢迎大家提问，大家一起进步！&lt;/p&gt;
-&lt;h2 id=&quot;AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’&quot;&gt;&lt;a href=&quot;#AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’&quot; class=&quot;headerlink&quot; title=&quot;AttributeError: module ‘tensorflow’ has no attribute ‘mul’&quot;&gt;&lt;/a&gt;AttributeError: module ‘tensorflow’ has no attribute ‘mul’&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-1c99e17cc1b70071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
-    
-  </entry>
-  
-  <entry>
     <title>TensorFlow版本-如何更新？（踩坑版）</title>
     <link href="http://yoursite.com/2017/10/25/TensorFlow%E7%89%88%E6%9C%AC-%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0%EF%BC%9F%EF%BC%88%E8%B8%A9%E5%9D%91%E7%89%88%EF%BC%89/"/>
     <id>http://yoursite.com/2017/10/25/TensorFlow版本-如何更新？（踩坑版）/</id>
@@ -381,52 +351,32 @@
   </entry>
   
   <entry>
-    <title>coursera视频无法播放（翻墙也无效）？看这里就全懂了</title>
-    <link href="http://yoursite.com/2017/09/17/coursera%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%EF%BC%88%E7%BF%BB%E5%A2%99%E4%B9%9F%E6%97%A0%E6%95%88%EF%BC%89%EF%BC%9F%E7%9C%8B%E8%BF%99%E9%87%8C%E5%B0%B1%E5%85%A8%E6%87%82%E4%BA%86/"/>
-    <id>http://yoursite.com/2017/09/17/coursera视频无法播放（翻墙也无效）？看这里就全懂了/</id>
-    <published>2017-09-17T09:50:33.000Z</published>
-    <updated>2018-03-11T17:30:43.659Z</updated>
+    <title>TensorFlow版本更新后运行代码所遇到的error（持续更新）</title>
+    <link href="http://yoursite.com/2017/10/25/TensorFlow%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%90%8E%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84error%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/10/25/TensorFlow版本更新后运行代码所遇到的error（持续更新）/</id>
+    <published>2017-10-25T09:50:33.000Z</published>
+    <updated>2018-03-11T17:49:16.971Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4340772-b5cbc22de794143d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Coursera"></p>
-<blockquote>
-<p>Coursera是国外的一款非常有名的公开课网站，值得大家一起学习,但有时候要在coursera上看个课程，发现看不了，爬墙各种方法都试了，特意在网上搜集了解决方案，亲测有效，现在特意记录下来，希望能帮到你。好好学习，天天向上。</p>
-</blockquote>
-<p>该方法针对Windows用户(<strong>win7，win8，win10</strong>)，亲测有效。<strong>Mac电脑</strong>的可参考我最后发的链接<br><a id="more"></a></p>
-<ol>
-<li>用管理员权限记事本打开host文件，地址如下: <code>C:\Windows\System32\drivers\etc</code>，（以文本格式打开hosts就好）</li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-35d38c5130f91d51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hosts"></p>
-<ol>
-<li>将如下内容复制到文件末尾<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">52.84.246.90    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.252    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.144    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.72    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.106    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.135    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.114    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.90    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.227    d3c33hcgiwev3.cloudfront.net</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如下图：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-a389baea939beb8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决DNS污染"></p>
-<ol>
-<li>打开cmd命令行，输入如下命令<br><code>ipconfig/flushdns</code></li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-36fdba9a9a223084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ipconfig/flushdns"></p>
-<ol>
-<li>刷新页面即可，终于可以看视频啦</li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-0310da00d6088fa3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="看看看"></p>
-<p>参考链接：<br><a href="http://www.baidu.com/link?url=f9TFhOk7zUavTew3dtbGN0XmdvRtgX6RQAcSG58fWFvWdJb0FjDbEX1pr1PQWGibzLMTrLmodUcwSRqDzAUjt_" target="_blank" rel="external"><em>coursera 视频</em>总是缓冲或者<em>无法观看</em>,有什么方法解决? - 知乎</a><br><a href="http://blog.csdn.net/sinat_15443203/article/details/71694554" target="_blank" rel="external">coursera无法观看视频解决方法</a><br><a href="https://jingyan.baidu.com/article/6f2f55a14059eeb5b93e6cab.html" target="_blank" rel="external">Coursera无法观看课程解决方案-百度经验</a></p>
-<h2 id="Mac和windows国内coursera官网看不了视频怎么办"><a href="#Mac和windows国内coursera官网看不了视频怎么办" class="headerlink" title="Mac和windows国内coursera官网看不了视频怎么办**"></a><a href="http://jingyan.baidu.com/article/e6c8503c5ea596e54f1a18a8.html" target="_blank" rel="external">Mac和windows国内coursera官网看不了视频怎么办</a>**</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+    <content type="html"><![CDATA[<p>本博客会<strong>持续更新</strong>，如果遇到新的问题，欢迎大家提问，大家一起进步！</p>
+<h2 id="AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’"><a href="#AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’" class="headerlink" title="AttributeError: module ‘tensorflow’ has no attribute ‘mul’"></a>AttributeError: module ‘tensorflow’ has no attribute ‘mul’</h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-1c99e17cc1b70071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
+<ul>
+<li>原因：TensorFlow 发布的新版本的 API 修改了<br><strong>tf.mul, tf.sub and tf.neg are deprecated in favor of tf.multiply, tf.subtract and tf.negative.</strong></li>
+<li>解决方法：使用时将 tf.mul 改成 tf.multiply 即可<br>其余的 tf.sub 和 tf.neg 也要相应修改为 tf.subtract 和 tf.negative。</li>
+</ul>
+<hr>
+<p>相關學習：<br><a href="http://www.infoq.com/cn/news/2017/08/changes-tensorflow-1-3" target="_blank" rel="external">Tensorflow 1.3版本更新概览</a></p>
+<h2 id="windows-tensorflow-版本与升级"><a href="#windows-tensorflow-版本与升级" class="headerlink" title="windows tensorflow 版本与升级"></a><a href="http://blog.csdn.net/lanchunhui/article/details/72892258" target="_blank" rel="external">windows tensorflow 版本与升级</a></h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-b5cbc22de794143d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Coursera&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Coursera是国外的一款非常有名的公开课网站，值得大家一起学习,但有时候要在coursera上看个课程，发现看不了，爬墙各种方法都试了，特意在网上搜集了解决方案，亲测有效，现在特意记录下来，希望能帮到你。好好学习，天天向上。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;该方法针对Windows用户(&lt;strong&gt;win7，win8，win10&lt;/strong&gt;)，亲测有效。&lt;strong&gt;Mac电脑&lt;/strong&gt;的可参考我最后发的链接&lt;br&gt;
+      &lt;p&gt;本博客会&lt;strong&gt;持续更新&lt;/strong&gt;，如果遇到新的问题，欢迎大家提问，大家一起进步！&lt;/p&gt;
+&lt;h2 id=&quot;AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’&quot;&gt;&lt;a href=&quot;#AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’&quot; class=&quot;headerlink&quot; title=&quot;AttributeError: module ‘tensorflow’ has no attribute ‘mul’&quot;&gt;&lt;/a&gt;AttributeError: module ‘tensorflow’ has no attribute ‘mul’&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-1c99e17cc1b70071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;br&gt;
     
     </summary>
     
     
-      <category term="技术杂谈" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
-    
-      <category term="coursera" scheme="http://yoursite.com/tags/coursera/"/>
+      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
     
   </entry>
   
@@ -517,6 +467,56 @@
     
     
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>coursera视频无法播放（翻墙也无效）？看这里就全懂了</title>
+    <link href="http://yoursite.com/2017/09/17/coursera%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%EF%BC%88%E7%BF%BB%E5%A2%99%E4%B9%9F%E6%97%A0%E6%95%88%EF%BC%89%EF%BC%9F%E7%9C%8B%E8%BF%99%E9%87%8C%E5%B0%B1%E5%85%A8%E6%87%82%E4%BA%86/"/>
+    <id>http://yoursite.com/2017/09/17/coursera视频无法播放（翻墙也无效）？看这里就全懂了/</id>
+    <published>2017-09-17T09:50:33.000Z</published>
+    <updated>2018-03-11T17:30:43.659Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4340772-b5cbc22de794143d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Coursera"></p>
+<blockquote>
+<p>Coursera是国外的一款非常有名的公开课网站，值得大家一起学习,但有时候要在coursera上看个课程，发现看不了，爬墙各种方法都试了，特意在网上搜集了解决方案，亲测有效，现在特意记录下来，希望能帮到你。好好学习，天天向上。</p>
+</blockquote>
+<p>该方法针对Windows用户(<strong>win7，win8，win10</strong>)，亲测有效。<strong>Mac电脑</strong>的可参考我最后发的链接<br><a id="more"></a></p>
+<ol>
+<li>用管理员权限记事本打开host文件，地址如下: <code>C:\Windows\System32\drivers\etc</code>，（以文本格式打开hosts就好）</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-35d38c5130f91d51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hosts"></p>
+<ol>
+<li>将如下内容复制到文件末尾<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">52.84.246.90    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.252    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.144    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.72    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.106    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.135    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.114    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.90    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.227    d3c33hcgiwev3.cloudfront.net</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如下图：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-a389baea939beb8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决DNS污染"></p>
+<ol>
+<li>打开cmd命令行，输入如下命令<br><code>ipconfig/flushdns</code></li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-36fdba9a9a223084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ipconfig/flushdns"></p>
+<ol>
+<li>刷新页面即可，终于可以看视频啦</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-0310da00d6088fa3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="看看看"></p>
+<p>参考链接：<br><a href="http://www.baidu.com/link?url=f9TFhOk7zUavTew3dtbGN0XmdvRtgX6RQAcSG58fWFvWdJb0FjDbEX1pr1PQWGibzLMTrLmodUcwSRqDzAUjt_" target="_blank" rel="external"><em>coursera 视频</em>总是缓冲或者<em>无法观看</em>,有什么方法解决? - 知乎</a><br><a href="http://blog.csdn.net/sinat_15443203/article/details/71694554" target="_blank" rel="external">coursera无法观看视频解决方法</a><br><a href="https://jingyan.baidu.com/article/6f2f55a14059eeb5b93e6cab.html" target="_blank" rel="external">Coursera无法观看课程解决方案-百度经验</a></p>
+<h2 id="Mac和windows国内coursera官网看不了视频怎么办"><a href="#Mac和windows国内coursera官网看不了视频怎么办" class="headerlink" title="Mac和windows国内coursera官网看不了视频怎么办**"></a><a href="http://jingyan.baidu.com/article/e6c8503c5ea596e54f1a18a8.html" target="_blank" rel="external">Mac和windows国内coursera官网看不了视频怎么办</a>**</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-b5cbc22de794143d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Coursera&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Coursera是国外的一款非常有名的公开课网站，值得大家一起学习,但有时候要在coursera上看个课程，发现看不了，爬墙各种方法都试了，特意在网上搜集了解决方案，亲测有效，现在特意记录下来，希望能帮到你。好好学习，天天向上。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;该方法针对Windows用户(&lt;strong&gt;win7，win8，win10&lt;/strong&gt;)，亲测有效。&lt;strong&gt;Mac电脑&lt;/strong&gt;的可参考我最后发的链接&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="技术杂谈" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+      <category term="coursera" scheme="http://yoursite.com/tags/coursera/"/>
     
   </entry>
   
