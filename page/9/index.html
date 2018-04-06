@@ -159,6 +159,174 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL在windows下的安装与配置（小白操作图文新）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/25/MySQL在windows下的安装与配置（小白操作图文新）/">HTML5-Canvas之矩阵和多边形的绘制（2）</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/25/MySQL在windows下的安装与配置（小白操作图文新）/" class="archive-article-date">
+  	<time datetime="2016-12-25T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/4340772-f5c160b5d4379261.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MySWQL"></p>
+<h3 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h3><p>官网版本：   <a href="https://dev.mysql.com/downloads/mysql/5.6.html#downloads" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/5.6.html#downloads</a></p>
+<p>有msi和zip两种下载形式，<strong>推荐下载msi这种形式</strong>，安装简单<br>我下载的是<a href="https://dev.mysql.com/downloads/file/?id=457403" target="_blank" rel="external">mysql-5.5.44-winx64.msi</a></p>
+<ul>
+<li>如下图，自己可随意选择对应版本<br><img src="http://upload-images.jianshu.io/upload_images/4340772-c90622057d64e8cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MySQL下载"></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-907d0e08078d6e1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="点击下载"></p>
+<p>安装过程注意几点：</p>
+<ul>
+<li>安装类型选择Typical-典型安装</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5a7a3eb916e46eae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Typicle安装"></p>
+<ul>
+<li>安装最后，会有个复选框，询问是否进行MySQL配置操作，可以先不配置，因为等额下我们自己可以进行额外的配置。结果和它是一样的，只需单击finish按钮，如下图<br><img src="http://upload-images.jianshu.io/upload_images/4340772-807057d7af4e9055.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无需勾选"></li>
+</ul>
+<h3 id="MySQL配置"><a href="#MySQL配置" class="headerlink" title="MySQL配置"></a>MySQL配置</h3><p>接下来，我们就要进行配置，那么我们要到那个地方进行配置呢？</p>
+<ul>
+<li>首先，我们要找到，配置向导文件，然后点击进入<br>一般情况下，典型安装都是讲文件安装在<code>C:\Program Files\MySQL\MySQL Server 5.5\bin</code>，</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-808a183b9b4493ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置向导文件"></p>
+<ul>
+<li>选择配置类型<br>详细配置对于初学者配置特别多，难以掌握，最好选择标准配置，点击Next按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-e473b48abcc3f915.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标准配置.png"></p>
+<ul>
+<li><p>是否安装windows服务<br>之后询问是否安装windows服务和配置环境变量，一般情况下是都要勾选的<br><img src="http://upload-images.jianshu.io/upload_images/4340772-582fc321e14f7492.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="windows服务.png"></p>
+</li>
+<li><p>设置root用户和密码</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-55f3fcddd4afff54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="密码"></p>
+<ul>
+<li>准备执行设置选项<br>觉得哪一步需要修改，可以back回去修改，各方面确认好之后，就可以点击Execute按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-a171b6c9604093cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Execute"></p>
+<ul>
+<li>配置完成</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5e96284852b18828.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置完成"></p>
+<p>上图中，第二个选项Write configuration file，写入配置文件，存储在安装目录下my.ini<br>第三个选项，Start Service，当前启动你的服务，因为刚才已经设置为windows的一个服务</p>
+<ul>
+<li>下面验证一下<ul>
+<li>配置文件my.ini存不存在,</li>
+<li>windows服务中是否存在MySQL的一个服务</li>
+</ul>
+</li>
+</ul>
+<p>右键点击“我的电脑”，在弹出的快捷菜单中选择“管理”，打开“计算机管理”</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-c1598d76d4ca5a3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="我的电脑右击.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-5a0996627976fda6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="找到服务"><br>可以看到MySQL服务已启动<br><img src="http://upload-images.jianshu.io/upload_images/4340772-546bded12e9547d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查看MySQL"></p>
+<blockquote>
+<p>到此为止，我们已经完成了最简单的配置,如果要进行其他的配置，我们就需要了解MySQL目录结构了， </p>
+</blockquote>
+<p>下图就很好地表示各目录的功能：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-de94f6c56f841e3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录结构"></p>
+<p>除了通过配置向导的图形化界面来配置，我们还可以来<strong>修改配置文件来实现</strong></p>
+<p>标准配置当中没有的编码方式<br>配置文件在哪呢？</p>
+<ul>
+<li>就是我们刚才提到的bin文件夹下的<code>my.ini</code></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-62dc4f9eccdcee9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="my.ini"></p>
+<p>在my.ini文件中，我们发现有几个选项比较重要：</p>
+<ul>
+<li>client–指的MySQL客户端</li>
+<li>port–指的MySQL的端口号（默认3306）</li>
+<li>default-character-set默认编码方式（默认的是latin1，<strong>要修改为utf8，不是utf-8哈</strong>）</li>
+<li>mysqld主要是进行MySQL服务器端的配置</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-59e5404a6e22b332.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="相关配置"></p>
+<p><strong>注意修改了MLSQL的配置，要进行重新启动才行</strong></p>
+<h3 id="启动关闭MySQL服务"><a href="#启动关闭MySQL服务" class="headerlink" title="启动关闭MySQL服务"></a>启动关闭MySQL服务</h3><ul>
+<li>运行cmd，输入<code>net  stop mysql</code>(其实在服务列表中，所有的服务都可以通过<code>net stop XX</code>来停止)</li>
+<li>运行cmd，输入<code>net  start mysql</code>(其实在服务列表中，所有的服务都可以通过<code>net start XX</code>来启动)<br>如下图</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-880d2d2c733453a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="服务启动与停止"></p>
+<p>关于cmd界面无法启动mysql：</p>
+<ol>
+<li><p>必须要使用管理员身份运行cmd程序</p>
+</li>
+<li><p>如果下载MySQL5.7版本的，在windows服务上Mysql的名字默认是MySQL57，因此在cmd运行 net start/stop mysql 是无效的，必须改成 net start/stop mysql57才行</p>
+</li>
+</ol>
+<p>或者</p>
+<p>在dos下运行net  start mysql 不能启动mysql！提示发生系统错误 5；拒绝访问！切换到管理员模式就可以启动了。所以我们要以管理员身份来运行cmd程序来启动mysql。</p>
+<p>那么如何用管理员身份来运行cmd程序呢？</p>
+<p>1.在开始菜单的搜索框张收入cmd，然后右键单击，并选择以管理员身份运行！</p>
+<p>如果每天都要启动mysql服务，这样不很麻烦？所以：</p>
+<p>2.右键单击cmd选择“附到【开始】菜单(U)”;这是就可以到开始菜单上找到cmd了，</p>
+<p>3.右击选择属性，选择快捷方式，选择高级，选择以管理员身份运行，单击确定</p>
+<p>这样再输入net start mysql就不会出错了！</p>
+<p>这样修改配置就成功了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/25/MySQL在windows下的安装与配置（小白操作图文新）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-HTML5-Canvas之矩阵和多边形的绘制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -514,102 +682,6 @@
 
 
   
-    <article id="post-AngularJs浅谈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/28/AngularJs浅谈/">AngularJS浅谈-博客</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/28/AngularJs浅谈/" class="archive-article-date">
-  	<time datetime="2016-11-28T09:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p><img src="http://ojmcn9nlw.qnssl.com/blog/20170112/160435655.jpg" alt="AngularJs图片"></p>
-<h3 id="AngularJS是啥？（一脸懵逼）"><a href="#AngularJS是啥？（一脸懵逼）" class="headerlink" title="AngularJS是啥？（一脸懵逼）"></a>AngularJS是啥？（一脸懵逼）</h3><h4 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h4><blockquote>
-<p>AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购。是一款优秀的前端JS框架，已经被用于Google的多款产品当中。AngularJS有着诸多特性，最为核心的是：<strong>MVC、模块化、自动化双向数据绑定、语义化标签、依赖注入</strong>等等。</p>
-<h4 id="具体点说："><a href="#具体点说：" class="headerlink" title="具体点说："></a>具体点说：</h4><ol>
-<li>AngularJS 是一个 JavaScript 框架<ul>
-<li>AngularJS 是以一个 JavaScript 文件形式发布的，<strong>可通过 script 标签</strong>添加到网页中：<br><code>&lt;script src=&quot;../libs/angular.js/1.4.6/angular.min.js&quot;&gt;&lt;/script&gt;</code><ol>
-<li>AngularJS 扩展了 HTML<blockquote>
-<p>AngularJS 通过 ng-directives 扩展了 HTML。<br><strong>ng-app</strong> 指令定义一个 AngularJS 应用程序。<br><strong>ng-model</strong> 指令把元素值（比如输入域的值）绑定到应用程序。<br><strong>ng-bind</strong> 指令把应用程序数据绑定到 HTML 视图。<br><strong>ng-init</strong> 指令初始化 AngularJS 应用程序变量</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<h4 id="那么，重点来了，AngularJs可以干啥啊？"><a href="#那么，重点来了，AngularJs可以干啥啊？" class="headerlink" title="那么，重点来了，AngularJs可以干啥啊？"></a>那么，重点来了，AngularJs可以干啥啊？</h4><p>AngularJS 使得开发现代的<strong>单一页面应用程序</strong>（SPAs：Single Page Applications）变得更加容易。</p>
-<blockquote>
-<blockquote>
-<p>AngularJS 把应用程序数据绑定到 HTML 元素。<br>AngularJS 可以克隆和重复 HTML 元素。<br>AngularJS 可以隐藏和显示 HTML 元素。<br>AngularJS 可以在 HTML 元素”背后”添加代码。<br>AngularJS 支持输入验证。<br>
-        
-          <a class="article-more-a" href="/2016/11/28/AngularJs浅谈/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AngularJs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/28/AngularJs浅谈/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
@@ -800,6 +872,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
             
             <div class="clearfix"></div>

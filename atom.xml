@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-18T14:52:59.711Z</updated>
+  <updated>2018-04-06T13:14:55.815Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端安全问题</title>
+    <link href="http://yoursite.com/2018/03/31/2018-03-31%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/03/31/2018-03-31前端安全问题/</id>
+    <published>2018-03-31T09:50:33.000Z</published>
+    <updated>2018-04-06T13:14:55.815Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>xss防范</li>
+<li>csrf防范</li>
+<li>sql注入防范</li>
+<li>劫持与https<br>Content-Security-Policy（浏览器自动升级请求）<br>Strict-Transport-Security（配置浏览器和服务器之间安全的通信。它主要是用来防止中间人攻击，因为它强制所有的通信都走TLS）<br>Access-Control-Allow-Origin（这个header是决定哪些网站可以访问资源，通过定义一个通配符来决定是单一的网站还是所有网站可以访问我们的资源）<br>X-Frame-Options（这个header主要用来配置哪些网站可以通过frame来加载资源。它主要是用来防止UI redressing 补偿样式攻击）</li>
+</ul>
+<a id="more"></a>
+<h3 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h3><ul>
+<li><p>攻击过程：<br>主要是通过<strong>html标签注入</strong>，篡改网页，插入恶意的脚本，前端可能没有经过严格的校验直接就进到数据库，数据库又通过前端程序又回显到浏览器。<br>攻击者可通过这种方式拿到用户的一些信息，例如<strong>cookie </strong>获取敏感信息，甚至自己建网站，做一些非法的操作等；或者，拿到数据后以用户的身份进行勒索，发一下不好的信息等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">例如一个留言板：</div><div class="line">如果内容是</div><div class="line">    hello!&lt;script type=&quot;type/javascript src=&quot;恶意网址&quot;&gt;&lt;/script&gt;</div><div class="line"> 这样会通过前端代码来执行js脚本，如果这个恶意网址通过cookie获得了用户的私密信息，那么用户的信息就被盗了</div></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法<br>先前端要对用户输入的信息进行过滤，可以用正则，通过替换标签的方式进行转码或解码<br>例如&lt;&gt; 空格 &amp; ‘’ “”等替换成html编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">  htmlEncodeByRegExp:function (str)&#123;  </div><div class="line">       var s = &quot;&quot;;</div><div class="line">       if(str.length == 0) return &quot;&quot;;</div><div class="line">       s = str.replace(/&amp;/g,&quot;&amp;amp;&quot;);</div><div class="line">       s = s.replace(/&lt;/g,&quot;&amp;lt;&quot;);</div><div class="line">       s = s.replace(/&gt;/g,&quot;&amp;gt;&quot;);</div><div class="line">       s = s.replace(/ /g,&quot;&amp;nbsp;&quot;);</div><div class="line">      s = s.replace(/\&apos;/g,&quot;&amp;#39;&quot;);</div><div class="line">      s = s.replace(/\&quot;/g,&quot;&amp;quot;&quot;);</div><div class="line">      return s;  </div><div class="line"> &#125;,</div><div class="line">    </div><div class="line">其次在java后端还要进行安全防御，具体可以看一下这个http://blog.csdn.net/qq_34120041/article/details/76890092</div></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/xiaoheimiaoer/p/4676763.html" target="_blank" rel="external"><em>XSS</em>初体验-存储型XSS DOM XSS 突变XSS 反射型XSS</a></p>
+</li>
+</ul>
+<h3 id="CSRF攻击-cross-site-request-forgery-跨站请求伪造"><a href="#CSRF攻击-cross-site-request-forgery-跨站请求伪造" class="headerlink" title="CSRF攻击(cross site request forgery,跨站请求伪造)"></a>CSRF攻击(cross site request forgery,跨站请求伪造)</h3><p>CSRF,即(Cross-site request forgery), 中文名为跨站请求伪造。是一种挟持用户在当前已登录的Web应用程序上执行非本意的操作的一种攻击方式。<strong>CSRF攻击的本质在于利用用户的身份，执行非本意的操作</strong>。根据CSRF的全名，可以得出的结论是：CSRF的请求是<strong>跨域且伪造</strong>的。</p>
+<p>csrf攻击形式：攻击者<strong>盗用用户的身份信息，并以用户的名义进行发送恶意的请求</strong>等，例如发邮件，盗取账号等非法手段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">例如：你登录网站，并在本地种下了cookie</div><div class="line">     如果在没退出该网站的时候 不小心访问了恶意网站，而且这个网站需要你发一些请求等</div><div class="line">     此时，你是携带cookie进行访问的，那么你的存在cookie里的信息就会被恶意网站捕捉到，那么你的信息就被盗用</div></pre></td></tr></table></figure></p>
+<h4 id="攻击防御："><a href="#攻击防御：" class="headerlink" title="攻击防御："></a>攻击防御：</h4><p>1、验证HTTP Referer字段</p>
+<blockquote>
+<p>在HTTP头中有Referer字段，他记录该HTTP请求的来源地址，如果跳转的网站与来源地址相符，那就是合法的，如果不符则可能是csrf攻击，拒绝该请求</p>
+</blockquote>
+<p>2、在请求地址中添加token并验证</p>
+<blockquote>
+<p>这种的话在请求的时候加一个token，值可以是随机产生的一段数字，<br>token是存入数据库之后，后台返给客户端的，如果客户端再次登录的时候，<br>后台发现token没有，或者通过查询数据库不正确，那么就拒绝该请求</p>
+</blockquote>
+<p>如果想防止一个账号避免在不同的机器上登录，那么我们就可以通过token来判断，<br>如果a机器登录后，我们就将用户的token从数据库清除，从新生成，<br>那么另外一台b机器在执行操作的时候，token就失效了，只能重新登录，这样就可以防止两台机器登同一账号<br>具体方案如下：</p>
+<blockquote>
+<ol>
+<li>服务端在收到客户端请求时，生成一个随机数，在渲染页面时将随机数埋入页面(一般埋入form表单中)，<input type="hidden" name="_csrf_token" value="xxxx">）`的形式。每次刷新页面后这个随机数都会改变，并在服务器中存储。</li>
+<li>服务端设置Set-Cookie, 把该随机数作为cookie种入用户浏览器。</li>
+<li>当用户发送GET或POST请求时带上_csrf_token参数（对于form表单直接提交即可）</li>
+<li>后台在接受到请求后解析请求头中的cookie字段，获取_csrf_token的值，然后和用户请求提交的_csrf_token值做比较。如果相等则表示请求来源是合法的。</li>
+</ol>
+</blockquote>
+<p>3、在HTTP头中自定义属性并验证</p>
+<blockquote>
+<p>如果说通过每次请求的时候都得加token那么各个接口都得加很麻烦，<br>那么我们通过http的请求头来设置token<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    url: &apos;/v1/api&apos;,</div><div class="line">    dataType: &apos;json&apos;,</div><div class="line">    data: param,</div><div class="line">    type:&apos;post&apos;,</div><div class="line">    headers: &#123;&apos;Accept&apos;:&apos;application/json&apos;,&apos;Authorization&apos;:tokenValue&#125;</div><div class="line">    success:function(res)&#123;</div><div class="line">        console.log(res)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>总结：因为CSRF攻击利用的是冲着浏览器分不清发起请求是不是真正的用户本人，所以防范的关键在于在请求中放入黑客所不能伪造的信息。从而防止黑客伪造一个完整的请求欺骗服务器。</p>
+<p><a href="http://www.cnblogs.com/unclekeith/p/7788057.html" target="_blank" rel="external">unclekeith: 前端安全之CSRF攻击-get csrf,post csrf</a></p>
+<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>所谓SQL注入，就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令<br>有一个Login画面，在这个Login画面上有两个文本框分别用来输入用户名和密码，当用户点了登录按钮的时候，会对输入的用户名和密码进行验证。验证的SQL语句如下：<br>select * from student where username=’输入的用户名’ and password=’输入的密码’<br>如果能够检索到数据，说明验证通过，否则验证不通过。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">如果用户在用户名文本框中输入** ‘ or ‘1’ = ‘1’ or ‘1’ = ‘1，**则验证的SQL语句变成：</div><div class="line"></div><div class="line">select * from student **where username=” or ‘1’ = ‘1’ or ‘1’ = ‘1’ and password=”**</div><div class="line"></div><div class="line">如果用户在密码文本框中输入 1′ or ‘1’ = ‘1，则验证的SQL语句变成：</div><div class="line"></div><div class="line">select * from student where username=” and password=’1’ or ‘1’=’1′</div><div class="line"></div><div class="line">以上两个**SQL语句的where条件永远是成立的，所以验证永远是有效的。**</div></pre></td></tr></table></figure></p>
+<h4 id="攻击防御：-1"><a href="#攻击防御：-1" class="headerlink" title="攻击防御："></a>攻击防御：</h4><p>1.URL地址防注入：//过滤URL非法SQL字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//过滤URL非法SQL字符</div><div class="line">var sUrl=location.search.toLowerCase();</div><div class="line">var sQuery=sUrl.substring(sUrl.indexOf(&quot;=&quot;)+1);</div><div class="line">re=/select|update|delete|truncate|join|union|exec|insert|drop|count|&apos;|&quot;|;|&gt;|&lt;|%/i;</div><div class="line">if(re.test(sQuery))</div><div class="line">&#123;</div><div class="line">alert(&quot;请勿输入非法字符&quot;);</div><div class="line">location.href=sUrl.replace(sQuery,&quot;&quot;);</div></pre></td></tr></table></figure>
+<p>2.输入文本框防注入：<br>/防止SQL注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function AntiSqlValid(oField )</div><div class="line"></div><div class="line">&#123;</div><div class="line"></div><div class="line">re= /``select``|``update``|``delete``|``exec``|``count``|&apos;|``&quot;|=|;|&gt;|&lt;|%/i;</div><div class="line"></div><div class="line">if ( re.test(oField.value) )</div><div class="line"></div><div class="line">&#123;</div><div class="line">//alert(&quot;``请您不要在参数中输入特殊字符和SQL关键字！``&quot;); //注意中文乱码</div><div class="line"></div><div class="line">oField.value = &quot;``;</div><div class="line"></div><div class="line">oField.className=``&quot;errInfo&quot;``;</div><div class="line"></div><div class="line">oField.focus();</div><div class="line"></div><div class="line">return` `false``;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　在需要防注入的输入文本框添加如下方法</p>
+<h2 id="txtName-Attributes-Add-quot-onblur-quot-quot-AntiSqlValid-this-quot-防止Sql脚本注入"><a href="#txtName-Attributes-Add-quot-onblur-quot-quot-AntiSqlValid-this-quot-防止Sql脚本注入" class="headerlink" title="txtName.Attributes.``Add``(``&quot;onblur&quot;``, &quot;AntiSqlValid(this)&quot;``);//防止Sql脚本注入"></a><code>txtName.Attributes.``Add``(``&quot;onblur&quot;``,</code> <code>&quot;AntiSqlValid(this)&quot;``);//防止Sql脚本注入</code></h2><h3 id="请求劫持与HTTPS"><a href="#请求劫持与HTTPS" class="headerlink" title="请求劫持与HTTPS"></a>请求劫持与HTTPS</h3><p>请求劫持现在主要分为两种，DNS劫持与HTTP劫持：</p>
+<ul>
+<li>DNS劫持：<blockquote>
+<p>DNS劫持就是通过劫持了DNS服务器，通过某些手段取得某域名的解析记录控制权，进而修改此域名的解析结果，导致对该域名的访问由原IP地址转入到修改后的指定IP，其结果就是对特定的网址不能访问或访问的是假网址，从而实现窃取资料或者破坏原有正常服务的目的。DNS劫持通过篡改DNS服务器上的数据返回给用户一个错误的查询结果来实现的。   <br>DNS劫持症状：在某些地区的用户在成功连接宽带后，首次打开任何页面都指向ISP提供的“电信互联星空”、“网通黄页广告”等内容页面。还有就是曾经出现过用户访问Google域名的时候出现了百度的网站。这些都属于DNS劫持。 再说简单点，当你输入google.com这个网址的时候，你看到的网站却是百度的首页。</p>
+</blockquote>
+</li>
+<li>http劫持：<blockquote>
+<p>在用户的客户端与其要访问的服务器经过网络协议协调后，二者之间建立了一条专用的数据通道，用户端程序在系统中开放指定网络端口用于接收数据报文，服务器端将全部数据按指定网络协议规则进行分解打包，形成连续数据报文。   <br>用户端接收到全部报文后，按照协议标准来解包组合获得完整的网络数据。其中传输过程中的每一个数据包都有特定的标签，表示其来源、携带的数据属性以及要到何处，所有的数据包经过网络路径中ISP的路由器传输接力后，最终到达目的地，也就是客户端。   <br><strong>HTTP劫持是在使用者与其目的网络服务所建立的专用数据通道中，监视特定数据信息，提示当满足设定的条件时，就会在正常的数据流中插入精心设计的网络数据报文，目的是让用户端程序解释“错误”的数据，</strong>并以弹出新窗口的形式在使用者界面展示宣传性广告或者直接显示某网站的内容。列入本地的fiddler为一种劫持</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>请求劫持唯一可行的预防方法就是尽量使用HTTPS协议访问。</strong></p>
+<h4 id="公钥和私钥"><a href="#公钥和私钥" class="headerlink" title="公钥和私钥"></a>公钥和私钥</h4><p>什么是https，这里不再解释了，简单理解就是通过SSL（Secure Sockets Layer）层来加密http数据来进行安全传输。 那使用HTTPS是怎样进行加解密和安全数据传输的？</p>
+<p><strong>先看个有意思的问题：</strong></p>
+<p>  A、B两个人分别在两个岛上，并且分别有一个箱子，一把锁，和打开这把锁的钥匙（A的钥匙打不开B手上的锁，B的钥匙也打不开A的锁）。此时A要跟B互通情报，此时需要借助C的船运输，C是一个不可靠的人，如果A直接把情报送给B或把情报放在箱子里给B，都可能会被C偷走；如果A把情报锁在箱子里，B没有打开A锁的钥匙无法获得情报内容。请问有什么办法可以尽可能快的让A和B互通情报。</p>
+<p>  这就是公钥和私钥的问题了，答案比较简单，也对应了公钥和私钥在https中的应用过程。</p>
+<p>  公钥（Public Key）与私钥（Private Key）是通过一种算法得到的一个密钥对（即一个公钥和一个私钥），公钥是密钥对中公开的部分，私钥则是非公开的部分。公钥通常用于加密会话密钥、验证数字签名，或加密可以用相应的私钥解密的数据。通过这种算法得到的密钥对能保证在世界范围内是唯一的。使用这个密钥对的时候，如果用其中一个密钥加密一段数据，必须用另一个密钥解密。比如用公钥加密数据就必须用私钥解密，如果用私钥加密也必须用公钥解密，否则解密将不会成功。—<a href="http://baike.baidu.com/link?url=RlMLbClmwYxXJsNwQTL4w6RhQG7tcdTbqw6tJRKGAKf1oNkHwPVGq18LDFppQFO9yI-HJJhTvcagSt6PmB8sS_" target="_blank" rel="external">百度百科</a></p>
+<h4 id="Https的通信过程"><a href="#Https的通信过程" class="headerlink" title="Https的通信过程"></a>Https的通信过程</h4><p>整个通信过程如下图，以公钥加密方式为例：<br><img src="https://upload-images.jianshu.io/upload_images/4340772-c57accd0ca3225ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>1、客户端发送https请求，告诉服务器发将建立https连接<br>2、服务器将服务端生成的公钥返回给客户端，如果是第一次请求将告诉客户端需要验证链接<br>3、客户端接收到请求后’client finished’报文串通过获取到的服务器公钥加密发送给服务器，并将客户端生成的公钥也发送给服务器<br>4、服务器获取到加密的报文和客户端公钥，先使用服务器私钥解密报文，然后将报文通过客户端的公钥加密返回给客户端。<br>5、客户端通过私钥解密报文，判断是否为自己开始发送的报文串；如果正确，说明安全连接验证成功，将数据通过服务器公钥加密不断发送给服务器，服务器也不断解密获取报文，并通过客户端公钥加密返回给客户端验证。这样就建立了不断通信的连接。</p>
+<h4 id="Https协议头解析"><a href="#Https协议头解析" class="headerlink" title="Https协议头解析"></a>Https协议头解析</h4><p>以打开 <a href="https://github.com/" target="_blank" rel="external">https://github.com/</a> 的过程为例，请求通用头部如下</p>
+<p><code>Request URL:https://github.com/ouvens\n Request Method:GET Status Code:200 OK (from cache) Remote Address:192.30.252.131:443 Response Headers</code><br>先看下请求头的字段</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-3aa9566211db7e88?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>再截取部分返回头的字段</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4340772-8c5d58cd021976ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><strong>需要注意的upgrade-insecure-requests</strong></p>
+<p>https正常升级后chrome浏览器会出现下面的警告</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-9ccfee5884e7c34c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>考虑到这个问题，w3c在2015年4月份出了一个 Upgrade Insecure Requests 的草案，他的作用就是让浏览器自动升级请求。在服务器的响应头中加入：</p>
+<p>header(“Content-Security-Policy: upgrade-insecure-requests”);</p>
+<p>###浏览器中web安全控制<br>http层面上浏览器设置的安全性控制较多，这里列几个典型的来看看：<br><img src="https://upload-images.jianshu.io/upload_images/4340772-734047169dec74e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><ol>
+<li>X-XSS-Protection<br>这个header主要是用来防止浏览器中的反射性xss。现在，只有IE，chrome和safari（webkit）支持这个header。<br>正确的设置:<br><code>X-XSS-Protection:1; mode=block 0 – 关闭对浏览器的xss防护 1 – 开启xss防护 1; mode=block – 开启xss防护并通知浏览器阻止而不是过滤用户注入的脚本。 1; report=http://site.com/report – 这个只有chrome和webkit内核的浏览器支持，这种模式告诉浏览器当发现疑似xss攻击的时候就将这部分数据post到指定地址。 通常不正确的设置</code></li>
+</ol>
+</li>
+<li><p>2.X-Content-Type-Options<br>&ems; 这个header主要用来防止在IE9、chrome和safari中的MIME类型混淆攻击。firefox目前对此还存在争议。通常浏览器可以通过嗅探内容本身的方法来决定它是什么类型，而不是看响应中的content-type值。通过设置 X-Content-Type-Options：如果content-type和期望的类型匹配，则不需要嗅探，只能从外部加载确定类型的资源。举个例子，如果加载了一个样式表，那么资源的MIME类型只能是text/css，对于IE中的脚本资源，以下的内容类型是有效的：<br><code>application/ecmascript application/javascript application/x-javascript text/ecmascript text/javascript text/jscript text/x-javascript text/vbs text/vbscript</code><br>对于chrome，则支持下面的MIME 类型：<br><code>text/javascript text/ecmascript application/javascript application/ecmascript application/x-javascript text/javascript1.1 text/javascript1.2 text/javascript1.3 text/jscript text/live script</code><br>nosniff – 这个是唯一正确的设置，必须这样。</p>
+</li>
+<li><ol>
+<li>Strict-Transport-Security<br>Strict Transport Security (STS) 是用来配置浏览器和服务器之间安全的通信。它主要是用来防止中间人攻击，因为它强制所有的通信都走TLS。目前IE还不支持 STS头。需要注意的是，在普通的http请求中配置STS是没有作用的，因为攻击者很容易就能更改这些值。为了防止这样的现象发生，很多浏览器内置了一个配置了STS的站点list。<br>正确的设置 : 注意下面的值必须在https中才有效，如果是在http中配置会没有效果。<br><code>max-age=31536000 – 告诉浏览器将域名缓存到STS list里面，时间是一年。 max-age=31536000; includeSubDomains – 告诉浏览器将域名缓存到STS list里面并且包含所有的子域名，时间是一年。 max-age=0 – 告诉浏览器移除在STS缓存里的域名，或者不保存此域名。 通常不正确的设置</code><br>判断一个主机是否在你的STS缓存中，chrome可以通过访问chrome://net-internals/#hsts，首先，通过域名请求选项来确认此域名是否在你的STS缓存中。然后，通过https访问这个网站，尝试再次请求返回的STS头，来决定是否添加正确。</li>
+</ol>
+</li>
+<li><p>4.Content-Security-Policy<br>CSP是一种由开发者定义的安全性政策性申明，通过CSP所约束的的规责指定可信的内容来源（这里的内容可以指脚本、图片、iframe、fton、style等等可能的远程的资源）。通过CSP协定，让WEB能够加载指定安全域名下的资源文件，保证运行时处于一个安全的运行环境中。<br>正确配置：<br><code>Content-Security-Policy:default-src *; base-uri &#39;self&#39;; block-all-mixed-content; child-src &#39;self&#39; render.githubusercontent.com; connect-src &#39;self&#39; uploads.github.com status.github.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com wss://live.github.com; font-src assets-cdn.github.com; form-action &#39;self&#39; github.com gist.github.com; frame-src &#39;self&#39; render.githubusercontent.com; img-src &#39;self&#39; data: assets-cdn.github.com identicons.github.com www.google-analytics.com collector.githubapp.com *.gravatar.com *.wp.com *.githubusercontent.com; media-src &#39;none&#39;; object-src assets-cdn.github.com; plugin-types application/x-shockwave-flash; script-src assets-cdn.github.com; style-src &#39;self&#39; &#39;unsafe-inline&#39; assets-cdn.github.com</code></p>
+</li>
+<li><p>5.X-Frame-Options<br>这个header主要用来配置哪些网站可以通过frame来加载资源。它主要是用来防止UI redressing 补偿样式攻击。IE8和firefox 18以后的版本都开始支持ALLOW-FROM。chrome和safari都不支持ALLOW-FROM，但是WebKit已经在研究这个了。<br>正确的设置<br><code>X-Frame-Options: deny deny – 禁止所有的资源（本地或远程）试图通过frame来加载其他也支持X-Frame-Options 的资源。 sameorigion – 只允许遵守同源策略的资源（和站点同源）通过frame加载那些受保护的资源。 allow-from http://www.example.com – 允许指定的资源（必须带上协议http或者https）通过frame来加载受保护的资源。这个配置只在IE和firefox下面有效。其他浏览器则默认允许任何源的资源（在X-Frame-Options没设置的情况下）。</code></p>
+</li>
+<li>6.Access-Control-Allow-Origin<br>Access-Control-Allow-Origin是从Cross Origin Resource Sharing (CORS)中分离出来的。这个header是决定哪些网站可以访问资源，通过定义一个通配符来决定是单一的网站还是所有网站可以访问我们的资源。需要注意的是，如果定义了通配符，那么 Access-Control-Allow-Credentials选项就无效了，而且user-agent的cookies不会在请求里发送。<br>正确的设置<br><code>Access-Control-Allow-Origin : * *– 通配符允许任何远程资源来访问含有Access-Control-Allow-Origin 的内容。 http://www.example.com – 只允许特定站点才能访问(http://[host], 或者 https://[host])</code></li>
+<li>7.Public-Key-Pins</li>
+</ul>
+<p>  公钥固定（Public Key Pinning）是指一个证书链中必须包含一个白名单中的公钥，也就是说只有被列入白名单的证书签发机构（CA）才能为某个域名*.example.com签发证书，而不是你的浏览器中所存储的任何 CA 都可以为之签发。可以理解为https的证书域名白名单。   Public-Key-Pins (PKP)的目的主要是允许网站经营者提供一个哈希过的公共密钥存储在用户的浏览器缓存里。跟Strict-Transport-Security功能相似的是，它能保护用户免遭中间人攻击。这个header可能包含多层的哈希运算，比如pin-sha256=base64(sha256(SPKI))，具体是先将 X.509 证书下的Subject Public Key Info (SPKI) 做sha256哈希运算，然后再做base64编码。然而，这些规定有可能更改，例如有人指出，在引号中封装哈希是无效的，而且在33版本的chrome中也不会保存pkp的哈希到缓存中。</p>
+<p>  这个header和 STS的作用很像，因为它规定了最大子域名的数量。此外，pkp还提供了一个Public-Key-Pins-Report-Only 头用来报告异常，但是不会强制阻塞证书信息。当然，这些chrome都是不支持的。</p>
+<p><strong>请求头说明参考：</strong></p>
+<p><a href="https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/" target="_blank" rel="external">https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/</a></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总结下web的安全策略，主要介绍了<br>xss防范<br>csrf防范<br>sql注入防范<br>劫持与https<br>Content-Security-Policy（浏览器自动升级请求）<br>Strict-Transport-Security（配置浏览器和服务器之间安全的通信。它主要是用来防止中间人攻击，因为它强制所有的通信都走TLS）<br>Access-Control-Allow-Origin（这个header是决定哪些网站可以访问资源，通过定义一个通配符来决定是单一的网站还是所有网站可以访问我们的资源）<br>X-Frame-Options（这个header主要用来配置哪些网站可以通过frame来加载资源。它主要是用来防止UI redressing 补偿样式攻击）</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;xss防范&lt;/li&gt;
+&lt;li&gt;csrf防范&lt;/li&gt;
+&lt;li&gt;sql注入防范&lt;/li&gt;
+&lt;li&gt;劫持与https&lt;br&gt;Content-Security-Policy（浏览器自动升级请求）&lt;br&gt;Strict-Transport-Security（配置浏览器和服务器之间安全的通信。它主要是用来防止中间人攻击，因为它强制所有的通信都走TLS）&lt;br&gt;Access-Control-Allow-Origin（这个header是决定哪些网站可以访问资源，通过定义一个通配符来决定是单一的网站还是所有网站可以访问我们的资源）&lt;br&gt;X-Frame-Options（这个header主要用来配置哪些网站可以通过frame来加载资源。它主要是用来防止UI redressing 补偿样式攻击）&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>关于eslint使用规则，和各种报错对应规则</title>
@@ -373,6 +499,36 @@
   </entry>
   
   <entry>
+    <title>TensorFlow版本更新后运行代码所遇到的error（持续更新）</title>
+    <link href="http://yoursite.com/2017/10/25/TensorFlow%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%90%8E%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84error%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/10/25/TensorFlow版本更新后运行代码所遇到的error（持续更新）/</id>
+    <published>2017-10-25T09:50:33.000Z</published>
+    <updated>2018-03-11T17:49:16.971Z</updated>
+    
+    <content type="html"><![CDATA[<p>本博客会<strong>持续更新</strong>，如果遇到新的问题，欢迎大家提问，大家一起进步！</p>
+<h2 id="AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’"><a href="#AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’" class="headerlink" title="AttributeError: module ‘tensorflow’ has no attribute ‘mul’"></a>AttributeError: module ‘tensorflow’ has no attribute ‘mul’</h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-1c99e17cc1b70071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
+<ul>
+<li>原因：TensorFlow 发布的新版本的 API 修改了<br><strong>tf.mul, tf.sub and tf.neg are deprecated in favor of tf.multiply, tf.subtract and tf.negative.</strong></li>
+<li>解决方法：使用时将 tf.mul 改成 tf.multiply 即可<br>其余的 tf.sub 和 tf.neg 也要相应修改为 tf.subtract 和 tf.negative。</li>
+</ul>
+<hr>
+<p>相關學習：<br><a href="http://www.infoq.com/cn/news/2017/08/changes-tensorflow-1-3" target="_blank" rel="external">Tensorflow 1.3版本更新概览</a></p>
+<h2 id="windows-tensorflow-版本与升级"><a href="#windows-tensorflow-版本与升级" class="headerlink" title="windows tensorflow 版本与升级"></a><a href="http://blog.csdn.net/lanchunhui/article/details/72892258" target="_blank" rel="external">windows tensorflow 版本与升级</a></h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本博客会&lt;strong&gt;持续更新&lt;/strong&gt;，如果遇到新的问题，欢迎大家提问，大家一起进步！&lt;/p&gt;
+&lt;h2 id=&quot;AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’&quot;&gt;&lt;a href=&quot;#AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’&quot; class=&quot;headerlink&quot; title=&quot;AttributeError: module ‘tensorflow’ has no attribute ‘mul’&quot;&gt;&lt;/a&gt;AttributeError: module ‘tensorflow’ has no attribute ‘mul’&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-1c99e17cc1b70071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
+    
+  </entry>
+  
+  <entry>
     <title>TensorFlow版本-如何更新？（踩坑版）</title>
     <link href="http://yoursite.com/2017/10/25/TensorFlow%E7%89%88%E6%9C%AC-%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0%EF%BC%9F%EF%BC%88%E8%B8%A9%E5%9D%91%E7%89%88%EF%BC%89/"/>
     <id>http://yoursite.com/2017/10/25/TensorFlow版本-如何更新？（踩坑版）/</id>
@@ -404,86 +560,6 @@
     
     
       <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TensorFlow版本更新后运行代码所遇到的error（持续更新）</title>
-    <link href="http://yoursite.com/2017/10/25/TensorFlow%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%90%8E%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84error%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/10/25/TensorFlow版本更新后运行代码所遇到的error（持续更新）/</id>
-    <published>2017-10-25T09:50:33.000Z</published>
-    <updated>2018-03-11T17:49:16.971Z</updated>
-    
-    <content type="html"><![CDATA[<p>本博客会<strong>持续更新</strong>，如果遇到新的问题，欢迎大家提问，大家一起进步！</p>
-<h2 id="AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’"><a href="#AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’" class="headerlink" title="AttributeError: module ‘tensorflow’ has no attribute ‘mul’"></a>AttributeError: module ‘tensorflow’ has no attribute ‘mul’</h2><p><img src="http://upload-images.jianshu.io/upload_images/4340772-1c99e17cc1b70071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
-<ul>
-<li>原因：TensorFlow 发布的新版本的 API 修改了<br><strong>tf.mul, tf.sub and tf.neg are deprecated in favor of tf.multiply, tf.subtract and tf.negative.</strong></li>
-<li>解决方法：使用时将 tf.mul 改成 tf.multiply 即可<br>其余的 tf.sub 和 tf.neg 也要相应修改为 tf.subtract 和 tf.negative。</li>
-</ul>
-<hr>
-<p>相關學習：<br><a href="http://www.infoq.com/cn/news/2017/08/changes-tensorflow-1-3" target="_blank" rel="external">Tensorflow 1.3版本更新概览</a></p>
-<h2 id="windows-tensorflow-版本与升级"><a href="#windows-tensorflow-版本与升级" class="headerlink" title="windows tensorflow 版本与升级"></a><a href="http://blog.csdn.net/lanchunhui/article/details/72892258" target="_blank" rel="external">windows tensorflow 版本与升级</a></h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本博客会&lt;strong&gt;持续更新&lt;/strong&gt;，如果遇到新的问题，欢迎大家提问，大家一起进步！&lt;/p&gt;
-&lt;h2 id=&quot;AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’&quot;&gt;&lt;a href=&quot;#AttributeError-module-‘tensorflow’-has-no-attribute-‘mul’&quot; class=&quot;headerlink&quot; title=&quot;AttributeError: module ‘tensorflow’ has no attribute ‘mul’&quot;&gt;&lt;/a&gt;AttributeError: module ‘tensorflow’ has no attribute ‘mul’&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-1c99e17cc1b70071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>coursera视频无法播放（翻墙也无效）？看这里就全懂了</title>
-    <link href="http://yoursite.com/2017/09/17/coursera%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%EF%BC%88%E7%BF%BB%E5%A2%99%E4%B9%9F%E6%97%A0%E6%95%88%EF%BC%89%EF%BC%9F%E7%9C%8B%E8%BF%99%E9%87%8C%E5%B0%B1%E5%85%A8%E6%87%82%E4%BA%86/"/>
-    <id>http://yoursite.com/2017/09/17/coursera视频无法播放（翻墙也无效）？看这里就全懂了/</id>
-    <published>2017-09-17T09:50:33.000Z</published>
-    <updated>2018-03-11T17:30:43.659Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4340772-b5cbc22de794143d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Coursera"></p>
-<blockquote>
-<p>Coursera是国外的一款非常有名的公开课网站，值得大家一起学习,但有时候要在coursera上看个课程，发现看不了，爬墙各种方法都试了，特意在网上搜集了解决方案，亲测有效，现在特意记录下来，希望能帮到你。好好学习，天天向上。</p>
-</blockquote>
-<p>该方法针对Windows用户(<strong>win7，win8，win10</strong>)，亲测有效。<strong>Mac电脑</strong>的可参考我最后发的链接<br><a id="more"></a></p>
-<ol>
-<li>用管理员权限记事本打开host文件，地址如下: <code>C:\Windows\System32\drivers\etc</code>，（以文本格式打开hosts就好）</li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-35d38c5130f91d51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hosts"></p>
-<ol>
-<li>将如下内容复制到文件末尾<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">52.84.246.90    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.252    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.144    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.72    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.106    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.135    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.114    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.90    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.227    d3c33hcgiwev3.cloudfront.net</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如下图：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-a389baea939beb8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决DNS污染"></p>
-<ol>
-<li>打开cmd命令行，输入如下命令<br><code>ipconfig/flushdns</code></li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-36fdba9a9a223084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ipconfig/flushdns"></p>
-<ol>
-<li>刷新页面即可，终于可以看视频啦</li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/4340772-0310da00d6088fa3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="看看看"></p>
-<p>参考链接：<br><a href="http://www.baidu.com/link?url=f9TFhOk7zUavTew3dtbGN0XmdvRtgX6RQAcSG58fWFvWdJb0FjDbEX1pr1PQWGibzLMTrLmodUcwSRqDzAUjt_" target="_blank" rel="external"><em>coursera 视频</em>总是缓冲或者<em>无法观看</em>,有什么方法解决? - 知乎</a><br><a href="http://blog.csdn.net/sinat_15443203/article/details/71694554" target="_blank" rel="external">coursera无法观看视频解决方法</a><br><a href="https://jingyan.baidu.com/article/6f2f55a14059eeb5b93e6cab.html" target="_blank" rel="external">Coursera无法观看课程解决方案-百度经验</a></p>
-<h2 id="Mac和windows国内coursera官网看不了视频怎么办"><a href="#Mac和windows国内coursera官网看不了视频怎么办" class="headerlink" title="Mac和windows国内coursera官网看不了视频怎么办**"></a><a href="http://jingyan.baidu.com/article/e6c8503c5ea596e54f1a18a8.html" target="_blank" rel="external">Mac和windows国内coursera官网看不了视频怎么办</a>**</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-b5cbc22de794143d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Coursera&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Coursera是国外的一款非常有名的公开课网站，值得大家一起学习,但有时候要在coursera上看个课程，发现看不了，爬墙各种方法都试了，特意在网上搜集了解决方案，亲测有效，现在特意记录下来，希望能帮到你。好好学习，天天向上。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;该方法针对Windows用户(&lt;strong&gt;win7，win8，win10&lt;/strong&gt;)，亲测有效。&lt;strong&gt;Mac电脑&lt;/strong&gt;的可参考我最后发的链接&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="技术杂谈" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
-    
-      <category term="coursera" scheme="http://yoursite.com/tags/coursera/"/>
     
   </entry>
   
@@ -574,6 +650,56 @@
     
     
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>coursera视频无法播放（翻墙也无效）？看这里就全懂了</title>
+    <link href="http://yoursite.com/2017/09/17/coursera%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%EF%BC%88%E7%BF%BB%E5%A2%99%E4%B9%9F%E6%97%A0%E6%95%88%EF%BC%89%EF%BC%9F%E7%9C%8B%E8%BF%99%E9%87%8C%E5%B0%B1%E5%85%A8%E6%87%82%E4%BA%86/"/>
+    <id>http://yoursite.com/2017/09/17/coursera视频无法播放（翻墙也无效）？看这里就全懂了/</id>
+    <published>2017-09-17T09:50:33.000Z</published>
+    <updated>2018-03-11T17:30:43.659Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4340772-b5cbc22de794143d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Coursera"></p>
+<blockquote>
+<p>Coursera是国外的一款非常有名的公开课网站，值得大家一起学习,但有时候要在coursera上看个课程，发现看不了，爬墙各种方法都试了，特意在网上搜集了解决方案，亲测有效，现在特意记录下来，希望能帮到你。好好学习，天天向上。</p>
+</blockquote>
+<p>该方法针对Windows用户(<strong>win7，win8，win10</strong>)，亲测有效。<strong>Mac电脑</strong>的可参考我最后发的链接<br><a id="more"></a></p>
+<ol>
+<li>用管理员权限记事本打开host文件，地址如下: <code>C:\Windows\System32\drivers\etc</code>，（以文本格式打开hosts就好）</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-35d38c5130f91d51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hosts"></p>
+<ol>
+<li>将如下内容复制到文件末尾<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">52.84.246.90    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.252    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.144    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.72    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.106    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.135    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.114    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.90    d3c33hcgiwev3.cloudfront.net</div><div class="line">52.84.246.227    d3c33hcgiwev3.cloudfront.net</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如下图：<br><img src="http://upload-images.jianshu.io/upload_images/4340772-a389baea939beb8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决DNS污染"></p>
+<ol>
+<li>打开cmd命令行，输入如下命令<br><code>ipconfig/flushdns</code></li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-36fdba9a9a223084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ipconfig/flushdns"></p>
+<ol>
+<li>刷新页面即可，终于可以看视频啦</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/4340772-0310da00d6088fa3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="看看看"></p>
+<p>参考链接：<br><a href="http://www.baidu.com/link?url=f9TFhOk7zUavTew3dtbGN0XmdvRtgX6RQAcSG58fWFvWdJb0FjDbEX1pr1PQWGibzLMTrLmodUcwSRqDzAUjt_" target="_blank" rel="external"><em>coursera 视频</em>总是缓冲或者<em>无法观看</em>,有什么方法解决? - 知乎</a><br><a href="http://blog.csdn.net/sinat_15443203/article/details/71694554" target="_blank" rel="external">coursera无法观看视频解决方法</a><br><a href="https://jingyan.baidu.com/article/6f2f55a14059eeb5b93e6cab.html" target="_blank" rel="external">Coursera无法观看课程解决方案-百度经验</a></p>
+<h2 id="Mac和windows国内coursera官网看不了视频怎么办"><a href="#Mac和windows国内coursera官网看不了视频怎么办" class="headerlink" title="Mac和windows国内coursera官网看不了视频怎么办**"></a><a href="http://jingyan.baidu.com/article/e6c8503c5ea596e54f1a18a8.html" target="_blank" rel="external">Mac和windows国内coursera官网看不了视频怎么办</a>**</h2><p>好看的人儿，点个喜欢❤ 你会更好看哦~~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-b5cbc22de794143d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Coursera&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Coursera是国外的一款非常有名的公开课网站，值得大家一起学习,但有时候要在coursera上看个课程，发现看不了，爬墙各种方法都试了，特意在网上搜集了解决方案，亲测有效，现在特意记录下来，希望能帮到你。好好学习，天天向上。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;该方法针对Windows用户(&lt;strong&gt;win7，win8，win10&lt;/strong&gt;)，亲测有效。&lt;strong&gt;Mac电脑&lt;/strong&gt;的可参考我最后发的链接&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="技术杂谈" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+      <category term="coursera" scheme="http://yoursite.com/tags/coursera/"/>
     
   </entry>
   
@@ -1062,76 +1188,6 @@ ta\data\log\mongodb.log&quot; --logappend --dbpath &quot;D:\mongodbData/data/db&
     
     
       <category term="mongodb" scheme="http://yoursite.com/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 爬虫必备-正则表达式（re模块）</title>
-    <link href="http://yoursite.com/2017/08/19/Python-%E7%88%AC%E8%99%AB%E5%BF%85%E5%A4%87-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88re%E6%A8%A1%E5%9D%97%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/08/19/Python-爬虫必备-正则表达式（re模块）/</id>
-    <published>2017-08-19T09:50:33.000Z</published>
-    <updated>2018-03-11T17:19:41.682Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4340772-8403f99919beba25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正则表达式re模块"></p>
-<h2 id="正则表达式须知"><a href="#正则表达式须知" class="headerlink" title="正则表达式须知"></a>正则表达式须知</h2><ul>
-<li>正则表达式是用来匹配字符串非常强大的工具，在其他编程语言中同样有正则表达式的概念，Python同样不例外，利用了正则表达式，我们想要从返回的页面内容提取出我们想要的内容就易如反掌了。<blockquote>
-<p>正则表达式的大致匹配过程是：<br>1.依次拿出表达式和文本中的字符比较，<br>2.如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。<br>3.如果表达式中有量词或边界，这个过程会稍微有一些不同。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="正则表达式语法规则"><a href="#正则表达式语法规则" class="headerlink" title="正则表达式语法规则"></a>正则表达式语法规则</h2><p>下面是Python中正则表达式的一些匹配规则，图片资料来自CSDN<br><img src="http://upload-images.jianshu.io/upload_images/4340772-b0baf49f04744a80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正则表达式"><br><a id="more"></a></p>
-<h2 id="正则表达式特别强调"><a href="#正则表达式特别强调" class="headerlink" title="正则表达式特别强调"></a>正则表达式特别强调</h2><ol>
-<li><p>python转义字符</p>
-<ul>
-<li><p>正则表达式使用反斜杠” \ “来代表特殊形式或用作转义字符，这里跟Python的语法冲突，因此，Python用” \\ “表示正则表达式中的” \ “，因为正则表达式中如果要匹配” \ “，需要用\来转义，变成” \ “，而Python语法中又需要对字符串中每一个\进行转义，所以就变成了” \\ “。</p>
-<ul>
-<li>Python里的原生字符串很好地解决了这个问题，这个例子中的正则表达式可以使用r”\”表示。同样，匹配一个数字的”\d”可以写成r”\d”。有了原生字符串，妈妈也不用担心是不是漏写了反斜杠，写出来的表达式也更直观勒。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>贪婪模式和非贪婪模式</li>
-</ol>
-<p>正则表达式通常用于在文本中查找匹配的字符串。Python里数量词默认是贪婪的（在少数语言里也可能是默认非贪婪），总是尝试匹配尽可能多的字符；非贪婪则相反，总是尝试匹配尽可能少的字符。在”*”,”?”,”+”,”{m,n}”后面加上？,使贪婪变成非贪婪。</p>
-<p>可参考： <a href="http://blog.csdn.net/zcc_0015/article/details/53671189" target="_blank" rel="external">python 正则表达式的贪婪匹配与非贪婪匹配</a></p>
-<h2 id="Python-Re模块"><a href="#Python-Re模块" class="headerlink" title="Python Re模块"></a>Python Re模块</h2><p>Python 自带了re模块，它提供了对正则表达式的支持。主要用到的方法列举如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#返回pattern对象</div><div class="line">re.compile(string[,flag])  </div><div class="line">#以下为匹配所用函数</div><div class="line">re.match(pattern, string[, flags])</div><div class="line">re.search(pattern, string[, flags])</div><div class="line">re.split(pattern, string[, maxsplit])</div><div class="line">re.findall(pattern, string[, flags])</div><div class="line">re.finditer(pattern, string[, flags])</div><div class="line">re.sub(pattern, repl, string[, count])</div><div class="line">re.subn(pattern, repl, string[, count])</div></pre></td></tr></table></figure>
-<p>在介绍这几个方法之前，我们先来介绍一下pattern的概念，pattern可以理解为一个匹配模式，那么我们怎么获得这个<strong>匹配模式</strong>呢？很简单，我们需要利用re.compile方法就可以。例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pattern = re.compile(r&apos;hello&apos;)</div></pre></td></tr></table></figure></p>
-<p>另外大家可能注意到了另一个参数 flags，在这里解释一下这个参数的含义：</p>
-<p>参数flag是匹配模式，取值可以使用按位或运算符’|’表示同时生效，比如re.I | re.M。</p>
-<p>可选值有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">• re.I(全拼：IGNORECASE): 忽略大小写（括号内是完整写法，下同）</div><div class="line">• re.M(全拼：MULTILINE): 多行模式，改变&apos;^&apos;和&apos;$&apos;的行为（参见上图）</div><div class="line">• re.S(全拼：DOTALL): 点任意匹配模式，改变&apos;.&apos;的行为</div><div class="line">• re.L(全拼：LOCALE): 使预定字符类 \w \W \b \B \s \S 取决于当前区域设定</div><div class="line">• re.U(全拼：UNICODE): 使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性</div><div class="line">• re.X(全拼：VERBOSE): 详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释。</div></pre></td></tr></table></figure></p>
-<p>在刚才所说的另外几个方法例如 re.match 里我们就需要用到这个pattern了，下面我们一一介绍。</p>
-<h3 id="（1）re-match-pattern-string-flags"><a href="#（1）re-match-pattern-string-flags" class="headerlink" title="（1）re.match(pattern, string[, flags])"></a>（1）re.match(pattern, string[, flags])</h3><p>这个方法将会从string（我们要匹配的字符串）的开头开始，尝试匹配pattern，一直向后匹配，如果遇到无法匹配的字符，立即返回None，如果匹配未结束已经到达string的末尾，也会返回None。两个结果均表示匹配失败，否则匹配pattern成功，同时匹配终止，不再对string向后匹配。下面我们通过一个例子理解一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 将正则表达式编译成Pattern对象，注意hello前面的r的意思是“原生字符串”</div><div class="line">pattern = re.compile(r&apos;hello&apos;)</div><div class="line"> </div><div class="line"># 使用re.match匹配文本，获得匹配结果，无法匹配时将返回None</div><div class="line">result1 = re.match(pattern,&apos;hello&apos;)</div><div class="line">result2 = re.match(pattern,&apos;helloo CQC!&apos;)</div><div class="line">result3 = re.match(pattern,&apos;helo CQC!&apos;)</div><div class="line">result4 = re.match(pattern,&apos;hello CQC!&apos;)</div><div class="line"> </div><div class="line">#如果1匹配成功</div><div class="line">if result1:</div><div class="line">    # 使用Match获得分组信息</div><div class="line">    print(result1.group())</div><div class="line">else:</div><div class="line">    print (&apos;1匹配失败！&apos;)</div><div class="line"> </div><div class="line"> </div><div class="line">#如果2匹配成功</div><div class="line">if result2:</div><div class="line">    # 使用Match获得分组信息</div><div class="line">    print(result2.group())</div><div class="line">else:</div><div class="line">    print( &apos;2匹配失败！&apos;)</div><div class="line"> </div><div class="line"> </div><div class="line">#如果3匹配成功</div><div class="line">if result3:</div><div class="line">    # 使用Match获得分组信息</div><div class="line">    print( result3.group())</div><div class="line">else:</div><div class="line">    print(&apos;3匹配失败！&apos;)</div><div class="line"> </div><div class="line">#如果4匹配成功</div><div class="line">if result4:</div><div class="line">    # 使用Match获得分组信息</div><div class="line">    print( result4.group())</div><div class="line">else:</div><div class="line">    print( &apos;4匹配失败！&apos;)</div></pre></td></tr></table></figure></p>
-<p>我们还看到最后打印出了result.group()，这个是什么意思呢？下面我们说一下关于match对象的的属性和方法<br>Match对象是一次匹配的结果，包含了很多关于此次匹配的信息，可以使用Match提供的可读属性或方法来获取这些信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.group([group1, …]):</div><div class="line">获得一个或多个分组截获的字符串；指定多个参数时将以元组形式返回。group1可以使用编号也可以使用别名；编号0代表整个匹配的子串；不填写参数时，返回group(0)；没有截获字符串的组返回None；截获了多次的组返回最后一次截获的子串。</div><div class="line">2.groups([default]):</div><div class="line">以元组形式返回全部分组截获的字符串。相当于调用group(1,2,…last)。default表示没有截获字符串的组以这个值替代，默认为None。</div></pre></td></tr></table></figure>
-<h3 id="（2）re-search-pattern-string-flags"><a href="#（2）re-search-pattern-string-flags" class="headerlink" title="（2）re.search(pattern, string[, flags])"></a>（2）re.search(pattern, string[, flags])</h3><p>search方法与match方法极其类似，区别在于match()函数只检测re是不是在string的开始位置匹配，search()会扫描整个string查找匹配，match（）只有在0位置匹配成功的话才有返回，如果不是开始位置匹配成功的话，match()就返回None。同样，search方法的返回对象同样match()返回对象的方法和属性。我们用一个例子感受一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 将正则表达式编译成Pattern对象</div><div class="line">pattern = re.compile(r&apos;world&apos;)</div><div class="line"># 使用search()查找匹配的子串，不存在能匹配的子串时将返回None</div><div class="line"># 这个例子中使用match()无法成功匹配</div><div class="line">match = re.search(pattern,&apos;hello world!&apos;)</div><div class="line">if match:</div><div class="line">    # 使用Match获得分组信息</div><div class="line">    print( match.group())</div></pre></td></tr></table></figure>
-<h3 id="（3）re-split-pattern-string-maxsplit"><a href="#（3）re-split-pattern-string-maxsplit" class="headerlink" title="（3）re.split(pattern, string[, maxsplit])"></a>（3）re.split(pattern, string[, maxsplit])</h3><p>按照能够匹配的子串将string分割后返回列表。maxsplit用于指定最大分割次数，不指定将全部分割。我们通过下面的例子感受一下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pattern = re.compile(r&apos;\d+&apos;)</div><div class="line">print( re.split(pattern,&apos;one1two2three3four4&apos;))</div><div class="line"> </div><div class="line">### 输出 ###</div><div class="line"># [&apos;one&apos;, &apos;two&apos;, &apos;three&apos;, &apos;four&apos;, &apos;&apos;]</div></pre></td></tr></table></figure>
-<h3 id="（4）re-findall-pattern-string-flags"><a href="#（4）re-findall-pattern-string-flags" class="headerlink" title="（4）re.findall(pattern, string[, flags])"></a>（4）re.findall(pattern, string[, flags])</h3><p>搜索string，以列表形式返回全部能匹配的子串。我们通过这个例子来感受一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pattern = re.compile(r&apos;\d+&apos;)</div><div class="line">print( re.findall(pattern,&apos;one1two2three3four4&apos;))</div><div class="line"> </div><div class="line">### 输出 ###</div><div class="line"># [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;]</div></pre></td></tr></table></figure>
-<h3 id="（5）re-finditer-pattern-string-flags"><a href="#（5）re-finditer-pattern-string-flags" class="headerlink" title="（5）re.finditer(pattern, string[, flags])"></a>（5）re.finditer(pattern, string[, flags])</h3><p>搜索string，返回一个顺序访问每一个匹配结果（Match对象）的迭代器。我们通过下面的例子来感受一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">pattern = re.compile(r&apos;\d+&apos;)</div><div class="line">for m in re.finditer(pattern,&apos;one1two2three3four4&apos;):</div><div class="line">    print( m.group()),</div><div class="line"> </div><div class="line">### 输出 ###</div><div class="line"># 1 2 3 4</div></pre></td></tr></table></figure>
-<h3 id="（6）re-sub-pattern-repl-string-count"><a href="#（6）re-sub-pattern-repl-string-count" class="headerlink" title="（6）re.sub(pattern, repl, string[, count])"></a>（6）re.sub(pattern, repl, string[, count])</h3><p>使用repl替换string中每一个匹配的子串后返回替换后的字符串。<br>当repl是一个字符串时，可以使用\id或\g、\g引用分组，但不能使用编号0。<br>当repl是一个方法时，这个方法应当只接受一个参数（Match对象），并返回一个字符串用于替换（返回的字符串中不能再引用分组）。<br>count用于指定最多替换次数，不指定时全部替换。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">pattern = re.compile(r&apos;(\w+) (\w+)&apos;)</div><div class="line">s = &apos;i say, hello world!&apos;</div><div class="line"> </div><div class="line">print( re.sub(pattern,r&apos;\2 \1&apos;, s))</div><div class="line"> </div><div class="line">def func(m):</div><div class="line">    return m.group(1).title() + &apos; &apos; + m.group(2).title()</div><div class="line"> </div><div class="line">print( re.sub(pattern,func, s))</div></pre></td></tr></table></figure></p>
-<h3 id="（7）re-subn-pattern-repl-string-count"><a href="#（7）re-subn-pattern-repl-string-count" class="headerlink" title="（7）re.subn(pattern, repl, string[, count])"></a>（7）re.subn(pattern, repl, string[, count])</h3><p>返回 (sub(repl, string[, count]), 替换次数)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">pattern = re.compile(r&apos;(\w+) (\w+)&apos;)</div><div class="line">s = &apos;i say, hello world!&apos;</div><div class="line"> </div><div class="line">print( re.subn(pattern,r&apos;\2 \1&apos;, s))</div><div class="line"> </div><div class="line">def func1(m):</div><div class="line">    return m.group(1).title() + &apos; &apos; + m.group(2).title()</div><div class="line"> </div><div class="line">print( re.subn(pattern,func1, s))</div><div class="line"> </div><div class="line">### output ###</div><div class="line"># (&apos;say i, world hello!&apos;, 2)</div><div class="line"># (&apos;I Say, Hello World!&apos;, 2)</div></pre></td></tr></table></figure></p>
-<p>参考：<a href="http://cuiqingcai.com/" target="_blank" rel="external">静觅</a> » <a href="http://cuiqingcai.com/977.html" target="_blank" rel="external">Python爬虫入门七之正则表达式</a><br><a href="http://lihuipeng.blog.51cto.com/3064864/1270525/" target="_blank" rel="external">python中re项目详解</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-8403f99919beba25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;正则表达式re模块&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;正则表达式须知&quot;&gt;&lt;a href=&quot;#正则表达式须知&quot; class=&quot;headerlink&quot; title=&quot;正则表达式须知&quot;&gt;&lt;/a&gt;正则表达式须知&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;正则表达式是用来匹配字符串非常强大的工具，在其他编程语言中同样有正则表达式的概念，Python同样不例外，利用了正则表达式，我们想要从返回的页面内容提取出我们想要的内容就易如反掌了。&lt;blockquote&gt;
-&lt;p&gt;正则表达式的大致匹配过程是：&lt;br&gt;1.依次拿出表达式和文本中的字符比较，&lt;br&gt;2.如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。&lt;br&gt;3.如果表达式中有量词或边界，这个过程会稍微有一些不同。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;正则表达式语法规则&quot;&gt;&lt;a href=&quot;#正则表达式语法规则&quot; class=&quot;headerlink&quot; title=&quot;正则表达式语法规则&quot;&gt;&lt;/a&gt;正则表达式语法规则&lt;/h2&gt;&lt;p&gt;下面是Python中正则表达式的一些匹配规则，图片资料来自CSDN&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4340772-b0baf49f04744a80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;正则表达式&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
