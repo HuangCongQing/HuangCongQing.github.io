@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-06T13:14:55.815Z</updated>
+  <updated>2018-04-10T13:22:14.511Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/03/31/2018-03-31%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2018/03/31/2018-03-31前端安全问题/</id>
     <published>2018-03-31T09:50:33.000Z</published>
-    <updated>2018-04-06T13:14:55.815Z</updated>
+    <updated>2018-04-10T13:22:14.511Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>xss防范</li>
@@ -80,7 +80,7 @@
 </blockquote>
 </li>
 </ul>
-<p><strong>请求劫持唯一可行的预防方法就是尽量使用HTTPS协议访问。</strong></p>
+<p><strong>请求劫持唯一可行的预防方法就是尽量使用HTTPS协议访问。</strong><br>HTTPS协议：<a href="https://juejin.im/entry/58d7635e5c497d0057fae036" target="_blank" rel="external">https://juejin.im/entry/58d7635e5c497d0057fae036</a></p>
 <h4 id="公钥和私钥"><a href="#公钥和私钥" class="headerlink" title="公钥和私钥"></a>公钥和私钥</h4><p>什么是https，这里不再解释了，简单理解就是通过SSL（Secure Sockets Layer）层来加密http数据来进行安全传输。 那使用HTTPS是怎样进行加解密和安全数据传输的？</p>
 <p><strong>先看个有意思的问题：</strong></p>
 <p>  A、B两个人分别在两个岛上，并且分别有一个箱子，一把锁，和打开这把锁的钥匙（A的钥匙打不开B手上的锁，B的钥匙也打不开A的锁）。此时A要跟B互通情报，此时需要借助C的船运输，C是一个不可靠的人，如果A直接把情报送给B或把情报放在箱子里给B，都可能会被C偷走；如果A把情报锁在箱子里，B没有打开A锁的钥匙无法获得情报内容。请问有什么办法可以尽可能快的让A和B互通情报。</p>

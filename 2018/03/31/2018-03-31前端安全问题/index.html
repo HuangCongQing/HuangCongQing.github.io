@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4340772-8c5d58cd021976ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4340772-9ccfee5884e7c34c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4340772-734047169dec74e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-06T13:14:55.815Z">
+<meta property="og:updated_time" content="2018-04-10T13:22:14.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端安全问题">
 <meta name="twitter:description" content="xss防范 csrf防范 sql注入防范 劫持与httpsContent-Security-Policy（浏览器自动升级请求）Strict-Transport-Security（配置浏览器和服务器之间安全的通信。它主要是用来防止中间人攻击，因为它强制所有的通信都走TLS）Access-Control-Allow-Origin（这个header是决定哪些网站可以访问资源，通过定义一个通配符来决定是">
@@ -54,7 +54,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://oc3oksski.bkt.clouddn.com/huangchongqing.logo" class="js-avatar">
+			<img src="(https://upload-images.jianshu.io/upload_images/4340772-d14edeea9cb9682b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">黄重庆</a></h1>
@@ -114,7 +114,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://oc3oksski.bkt.clouddn.com/huangchongqing.logo" class="js-avatar">
+				<img src="(https://upload-images.jianshu.io/upload_images/4340772-d14edeea9cb9682b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">黄重庆</h1>
@@ -243,7 +243,7 @@
 </blockquote>
 </li>
 </ul>
-<p><strong>请求劫持唯一可行的预防方法就是尽量使用HTTPS协议访问。</strong></p>
+<p><strong>请求劫持唯一可行的预防方法就是尽量使用HTTPS协议访问。</strong><br>HTTPS协议：<a href="https://juejin.im/entry/58d7635e5c497d0057fae036" target="_blank" rel="external">https://juejin.im/entry/58d7635e5c497d0057fae036</a></p>
 <h4 id="公钥和私钥"><a href="#公钥和私钥" class="headerlink" title="公钥和私钥"></a>公钥和私钥</h4><p>什么是https，这里不再解释了，简单理解就是通过SSL（Secure Sockets Layer）层来加密http数据来进行安全传输。 那使用HTTPS是怎样进行加解密和安全数据传输的？</p>
 <p><strong>先看个有意思的问题：</strong></p>
 <p>  A、B两个人分别在两个岛上，并且分别有一个箱子，一把锁，和打开这把锁的钥匙（A的钥匙打不开B手上的锁，B的钥匙也打不开A的锁）。此时A要跟B互通情报，此时需要借助C的船运输，C是一个不可靠的人，如果A直接把情报送给B或把情报放在箱子里给B，都可能会被C偷走；如果A把情报锁在箱子里，B没有打开A锁的钥匙无法获得情报内容。请问有什么办法可以尽可能快的让A和B互通情报。</p>
